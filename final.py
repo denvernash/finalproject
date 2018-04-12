@@ -80,7 +80,7 @@ def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
 # setting up caching
 def data_cache(search_url):
     if search_url in CACHE_DICTION:
-        print("Returning data from cache file")
+        # print("Returning data from cache file")
         data = ((CACHE_DICTION[search_url]))
         return((data))
     else:
@@ -161,8 +161,8 @@ def dog_breed_list(dog_data):
 breed_data = get_api_data()
 dog_breeds = dog_breed_list(breed_data)
 # print(type(dog_breeds[0]))
-
-breed_list = dog_breeds[:25]
+print(len(dog_breeds))
+breed_list = dog_breeds[:40]
 print(breed_list)
 
 def create_available_dogs(breed):
