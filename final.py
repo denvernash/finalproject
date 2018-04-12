@@ -1,7 +1,11 @@
+import sqlite3
 import requests
 import json
-from bs4 import BeautifulSoup
 from secrets import *
+
+DBNAME = 'dog.db'
+
+
 
 print("***"*20)
 print('\n')
@@ -17,17 +21,10 @@ try:
 except:
     CACHE_DICTION = {}
 
-
+# dogs class
 class Dog():
     def __init__(self, dog_dict):
-        self.name = dog_dict['name']['$t']
-            if isisntance(dog_dict['breeds']['breed'], list()):
-                type = ''
-                for breed in dog_dict['breeds']['breed']:
-                    type += breed
 
-
-        self.breed = dog_dict['breeds']['breed']['$t']
         self.location = dog_dict['contact']['city']['$t'] + ', ' + dog_dict['contact']['state']['$t']
         self.age = dog_dict['age']['$t']
         self.size = dog_dict['size']['$t']
@@ -35,17 +32,36 @@ class Dog():
         self.sex = dog_dict['sex']['$t']
         self.mix = dog_dict['mix']['$t']
         self.shelter_id = dog_dict['shelterId']['$t']
-        self.details = dog_dict['description']['$t']
+        if len(dog_dict['description']) > 0:
+            self.details = dog_dict['description']['$t']
+        else:
+            self.details = None
+        if isinstance(dog_dict['breeds']['breed'], type(list())):
+            self.breed = ''
+            for breed in dog_dict['breeds']['breed']:
+                if len(dog_dict['breeds']['breed']) > 1:
+                    if breed['$t'] == dog_dict['breeds']['breed'][-1]['$t']:
+                        self.breed += breed['$t'].strip() + ' mix'
+                    else:
+                        self.breed += breed['$t'].strip() + ", "
+                else:
+                    self.breed = breed['$t'].strip()
+        else:
+            self.breed = dog_dict['breeds']['breed']['$t'].strip()
+
+        self.name = dog_dict['name']['$t'].split('-')[0].strip().split()[0].strip().capitalize()
+
     def __str__(self):
-        return("{} a {}, located in {}".format(self.name, self.breed, self.location))
+        return("{}  -  {}  -  located in {}".format(self.name, self.breed, self.location))
 
 
 
-
+# breed class
 class Breed():
     def __init__(self, breed_dict):
         self.kind = ''
 
+# shelter class
 class Shelter():
     def __init__(self, shelter_dict):
         self.id = ''
@@ -78,7 +94,7 @@ def data_cache(search_url):
         return (data)
 
 
-# get flicker image data from seach parameters
+# get flicker image data from seach parameters for dogs
 def get_flickr_img(search, amount = 1):
     baseurl = "https://api.flickr.com/services/rest/"
     params= {}
@@ -101,6 +117,8 @@ def get_flickr_img(search, amount = 1):
         fname.close()
         return flickr_data
 
+
+# creating the url to the online photo
 def get_img_url(search, amount = 1, list_column = 0, size=''):
     image_data = get_flickr_img(search, amount)
     farm_id = image_data['photos']['photo'][list_column]['farm']
@@ -113,16 +131,12 @@ def get_img_url(search, amount = 1, list_column = 0, size=''):
     return image_url
 
 
-img_search = "Poodle"
+img_search = "poodle"
 # print(get_img_url(img_search))
 
 
 # get pet data, input api method, animal type, and breed
-def get_pet_data(method= 'breed.list', location= '48105',  breed= '', animal = 'dog',):
-    # Methods:
-    # pet.get- Returns a record for a single pet.
-    # pet.find - Searches for pets according to the criteria you provde and returns a collection of pet records matching your search
-    # breed.list
+def get_api_data(method= 'breed.list', location= '48105',  breed= '', animal = 'dog',):
     baseurl = 'http://api.petfinder.com/'
     search_params = '{}?key={}&animal={}&format=json'.format(method, api_key, animal)
     if method == 'pet.find':
@@ -139,25 +153,31 @@ def dog_breed_list(dog_data):
     dog_breeds = []
     for breed in dog_data['petfinder']['breeds']['breed']:
         # dog = breed['$t'].split('/')
-        dog_breeds.append(breed['$t'].split('/')[0].strip())
+        dog_breeds.append(breed['$t'].strip())
     return dog_breeds
 
 # print(breeds['petfinder']['breeds']['breed'][0]['$t'])
 
-breed_data = get_pet_data()
+breed_data = get_api_data()
 dog_breeds = dog_breed_list(breed_data)
 # print(type(dog_breeds[0]))
 
-breed_list = dog_breeds[:1]
+breed_list = dog_breeds[:25]
 print(breed_list)
 
 def create_available_dogs(breed):
-    adoptable = get_pet_data('pet.find', breed= breed)
-    available_dog_list = adoptable['petfinder']['pets']['pet']
-    dog_type = []
-    for dog in available_dog_list:
-        dog_type.append(Dog(dog))
-    return dog_type
+    adoptable = get_api_data('pet.find', breed= breed)
+    if len(adoptable['petfinder']['pets']) == 0:
+        return(["No Dogs"])
+    elif isinstance(adoptable['petfinder']['pets']['pet'], type(dict())):
+        dog_type = []
+        dog_type.append(Dog(adoptable['petfinder']['pets']['pet']))
+    else:
+        available_dog_list = adoptable['petfinder']['pets']['pet']
+        dog_type = []
+        for dog in available_dog_list:
+            dog_type.append(Dog(dog))
+        return dog_type
 
 
 def all_available_dogs_dict(dog_breeds):
@@ -168,15 +188,55 @@ def all_available_dogs_dict(dog_breeds):
     return available_dogs
 
 DOG_DICT = all_available_dogs_dict(breed_list)
-print(DOG_DICT.keys())
+# for dog in DOG_DICT['Australian Cattle Dog / Blue Heeler']:
+#     print(dog)
+print(len(DOG_DICT))
 
 
 
 
 
+def check_dogs(conn, cur):
+    try:
+        simple_check = "SELECT * FROM 'Dogs'"
+        cur.execute(simple_check)
+        print("Dog Table Exists")
+        return True
+    except:
+        statement = '''
+            CREATE TABLE 'Dogs' (
+                'Id' INTEGER PRIMARY KEY,
+                'Name' TEXT NOT NULL,
+                'Breed' TEXT NOT NULL,
+                'Breed_Id' INTEGER NOT NULL,
+                'Mix' TEXT NOT NULL,
+                'MixBreed' TEXT NOT NULL,
+                'MixBreed_Id' INTEGER NOT NULL,
+                'City' TEXT NOT NULL,
+                'State' TEXT NOT NULL,
+                'Age' TEXT NOT NULL,
+                'Sex' TEXT NOT NULL,
+                'Size' TEXT NOT NULL,
+                'Description' TEXT NOT NULL,
+                'ShelterId' INTEGER NOT NULL
+            );
+        '''
+        cur.execute(statement)
+        conn.commit()
 
 
+def init_db(db_name):
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        checkb = check_dogs(conn, cur)
 
+        conn.close()
+    except Exception as e:
+        print(e)
+
+
+# init_db(DBNAME)
 
 
 
