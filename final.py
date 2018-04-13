@@ -4,14 +4,14 @@ import json
 from secrets import *
 
 DBNAME = 'dog.db'
-
+CACHE_FNAME = 'dogs.json'
 
 
 print("***"*20)
 print('\n')
 
 # opening cache if it exists
-CACHE_FNAME = 'dogs.json'
+
 try:
     cache_file = open(CACHE_FNAME, 'r')
     cache_contents = cache_file.read()
@@ -78,19 +78,27 @@ def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
     return baseurl + "_".join(acc)
 
 # setting up caching
+DUMMY1 = True
+DUMMY2 = True
 def data_cache(search_url):
+    global DUMMY1
+    global DUMMY2
     if search_url in CACHE_DICTION:
-        # print("Returning data from cache file")
         data = ((CACHE_DICTION[search_url]))
+        if DUMMY1:
+            print("Returning data from cache file")
+            DUMMY1 = False
         return((data))
     else:
         resp = requests.get(search_url).text
-        print("Getting fresh data")
         data = json.loads(resp)
         CACHE_DICTION[search_url] = data
         fname = open(CACHE_FNAME, 'w')
         fname.write(json.dumps((CACHE_DICTION), indent=2))
         fname.close()
+        if DUMMY2:
+            print("Getting fresh data")
+            DUMMY2 = False
         return (data)
 
 
@@ -159,25 +167,27 @@ def dog_breed_list(dog_data):
 # print(breeds['petfinder']['breeds']['breed'][0]['$t'])
 
 breed_data = get_api_data()
-dog_breeds = dog_breed_list(breed_data)
+DOG_BREEDS = dog_breed_list(breed_data)
 # print(type(dog_breeds[0]))
-print(len(dog_breeds))
-breed_list = dog_breeds[:40]
+print(len(DOG_BREEDS))
+breed_list = DOG_BREEDS[:80]
 print(breed_list)
 
 def create_available_dogs(breed):
+    dog_type = []
     adoptable = get_api_data('pet.find', breed= breed)
-    if len(adoptable['petfinder']['pets']) == 0:
-        return(["No Dogs"])
-    elif isinstance(adoptable['petfinder']['pets']['pet'], type(dict())):
-        dog_type = []
-        dog_type.append(Dog(adoptable['petfinder']['pets']['pet']))
+    if int(adoptable['petfinder']['header']['status']['code']['$t']) != 100:
+        dog_type.append("No Dogs")
+    elif adoptable['petfinder']['pets'] == {}:
+        dog_type.append("No Dogs")
     else:
         available_dog_list = adoptable['petfinder']['pets']['pet']
-        dog_type = []
-        for dog in available_dog_list:
-            dog_type.append(Dog(dog))
-        return dog_type
+        if isinstance(available_dog_list, type(dict())):
+            dog_type.append(Dog(available_dog_list))
+        else:
+            for dog in available_dog_list:
+                dog_type.append(Dog(dog))
+    return dog_type
 
 
 def all_available_dogs_dict(dog_breeds):
@@ -190,11 +200,14 @@ def all_available_dogs_dict(dog_breeds):
 DOG_DICT = all_available_dogs_dict(breed_list)
 # for dog in DOG_DICT['Australian Cattle Dog / Blue Heeler']:
 #     print(dog)
-print(len(DOG_DICT))
+# print((DOG_DICT)['Bouvier des Flanders'][0])
 
+all_dogs = 0
+for bred in list(DOG_DICT.keys()):
+    for dogs in DOG_DICT[bred]:
+        all_dogs += 1
 
-
-
+print(all_dogs)
 
 def check_dogs(conn, cur):
     try:
@@ -223,20 +236,29 @@ def check_dogs(conn, cur):
         '''
         cur.execute(statement)
         conn.commit()
-
+        return False
 
 def init_db(db_name):
     try:
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
-        checkb = check_dogs(conn, cur)
+        check = check_dogs(conn, cur)
 
         conn.close()
     except Exception as e:
         print(e)
 
+def insert_data(dog_dict, db_name= DBNAME):
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
 
-# init_db(DBNAME)
+
+
+    except Exception as e:
+        print(e)
+
+init_db(DBNAME)
 
 
 
