@@ -2,6 +2,8 @@ import sqlite3
 import requests
 import json
 from secrets import *
+import time
+
 
 DBNAME = 'dog.db'
 CACHE_FNAME = 'dogs.json'
@@ -170,7 +172,7 @@ breed_data = get_api_data()
 DOG_BREEDS = dog_breed_list(breed_data)
 # print(type(dog_breeds[0]))
 print(len(DOG_BREEDS))
-breed_list = DOG_BREEDS[:80]
+breed_list = DOG_BREEDS
 print(breed_list)
 
 def create_available_dogs(breed):
@@ -189,10 +191,16 @@ def create_available_dogs(breed):
                 dog_type.append(Dog(dog))
     return dog_type
 
+def time_delay(number = 15):
+    for i in range(number):
+        print(number-i)
+        time.sleep(1)
 
 def all_available_dogs_dict(dog_breeds):
     available_dogs = {}
     for breed in dog_breeds:
+        # print(breed)
+        # time_delay()
         dog_list = create_available_dogs(breed)
         available_dogs[breed] = dog_list
     return available_dogs
