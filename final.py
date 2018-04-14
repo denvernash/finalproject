@@ -321,11 +321,11 @@ def get_shelter_dict(dog_dict):
                 dog_shelters.append(dog.shelter_id)
     print(len(dog_shelters))
     x = 0
-    for id in dog_shelters[80:81]:
-        # print(id)
-        # time_delay(15)
-        # x += 1
-        # print(x)
+    for id in dog_shelters[110:150]:
+        print(id)
+        time_delay(15)
+        x += 1
+        print("*****"+ str(x) + "*****")
         shelter_dict = get_api_data('shelter.get', id= id)
         shelter[id] = (shelter_dict)
     return shelter
@@ -344,8 +344,8 @@ def create_shelters(shelter_dict):
 
 all_shelters = create_shelters(get_shelter_dict(DOG_DICT))
 print(len(all_shelters))
-for x in all_shelters:
-    print(all_shelters[x])
+# for x in all_shelters:
+#     print(all_shelters[x])
 # for key in list(all_shelters):
 #     print(all_shelters[key])
 
