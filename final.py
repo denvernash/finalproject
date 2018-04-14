@@ -8,6 +8,7 @@ import time
 import random
 import string
 
+
 DBNAME = 'dog.db'
 CACHE_FNAME = 'dogs.json'
 
@@ -147,11 +148,13 @@ def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
     return baseurl + "_".join(acc)
 
 # setting up caching
+BACKUP = 0
 DUMMY1 = True
 DUMMY2 = True
 def data_cache(search_url):
     global DUMMY1
     global DUMMY2
+    global BACKUP
     if search_url in CACHE_DICTION:
         data = ((CACHE_DICTION[search_url]))
         if DUMMY1:
@@ -165,6 +168,12 @@ def data_cache(search_url):
         fname = open(CACHE_FNAME, 'w')
         fname.write(json.dumps((CACHE_DICTION), indent=2))
         fname.close()
+        BACKUP += 1
+        if BACKUP >= 10:
+            BACKUP = 0
+            fname = open('backup.json', 'w')
+            fname.write(json.dumps((CACHE_DICTION), indent=2))
+            fname.close()
         if DUMMY2:
             print("Getting fresh data")
             DUMMY2 = False
@@ -311,7 +320,6 @@ def clean_dog_dict(dog_dict):
 
 DOG_DICT = clean_dog_dict(uncleaned_dog_dict)
 
-
 def get_shelter_dict(dog_dict):
     dog_shelters = []
     shelter = {}
@@ -320,8 +328,8 @@ def get_shelter_dict(dog_dict):
             if dog.shelter_id not in dog_shelters:
                 dog_shelters.append(dog.shelter_id)
     print(len(dog_shelters))
-    x = 1050
-    for id in dog_shelters[1050:1500]:
+    x = 780
+    for id in dog_shelters[780:1050]:
         print(id)
         time_delay(8)
         x += 1
