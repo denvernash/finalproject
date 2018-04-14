@@ -320,13 +320,14 @@ def get_shelter_dict(dog_dict):
             if dog.shelter_id not in dog_shelters:
                 dog_shelters.append(dog.shelter_id)
     print(len(dog_shelters))
-    for id in dog_shelters[:10]:
-        print(id)
-        time_delay(15)
+    x = 0
+    for id in dog_shelters[80:81]:
+        # print(id)
+        # time_delay(15)
+        # x += 1
+        # print(x)
         shelter_dict = get_api_data('shelter.get', id= id)
         shelter[id] = (shelter_dict)
-
-
     return shelter
 
 
@@ -342,8 +343,11 @@ def create_shelters(shelter_dict):
 
 
 all_shelters = create_shelters(get_shelter_dict(DOG_DICT))
-for key in list(all_shelters):
-    print(all_shelters[key])
+print(len(all_shelters))
+for x in all_shelters:
+    print(all_shelters[x])
+# for key in list(all_shelters):
+#     print(all_shelters[key])
 
 
 def check_dogs(conn, cur):
