@@ -1,0 +1,36 @@
+NATO = {
+    'a' : "Arlo",
+    'b' : "Bandit",
+    'c' : "Clifford",
+    'd' : "Daisy",
+    'e' : "Ellie",
+    'f' : "Fritz",
+    'g' : "Gibs",
+    'h' : "Harley",
+    'i' : "India",
+    'j' : "Jasper",
+    'k' : "Kilo",
+    'l' : "Lima",
+    'm' : "Milo",
+    'n' : "Nacho",
+    'o' : "Oscar",
+    'p' : "Puddles",
+    'q' : "Quinn",
+    'r' : "Ruger",
+    's' : "Sampson",
+    't' : "Tipsy",
+    'u' : "Ulysses",
+    'v' : "Victor",
+    'w' : "Whisky",
+    'x' : "Xavier",
+    'y' : "Yankee",
+    'z' : "Zulu",
+    }
+
+STATES = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
+          "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+          "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+          "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+          "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+
+CANADA = ['AB','BC','MB','NB','NL','NT','NS','NU','ON','PE','QC','SK','YT']
