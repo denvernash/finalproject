@@ -169,8 +169,10 @@ def data_cache(search_url):
         fname.write(json.dumps((CACHE_DICTION), indent=2))
         fname.close()
         BACKUP += 1
-        if BACKUP >= 10:
+        if BACKUP >= 5:
             BACKUP = 0
+            if BACKUP == 0:
+                print("Writing Backup")
             fname = open('backup.json', 'w')
             fname.write(json.dumps((CACHE_DICTION), indent=2))
             fname.close()
@@ -328,8 +330,8 @@ def get_shelter_dict(dog_dict):
             if dog.shelter_id not in dog_shelters:
                 dog_shelters.append(dog.shelter_id)
     print(len(dog_shelters))
-    x = 780
-    for id in dog_shelters[780:1050]:
+    x = 1070
+    for id in dog_shelters[x:1090]:
         print(id)
         time_delay(8)
         x += 1
