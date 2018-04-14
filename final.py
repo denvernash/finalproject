@@ -320,8 +320,8 @@ def get_shelter_dict(dog_dict):
             if dog.shelter_id not in dog_shelters:
                 dog_shelters.append(dog.shelter_id)
     print(len(dog_shelters))
-    x = 785
-    for id in dog_shelters[785:1050]:
+    x = 1050
+    for id in dog_shelters[1050:1500]:
         print(id)
         time_delay(8)
         x += 1
