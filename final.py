@@ -123,7 +123,7 @@ class Shelter():
         self.state = shelter_dict['state']['$t']
         self.city = shelter_dict['city']['$t']
         self.location = self.city + ', ' + self.state
-        self.long = shelter_dict['latitude']['$t']
+        self.lon = shelter_dict['longitude']['$t']
         self.lat = shelter_dict['latitude']['$t']
         self.name = shelter_dict['name']['$t']
 
@@ -247,10 +247,7 @@ def dog_breed_list(dog_data):
 
 
 breed_data = get_api_data()
-DOG_BREEDS = dog_breed_list(breed_data)
-# print(type(dog_breeds[0]))
-# print(len(DOG_BREEDS))
-breed_list = DOG_BREEDS
+breed_list = dog_breed_list(breed_data)
 # print(breed_list)
 
 def create_available_dogs(breed):
@@ -348,7 +345,7 @@ def create_shelters(shelter_dict):
     return shelters
 
 
-all_shelters = create_shelters(get_shelter_dict(DOG_DICT))
+SHELTER_DICT = create_shelters(get_shelter_dict(DOG_DICT))
 
 def check_shelters(conn, cur):
     try:
@@ -365,8 +362,8 @@ def check_shelters(conn, cur):
         'City' TEXT,
         'State' TEXT,
         'Country' TEXT,
-        'Lat' TEXT,
-        'Lon' TEXT
+        'Lat' INTEGER,
+        'Lon' INTEGER
         );
         '''
         cur.execute(statement)
@@ -374,13 +371,29 @@ def check_shelters(conn, cur):
         return True
 
 
+def insert_shelters(shelter_dict, db_name= DBNAME):
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        for key in list(shelter_dict.keys()):
+            shelter = shelter_dict[key]
+            if shelter == "Unlisted":
+                insertion = (key, 'Unlisted', 'Unlisted', 'Unlisted', 'Unlisted', 'Unlisted', 'Unlisted')
+                statement = 'INSERT INTO Shelters (Id, Name, City, State, Country, Lat, Lon) '
+                statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
+                cur.execute(statement, insertion)
+                conn.commit()
+            else:
+                insertion = (key, shelter.name, shelter.city, shelter.state, shelter.country, shelter.lat, shelter.lon)
+                statement = 'INSERT INTO Shelters (Id, Name, City, State, Country, Lat, Lon) '
+                statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
+                cur.execute(statement, insertion)
+                conn.commit()
+    except Exception as e:
+        print(e)
 
-
-print(type(all_shelters))
-# for x in all_shelters:
-#     print(all_shelters[x])
-# for key in list(all_shelters):
-#     print(all_shelters[key])
+for key in list(SHELTER_DICT)[:1]:
+    print(SHELTER_DICT[key] == "Unlisted")
 
 
 def check_dogs(conn, cur):
@@ -421,7 +434,6 @@ def insert_dogs(dog_dict, db_name= DBNAME):
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
         for breed in list(dog_dict.keys()):
-            print(breed)
             for dog in dog_dict[breed]:
                 insertion = (dog.id, dog.name, dog.breed1, dog.breed2, dog.city, dog.state, dog.country, dog.age, dog.sex, dog.size, dog.details, dog.shelter_id, dog.mix, 0, 0)
                 statement = 'INSERT INTO Dogs (Id, Name, Breed, MixBreed, City, State, Country, Age, Sex, Size, Description, ShelterId, Mix, Breed_Id, MixBreed_Id) '
@@ -434,19 +446,22 @@ def insert_dogs(dog_dict, db_name= DBNAME):
         print(e)
 
 
-def init_db(db_name, dog_dict):
+def init_db(db_name, dog_dict, shelter_dict):
     try:
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
-        check = check_dogs(conn, cur)
-        if check:
+        checka = check_dogs(conn, cur)
+        # checkb = check_shelters(conn, cur)
+        if checka:
             insert_dogs(dog_dict, db_name = db_name)
+        # if checkb:
+        #     pass
         conn.close()
     except Exception as e:
         print(e)
 
 
-init_db(DBNAME, DOG_DICT)
+init_db(DBNAME, DOG_DICT, SHELTER_DICT)
 
 
 
@@ -462,6 +477,7 @@ group by breed '''
     print(len(line))
     print(len(DOG_DICT))
     key_list = list(DOG_DICT.keys())
+    # print(key_list)
     # for i in range(len(key_list)):
     #     print(line[i], key_list[i])
 
@@ -473,3 +489,4 @@ except Exception as e:
 
 print('\n')
 print("***"*20)
+############################################
