@@ -28,7 +28,7 @@ NATO = {
 
 
     'A' : "Ace",
-    'B' : "Bo",
+    'B' : "Bowser",
     'C' : "Chip",
     'D' : "Dumbo",
     'E' : "Einstein",
@@ -49,7 +49,7 @@ NATO = {
     'T' : "Togo",
     'U' : "Umar",
     'V' : "Vincent",
-    'W' : "Wishbone",
+    'W' : "Winchester",
     'X' : "Xeno",
     'Y' : "Yoda",
     'Z' : "Zeus"
