@@ -49,13 +49,14 @@ def get_wiki_data(search):
     search_url = 'https://en.wikipedia.org/wiki/{}?action=render'.format(search)
     # search_url = 'https://en.wikipedia.org/w/index.php?action=raw&title={}'.format(search)
     wiki_data = data_cache(search_url)
+    # wiki_data = requests.get()
     return wiki_data
 
 
 
 
 info = get_wiki_data("poodle")
-other = info.find_all('Hypoallergenic qualities')
+other = info.find_all('table', attrs = {'class': 'infobox biota'})
 
 print(other)
 
