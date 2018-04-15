@@ -28,9 +28,9 @@ NATO = {
 
 
     'A' : "Ace",
-    'B' : "Balto",
-    'C' : "Chips",
-    'D' : "Dogbert",
+    'B' : "Bo",
+    'C' : "Chip",
+    'D' : "Dumbo",
     'E' : "Einstein",
     'F' : "Fido",
     'G' : "Gromit",
