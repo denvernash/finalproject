@@ -1,6 +1,8 @@
 import requests
 import json
 from bs4 import BeautifulSoup
+from nato import *
+import time
 
 
 print("***"*20)
@@ -19,13 +21,19 @@ except:
     CACHE_DICTION = {}
 
 
+def time_delay(number = 15):
+    for i in range(number):
+        print(number-i)
+        time.sleep(1)
+
+
 def soup_it(nps):
     soup = BeautifulSoup(nps, "html.parser")
     return soup
 
 DUMMY3 = True
 DUMMY4 = True
-def data_cache(search_url):
+def soup_data_cache(search_url):
     global DUMMY3
     global DUMMY4
     if search_url in CACHE_DICTION:
@@ -48,7 +56,7 @@ def data_cache(search_url):
 def get_wiki_data(search):
     search_url = 'https://en.wikipedia.org/wiki/{}?action=render'.format(search)
     # search_url = 'https://en.wikipedia.org/w/index.php?action=raw&title={}'.format(search)
-    wiki_data = data_cache(search_url)
+    wiki_data = soup_data_cache(search_url)
     # wiki_data = requests.get('https://en.wikipedia.org/w/api.php?action=query&titles=poodle&prop=info&imlimit=20&format=jsonfm')
     return wiki_data
 
@@ -59,7 +67,7 @@ info = get_wiki_data("poodle")
 other = info
 # other = info.find_all('table', attrs = {'class': 'infobox biota'})
 
-print(other)
+# print(other)
 
 
 
