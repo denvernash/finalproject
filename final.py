@@ -31,7 +31,7 @@ except:
 class Dog():
     def __init__(self, dog_dict):
 
-        self.name = dog_dict['name']['$t'].split('-')[0].split('/')[0].split('~')[0].split(',')[0].split('.')[0].split('(')[0].split()[0].strip("*").strip("\'").strip().capitalize()
+        self.name = dog_dict['name']['$t'].split('-')[0].split('/')[0].split('~')[0].split(',')[0].split('.')[0].split('(')[0].split()[0].strip("*").strip("\'").strip(":").strip('"').strip().capitalize()
         if isinstance(dog_dict['breeds']['breed'], type(list())):
             self.breed1 = None
             for breed in dog_dict['breeds']['breed']:
@@ -287,7 +287,7 @@ def all_available_dogs_dict(dog_breeds):
 uncleaned_dog_dict = all_available_dogs_dict(breed_list)
 
 def clean_dog_dict(dog_dict):
-    dumb_dog_names = ["adop", 'fost', 'ibr', 'westies', 'breed', 'need', 'kennel', 'mr', 'kt']
+    dumb_dog_names = ["adop", 'fost', 'ibr', 'westies', 'breed', 'need', 'kennel', 'mr', 'kt', "'", 'please', 'bh']
     for i in range(10):
         dumb_dog_names.append(str(i))
     all_dogs = 0
@@ -303,9 +303,11 @@ def clean_dog_dict(dog_dict):
                     dog_ids.append(dog.id)
                     for name in dumb_dog_names:
                         if name in dog.name.lower():
-                            dog.name = NATO[random.choice(string.ascii_lowercase)]
+                            dog.name = NATO[random.choice(string.ascii_letters)]
                         elif len(dog.name) <= 1:
-                            dog.name = NATO[random.choice(string.ascii_lowercase)]
+                            dog.name = NATO[random.choice(string.ascii_letters)]
+                        elif dog.name in dog.breed:
+                            dog.name = NATO[random.choice(string.ascii_letters)]
                     breed_to_dict.append(dog)
                 else:
                     del dog
