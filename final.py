@@ -242,11 +242,9 @@ def get_api_data(method= 'breed.list', location= '48105',  breed= '', animal = '
 def dog_breed_list(dog_data):
     dog_breeds = []
     for breed in dog_data['petfinder']['breeds']['breed']:
-        # dog = breed['$t'].split('/')
         dog_breeds.append(breed['$t'].strip())
     return dog_breeds
 
-# print(breeds['petfinder']['breeds']['breed'][0]['$t'])
 
 breed_data = get_api_data()
 DOG_BREEDS = dog_breed_list(breed_data)
@@ -329,13 +327,11 @@ def get_shelter_dict(dog_dict):
         for dog in dog_dict[breed]:
             if dog.shelter_id not in dog_shelters:
                 dog_shelters.append(dog.shelter_id)
-    print(len(dog_shelters))
-    x = 1500
-    for id in dog_shelters[x:]:
-        print(id)
-        time_delay(8)
-        x += 1
-        print("*****"+ str(x) + "*****")
+    for id in dog_shelters:
+        # print(id)
+        # time_delay(8)
+        # x += 1
+        # print("*****"+ str(x) + "*****")
         shelter_dict = get_api_data('shelter.get', id= id)
         shelter[id] = (shelter_dict)
     return shelter
@@ -353,7 +349,34 @@ def create_shelters(shelter_dict):
 
 
 all_shelters = create_shelters(get_shelter_dict(DOG_DICT))
-print(len(all_shelters))
+
+def check_shelters(conn, cur):
+    try:
+        simple_check = "SELECT * FROM 'Shelters'"
+        cur.execute(simple_check)
+        print("Dog Table Exists")
+        return False
+    except:
+        print("Creating Table")
+        statement = '''
+        CREATE TABLE 'Shelters' (
+        'Id' INTEGER PRIMARY KEY,
+        'Name' TEXT,
+        'City' TEXT,
+        'State' TEXT,
+        'Country' TEXT,
+        'Lat' TEXT,
+        'Lon' TEXT
+        );
+        '''
+        cur.execute(statement)
+        conn.commit()
+        return True
+
+
+
+
+print(type(all_shelters))
 # for x in all_shelters:
 #     print(all_shelters[x])
 # for key in list(all_shelters):
@@ -393,7 +416,7 @@ def check_dogs(conn, cur):
 
 
 
-def insert_data(dog_dict, db_name= DBNAME):
+def insert_dogs(dog_dict, db_name= DBNAME):
     try:
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
@@ -417,7 +440,7 @@ def init_db(db_name, dog_dict):
         cur = conn.cursor()
         check = check_dogs(conn, cur)
         if check:
-            insert_data(dog_dict, db_name = db_name)
+            insert_dogs(dog_dict, db_name = db_name)
         conn.close()
     except Exception as e:
         print(e)
