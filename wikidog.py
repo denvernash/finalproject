@@ -9,16 +9,16 @@ print("***"*20)
 print('\n')
 
 
-CACHE_FNAME = "wiki.json"
+CACHE_WFNAME = "wiki.json"
 
 try:
-    cache_file = open(CACHE_FNAME, 'r')
+    cache_file = open(CACHE_WFNAME, 'r')
     cache_contents = cache_file.read()
-    CACHE_DICTION = json.loads(cache_contents)
+    CACHE_WDICTION = json.loads(cache_contents)
     cache_file.close()
 
 except:
-    CACHE_DICTION = {}
+    CACHE_WDICTION = {}
 
 
 def time_delay(number = 15):
@@ -36,17 +36,17 @@ DUMMY4 = True
 def soup_data_cache(search_url):
     global DUMMY3
     global DUMMY4
-    if search_url in CACHE_DICTION:
-        data = ((CACHE_DICTION[search_url]))
+    if search_url in CACHE_WDICTION:
+        data = ((CACHE_WDICTION[search_url]))
         if DUMMY3:
             print("Returning data from cache file")
             DUMMY3 = False
         return(soup_it(data))
     else:
         data = requests.get(search_url).text.strip()
-        CACHE_DICTION[search_url] = data
-        fname = open(CACHE_FNAME, 'w')
-        fname.write(json.dumps((CACHE_DICTION), indent=2))
+        CACHE_WDICTION[search_url] = data
+        fname = open(CACHE_WFNAME, 'w')
+        fname.write(json.dumps((CACHE_WDICTION), indent=2))
         fname.close()
         if DUMMY4:
             print("Getting fresh data")
