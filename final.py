@@ -27,11 +27,18 @@ try:
 except:
     CACHE_DICTION = {}
 
-# dogs class
+############################################################
+#
+#   CLASS DEFINITIONS
+#
+#
+############################################################
+
+# dog class
 class Dog():
     def __init__(self, dog_dict):
 
-        self.name = dog_dict['name']['$t'].split('-')[0].split('/')[0].split('~')[0].split(',')[0].split('.')[0].split('(')[0].split()[0].strip("*").strip("\'").strip(":").strip('"').strip().capitalize()
+        self.name = dog_dict['name']['$t'].split('-')[0].split('/')[0].split('~')[0].split(',')[0].split('.')[0].split('(')[0].split('_')[0].split()[0].strip("*").strip("\'").strip(":").strip('"').strip('!').strip().capitalize()
         if isinstance(dog_dict['breeds']['breed'], type(list())):
             self.breed1 = None
             for breed in dog_dict['breeds']['breed']:
@@ -138,6 +145,16 @@ class Shelter():
             return False
 
 
+
+############################################################
+#
+#   CACHING FUNCTIONS
+#
+#
+############################################################
+
+
+
 # caching key to ensure cache doesn't store the same information twice
 def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
     sorted_params = sorted(params.keys())
@@ -182,6 +199,16 @@ def data_cache(search_url):
         return (data)
 
 
+
+
+
+############################################################
+#
+#   FLICKR API
+#
+#
+############################################################
+
 # get flicker image data from seach parameters for dogs
 def get_flickr_img(search, amount = 1):
     baseurl = "https://api.flickr.com/services/rest/"
@@ -223,7 +250,18 @@ img_search = "poodle"
 # print(get_img_url(img_search))
 
 
-# get pet data, input api method, animal type, and breed
+
+
+############################################################
+#
+#   PETFINDER API
+#
+#
+############################################################
+
+# makes a call to api to get data from petfinder or cache file
+# input - api method and specified parameters
+# output - petfinder api dictionary
 def get_api_data(method= 'breed.list', location= '48105',  breed= '', animal = 'dog', id= ''):
     baseurl = 'http://api.petfinder.com/'
     search_params = '{}?key={}&animal={}&format=json'.format(method, api_key, animal)
@@ -238,7 +276,8 @@ def get_api_data(method= 'breed.list', location= '48105',  breed= '', animal = '
 
     return(pet_data)
 
-
+# input - dog breed dictionary
+# output - list of all dog breeds available on petfinder api
 def dog_breed_list(dog_data):
     dog_breeds = []
     for breed in dog_data['petfinder']['breeds']['breed']:
@@ -250,6 +289,9 @@ breed_data = get_api_data()
 breed_list = dog_breed_list(breed_data)
 # print(breed_list)
 
+
+# input -  a dog breed type
+# output list of available dogs of that breed on petfinder if any
 def create_available_dogs(breed):
     dog_type = []
     dog_return = []
@@ -270,11 +312,16 @@ def create_available_dogs(breed):
             dog_return.append(dog)
     return dog_return
 
+
+# input - integer
+# output - none
 def time_delay(number = 15):
     for i in range(number):
         print(number-i)
         time.sleep(1)
 
+
+# input - 
 def all_available_dogs_dict(dog_breeds):
     available_dogs = {}
     for breed in dog_breeds:
@@ -304,7 +351,7 @@ def clean_dog_dict(dog_dict):
                     for name in dumb_dog_names:
                         if name in dog.name.lower():
                             dog.name = NATO[random.choice(string.ascii_letters)]
-                        elif len(dog.name) <= 1:
+                        elif len(dog.name) <= 2:
                             dog.name = NATO[random.choice(string.ascii_letters)]
                         elif dog.name in dog.breed:
                             dog.name = NATO[random.choice(string.ascii_letters)]
@@ -447,6 +494,11 @@ def insert_dogs(dog_dict, db_name= DBNAME):
     except Exception as e:
         print(e)
 
+def update_dogs(conn, cur):
+    statement= '''update Dogs set MixBreed_Id = null where dogs.Id in
+    (select dogs.id from dogs where dogs.MixBreed is Null) '''
+    cur.execute(statement)
+    conn.commit()
 
 def init_db(db_name, dog_dict, shelter_dict):
     try:
@@ -456,6 +508,7 @@ def init_db(db_name, dog_dict, shelter_dict):
         checkb = check_shelters(conn, cur)
         if checka:
             insert_dogs(dog_dict, db_name = db_name)
+            update_dogs(conn, cur)
         if checkb:
              insert_shelters(shelter_dict, db_name = db_name)
         conn.close()
@@ -464,6 +517,8 @@ def init_db(db_name, dog_dict, shelter_dict):
 
 
 init_db(DBNAME, DOG_DICT, SHELTER_DICT)
+
+
 
 
 
@@ -484,6 +539,31 @@ group by breed '''
     #     print(line[i], key_list[i])
 
 
+
+
+
+
+
+
+
+
+def site_geo_dict(state_list):
+    site_dict = {}
+    lst_lat = []
+    lst_lon = []
+    text_vals = []
+    for x in state_list:
+        x.get_geo()
+        if x.geo == None:
+            pass
+        else:
+            lst_lat.append(x.geo.split(',')[0])
+            lst_lon.append(x.geo.split(',')[1])
+            text_vals.append(x.name)
+    site_dict['lat'] = (lst_lat)
+    site_dict['lon']= (lst_lon)
+    site_dict['text'] = (text_vals)
+    return site_dict
 
 
 except Exception as e:
