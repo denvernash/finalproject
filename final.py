@@ -351,19 +351,19 @@ def check_shelters(conn, cur):
     try:
         simple_check = "SELECT * FROM 'Shelters'"
         cur.execute(simple_check)
-        print("Dog Table Exists")
+        print("Shelter Table Exists")
         return False
     except:
         print("Creating Table")
         statement = '''
         CREATE TABLE 'Shelters' (
-        'Id' INTEGER PRIMARY KEY,
+        'Id' TEXT PRIMARY KEY,
         'Name' TEXT,
         'City' TEXT,
         'State' TEXT,
         'Country' TEXT,
-        'Lat' INTEGER,
-        'Lon' INTEGER
+        'Lat' TEXT,
+        'Lon' TEXT
         );
         '''
         cur.execute(statement)
@@ -392,8 +392,8 @@ def insert_shelters(shelter_dict, db_name= DBNAME):
     except Exception as e:
         print(e)
 
-for key in list(SHELTER_DICT)[:1]:
-    print(SHELTER_DICT[key] == "Unlisted")
+# for key in list(SHELTER_DICT)[:1]:
+#     print(SHELTER_DICT[key] == "Unlisted")
 
 
 def check_dogs(conn, cur):
@@ -451,11 +451,11 @@ def init_db(db_name, dog_dict, shelter_dict):
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
         checka = check_dogs(conn, cur)
-        # checkb = check_shelters(conn, cur)
+        checkb = check_shelters(conn, cur)
         if checka:
             insert_dogs(dog_dict, db_name = db_name)
-        # if checkb:
-        #     pass
+        if checkb:
+             insert_shelters(shelter_dict, db_name = db_name)
         conn.close()
     except Exception as e:
         print(e)
