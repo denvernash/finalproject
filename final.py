@@ -166,6 +166,7 @@ def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
 
 # setting up caching
 BACKUP = 0
+SHUTDOWN = 0
 DUMMY1 = True
 DUMMY2 = True
 def data_cache(search_url):
@@ -186,6 +187,7 @@ def data_cache(search_url):
         fname.write(json.dumps((CACHE_DICTION), indent=2))
         fname.close()
         BACKUP += 1
+        SHUTDOWN += 1
         if BACKUP >= 5:
             BACKUP = 0
             if BACKUP == 0:
@@ -196,6 +198,8 @@ def data_cache(search_url):
         if DUMMY2:
             print("Getting fresh data")
             DUMMY2 = False
+        if SHUTDOWN >= 15:
+            sys.exit("YOU HAVE ATTEMPTED TO MAKE 15 CALLS TO THE API ALL AT ONCE")
         return (data)
 
 
@@ -254,7 +258,7 @@ img_search = "poodle"
 
 ############################################################
 #
-#   PETFINDER API
+#   PETFINDER API - Dogs
 #
 #
 ############################################################
@@ -285,9 +289,14 @@ def dog_breed_list(dog_data):
     return dog_breeds
 
 
+
+
+
 breed_data = get_api_data()
 breed_list = dog_breed_list(breed_data)
-# print(breed_list)
+
+
+
 
 
 # input -  a dog breed type
@@ -321,7 +330,8 @@ def time_delay(number = 15):
         time.sleep(1)
 
 
-# input - 
+# input - list of dog breeds
+# output - dictionary of dogs in each breed
 def all_available_dogs_dict(dog_breeds):
     available_dogs = {}
     for breed in dog_breeds:
@@ -331,8 +341,17 @@ def all_available_dogs_dict(dog_breeds):
         available_dogs[breed] = dog_list
     return available_dogs
 
+
+
+
+
 uncleaned_dog_dict = all_available_dogs_dict(breed_list)
 
+
+
+
+# input - dictionary of dogs that needs some data cleaning
+# output - dictionary of cleaned data
 def clean_dog_dict(dog_dict):
     dumb_dog_names = ["adop", 'fost', 'ibr', 'westies', 'breed', 'need', 'kennel', 'mr', 'kt', "'", 'please', 'bh']
     for i in range(10):
@@ -364,8 +383,41 @@ def clean_dog_dict(dog_dict):
             DOG_DICT_TO_RETURN[key] = breed_to_dict
     return DOG_DICT_TO_RETURN
 
+
+
+
+
+
+# cleaned dog dictionary of all availabe dogs on petfinder
 DOG_DICT = clean_dog_dict(uncleaned_dog_dict)
 
+
+
+
+
+
+############################################################
+#
+#   PETFINDER API - Shelters
+#
+#
+############################################################
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# CAUTION!!!!
+# CAUTION!!!!
+# CAUTION!!!!
+
+# - The function get_shelter_dict below will attempt to call
+
+# the API 1800 times if the data is not found in dogs.json.
+
+# The cache function has a backup to try to stop this from occuring
+
+
+# input - dictionary of dogs with shelter id from each dog
+# output - dictionary with all raw shelter data from api
 def get_shelter_dict(dog_dict):
     dog_shelters = []
     shelter = {}
@@ -383,6 +435,8 @@ def get_shelter_dict(dog_dict):
     return shelter
 
 
+# input - raw shelter data dictionary
+# output - dictionary of class shelters
 def create_shelters(shelter_dict):
     shelters = {}
     for key in list(shelter_dict.keys()):
@@ -394,7 +448,23 @@ def create_shelters(shelter_dict):
     return shelters
 
 
+
+
+# shelter dictionary of all shelters on petfinder
 SHELTER_DICT = create_shelters(get_shelter_dict(DOG_DICT))
+
+
+
+
+
+
+
+############################################################
+#
+#   DATABASE - Shelters
+#
+#
+############################################################
 
 def check_shelters(conn, cur):
     try:
@@ -441,8 +511,15 @@ def insert_shelters(shelter_dict, db_name= DBNAME):
     except Exception as e:
         print(e)
 
-# for key in list(SHELTER_DICT)[:1]:
-#     print(SHELTER_DICT[key] == "Unlisted")
+
+
+
+############################################################
+#
+#   DATABASE - Dogs
+#
+#
+############################################################
 
 
 def check_dogs(conn, cur):
@@ -500,6 +577,19 @@ def update_dogs(conn, cur):
     cur.execute(statement)
     conn.commit()
 
+
+
+
+############################################################
+#
+#   DATABASE - Calling all of the above code
+#
+#
+############################################################
+
+
+
+
 def init_db(db_name, dog_dict, shelter_dict):
     try:
         conn = sqlite3.connect(db_name)
@@ -520,33 +610,6 @@ init_db(DBNAME, DOG_DICT, SHELTER_DICT)
 
 
 
-
-
-try:
-    conn = sqlite3.connect(DBNAME)
-    cur = conn.cursor()
-    statement = '''select dogs.Breed from Dogs
-group by breed '''
-
-    bars_data = conn.execute(statement)
-    line = bars_data.fetchall()
-
-    print(len(line))
-    print(len(DOG_DICT))
-    key_list = list(DOG_DICT.keys())
-    # print(key_list)
-    # for i in range(len(key_list)):
-    #     print(line[i], key_list[i])
-
-
-
-
-
-
-
-
-
-
 def site_geo_dict(state_list):
     site_dict = {}
     lst_lat = []
@@ -564,6 +627,23 @@ def site_geo_dict(state_list):
     site_dict['lon']= (lst_lon)
     site_dict['text'] = (text_vals)
     return site_dict
+
+
+try:
+    conn = sqlite3.connect(DBNAME)
+    cur = conn.cursor()
+    statement = '''select dogs.Breed from Dogs
+group by breed '''
+
+    bars_data = conn.execute(statement)
+    line = bars_data.fetchall()
+
+    print(len(line))
+    print(len(DOG_DICT))
+    key_list = list(DOG_DICT.keys())
+    # print(key_list)
+    # for i in range(len(key_list)):
+    #     print(line[i], key_list[i])
 
 
 except Exception as e:
