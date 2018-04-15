@@ -173,6 +173,7 @@ def data_cache(search_url):
     global DUMMY1
     global DUMMY2
     global BACKUP
+    global SHUTDOWN
     if search_url in CACHE_DICTION:
         data = ((CACHE_DICTION[search_url]))
         if DUMMY1:
@@ -408,7 +409,6 @@ SHELTER_DICT = create_shelters(get_shelter_dict(DOG_DICT))
 
 
 
-
 ############################################################
 #
 #   DATABASE - Shelters
@@ -461,7 +461,30 @@ def insert_shelters(shelter_dict, db_name= DBNAME):
     except Exception as e:
         print(e)
 
+def update_shelters(conn, cur):
+    statement = '''select dogs.City, dogs.State from Dogs join Shelters on
+    dogs.ShelterId = Shelters.Id where Shelters.Name = "Unlisted" group by
+    dogs.City order by dogs.State '''
+    bars_data = conn.execute(statement)
+    line = bars_data.fetchall()
+    for x in line:
+        location = (x[0] + ", " + x[1])
+        print(location)
 
+
+
+############################################################
+#
+#   GOOGLE MAPS API -
+#
+#
+############################################################
+def get_geo_location(location):
+    baseurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+    params = {}
+    params["key"] = google_places_key
+    params['address'] = location
+    uniqueid = sorted_search_params(baseurl, params)
 
 
 ############################################################
@@ -551,6 +574,7 @@ def init_db(db_name, dog_dict, shelter_dict):
             update_dogs(conn, cur)
         if checkb:
              insert_shelters(shelter_dict, db_name = db_name)
+        update_shelters(conn, cur)
         conn.close()
     except Exception as e:
         print(e)
@@ -560,23 +584,7 @@ init_db(DBNAME, DOG_DICT, SHELTER_DICT)
 
 
 
-def site_geo_dict(state_list):
-    site_dict = {}
-    lst_lat = []
-    lst_lon = []
-    text_vals = []
-    for x in state_list:
-        x.get_geo()
-        if x.geo == None:
-            pass
-        else:
-            lst_lat.append(x.geo.split(',')[0])
-            lst_lon.append(x.geo.split(',')[1])
-            text_vals.append(x.name)
-    site_dict['lat'] = (lst_lat)
-    site_dict['lon']= (lst_lon)
-    site_dict['text'] = (text_vals)
-    return site_dict
+
 
 
 try:
