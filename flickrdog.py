@@ -1,6 +1,7 @@
 import requests
 import json
 from nato import *
+from secrets import *
 
 CACHE_FFNAME = "flickr.json"
 
@@ -27,12 +28,16 @@ except:
 ############################################################
 
 
+# caching key to ensure cache doesn't store the same information twice
+def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
+    sorted_params = sorted(params.keys())
+    acc = []
+    for item in sorted_params:
+        if item not in private_keys:
+            acc.append("{}-{}".format(item, params[item]))
+    return baseurl + "_".join(acc)
 
-
-
-# get flicker image data from seach parameters for dogs
-def get_flickr_img(search, amount = 1):
-    baseurl = "https://api.flickr.com/services/rest/"
+def search_photos_params(search, amount = 1):
     params= {}
     params["api_key"] = flickr_key
     params["tags"] = search
@@ -40,6 +45,13 @@ def get_flickr_img(search, amount = 1):
     params["method"] = "flickr.photos.search"
     params["per_page"] = amount
     params["format"] = 'json'
+    params['license'] = '4'
+    return params
+
+# get flicker image data from seach parameters for dogs
+def get_flickr_img(params):
+    baseurl = "https://api.flickr.com/services/rest/"
+
     uniq_id = sorted_search_params(baseurl, params)
     if uniq_id in CACHE_FDICTION:
         return CACHE_FDICTION[uniq_id]
@@ -55,17 +67,32 @@ def get_flickr_img(search, amount = 1):
 
 
 # creating the url to the online photo
-def get_img_url(search, amount = 1, list_column = 0, size=''):
-    image_data = get_flickr_img(search, amount)
-    farm_id = image_data['photos']['photo'][list_column]['farm']
-    server_id = image_data['photos']['photo'][list_column]['server']
-    img_id = image_data['photos']['photo'][list_column]['id']
-    secret_id = image_data['photos']['photo'][list_column]['secret']
-    if len(size) > 0:
-        size = '_' + size
-    image_url = 'https://farm{}.staticflickr.com/{}/{}_{}{}.jpg'.format(farm_id, server_id, img_id, secret_id, size)
-    return image_url
+def get_img_url(search, amount = 1, size=''):
+    images =[]
+    image_data = get_flickr_img(search_photos_params(search, amount))
+    for img in image_data['photos']['photo']:
+        farm_id = img['farm']
+        server_id = img['server']
+        img_id = img['id']
+        secret_id = img['secret']
+        if len(size) > 0:
+            size = '_' + size
+        image_url = 'https://farm{}.staticflickr.com/{}/{}_{}{}.jpg'.format(farm_id, server_id, img_id, secret_id, size)
+        images.append(image_url)
+    return images
 
 
 img_search = "poodle"
-print(get_img_url(img_search))
+for x in (get_img_url(img_search, amount= 1)):
+    print(x)
+
+
+# baseurl = "https://api.flickr.com/services/rest/"
+# pram = {}
+# pram['method'] = 'flickr.photos.licenses.getInfo'
+# pram["api_key"] = flickr_key
+#
+#
+#
+# license = requests.get(baseurl, params= pram)
+# print(license.text)

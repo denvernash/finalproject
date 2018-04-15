@@ -1,0 +1,68 @@
+{
+  "https://api.flickr.com/services/rest/format-json_license-4_method-flickr.photos.search_per_page-5_tag_mode-all_tags-poodle": {
+    "photos": {
+      "page": 1,
+      "pages": 294,
+      "perpage": 5,
+      "total": "1470",
+      "photo": [
+        {
+          "id": "28426106799",
+          "owner": "37129284@N02",
+          "secret": "182b6ee552",
+          "server": "4610",
+          "farm": 5,
+          "title": "glamour shot",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        },
+        {
+          "id": "25851159428",
+          "owner": "22605449@N06",
+          "secret": "a1eeb6b02a",
+          "server": "4675",
+          "farm": 5,
+          "title": "Clare the diva! 015/365",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        },
+        {
+          "id": "25813926858",
+          "owner": "22605449@N06",
+          "secret": "93e510e59a",
+          "server": "4724",
+          "farm": 5,
+          "title": "Frozen in time 02/52",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        },
+        {
+          "id": "38553259575",
+          "owner": "13497267@N04",
+          "secret": "f681a35d7c",
+          "server": "4588",
+          "farm": 5,
+          "title": "Happy new (Y) ear.",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        },
+        {
+          "id": "36586417675",
+          "owner": "22737123@N04",
+          "secret": "87caf3e0d4",
+          "server": "4365",
+          "farm": 5,
+          "title": "Mommy's got you",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  }
+}

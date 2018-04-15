@@ -2,6 +2,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 from nato import *
+from secrets import *
 import time
 
 
