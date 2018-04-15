@@ -11,7 +11,7 @@ class TestDatabase(unittest.TestCase):
         sql = 'SELECT Name FROM Dogs'
         results = cur.execute(sql)
         result_list = results.fetchall()
-        self.assertIn(('Wookie!',), result_list)
+        self.assertIn(('Wookie',), result_list)
         self.assertEqual(len(result_list), 4166)
 
 
