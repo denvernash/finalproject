@@ -188,7 +188,7 @@ def data_cache(search_url):
         fname.write(json.dumps((CACHE_DICTION), indent=2))
         fname.close()
         BACKUP += 1
-        SHUTDOWN += 1
+        # SHUTDOWN += 1
         if BACKUP >= 5:
             BACKUP = 0
             if BACKUP == 0:
@@ -468,7 +468,7 @@ def update_shelters(conn, cur):
     bars_data = conn.execute(statement)
     line = bars_data.fetchall()
     for x in line:
-        location = (x[0] + ", " + x[1])
+        location = "'{}, {}': ''".format(x[0], x[1])
         print(location)
 
 
