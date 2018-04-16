@@ -39,7 +39,7 @@ NATO = {
     'J' : "Jack",
     'K' : "Kipper",
     'L' : "Lassie",
-    'M' : "Max",
+    'M' : "Marley",
     'N' : "Napoleon",
     'O' : "Odie",
     'P' : "Pickles",
