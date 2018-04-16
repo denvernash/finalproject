@@ -48,6 +48,17 @@ def search_photos_params(search, amount = 1):
     params['license'] = '4'
     return params
 
+def info_photos_params(photoid, secret):
+    params= {}
+    params["api_key"] = flickr_key
+    params["photo_id"] = photoid
+    params["method"] = "flickr.photos.getInfo"
+    params["secret"] = secret
+    params["format"] = 'json'
+    return params
+
+
+
 # get flicker image data from seach parameters for dogs
 def get_flickr_img(params):
     baseurl = "https://api.flickr.com/services/rest/"
