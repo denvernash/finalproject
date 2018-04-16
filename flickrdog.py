@@ -17,6 +17,22 @@ except:
 
 
 
+
+class Image():
+    def __init__(self, img_dict, size= ''):
+        self.farm_id = ''
+        self.server_id = ''
+        self.img_id = ''
+        self.secret_id = ''
+        self.size = size
+        if len(self.size) > 0:
+            self.size = '_' + self.size
+        self.image_url = 'https://farm{}.staticflickr.com/{}/{}_{}{}.jpg'.format(self.farm_id, self.server_id, self.img_id, self.secret_id, self.size)
+        self.content_url = ''
+        self.authorname = ''
+        self.license = ''
+
+
 ############################################################
 #
 #   FLICKR API
@@ -96,14 +112,19 @@ def get_img_url(search, amount = 1, size=''):
 img_search = "poodle"
 for x in (get_img_url(img_search, amount= 1)):
     print(x)
+image_datum = get_flickr_img(info_photos_params('28426106799', '182b6ee552'))
+print(image_datum)
+
+def get_attribution_data(list_of_photos):
+    for img in list_of_photos:
+        get_flickr_img(info_photos_params(photoid, secret))
 
 
-# baseurl = "https://api.flickr.com/services/rest/"
-# pram = {}
-# pram['method'] = 'flickr.photos.licenses.getInfo'
-# pram["api_key"] = flickr_key
-#
-#
-#
-# license = requests.get(baseurl, params= pram)
-# print(license.text)
+
+
+
+
+
+
+
+# 

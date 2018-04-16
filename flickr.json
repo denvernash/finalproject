@@ -64,5 +64,179 @@
       ]
     },
     "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_license-4_method-flickr.photos.search_per_page-1_tag_mode-all_tags-poodle": {
+    "photos": {
+      "page": 1,
+      "pages": 1470,
+      "perpage": 1,
+      "total": "1470",
+      "photo": [
+        {
+          "id": "28426106799",
+          "owner": "37129284@N02",
+          "secret": "182b6ee552",
+          "server": "4610",
+          "farm": 5,
+          "title": "glamour shot",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-28426106799_secret-182b6ee552": {
+    "photo": {
+      "id": "28426106799",
+      "secret": "182b6ee552",
+      "server": "4610",
+      "farm": 5,
+      "dateuploaded": "1518366285",
+      "isfavorite": 0,
+      "license": "4",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "59d1899dea",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "37129284@N02",
+        "username": "greg westfall.",
+        "realname": "greg westfall",
+        "location": "Fort Worth, Texas, USA",
+        "iconserver": "5337",
+        "iconfarm": 6,
+        "path_alias": "imagesbywestfall"
+      },
+      "title": {
+        "_content": "glamour shot"
+      },
+      "description": {
+        "_content": "testing out the lensbaby velvet 56\nbasically a soft-focus lens\nperhaps a little too soft here at f1.6"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1518366285",
+        "taken": "2018-02-10 20:48:42",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1522240798"
+      },
+      "views": "854",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 1
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "4"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "37108936-28426106799-17196987",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "greg westfall",
+            "_content": "gregwestfall",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-514",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "scarlett",
+            "_content": "scarlett",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-14967",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "poodle",
+            "_content": "poodle",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-221792",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "standard poodle",
+            "_content": "standardpoodle",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-3988304",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "caniche royal",
+            "_content": "canicheroyal",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-355",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-357",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "chien",
+            "_content": "chien",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-1222",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "lensbaby",
+            "_content": "lensbaby",
+            "machine_tag": 0
+          },
+          {
+            "id": "37108936-28426106799-241382503",
+            "author": "37129284@N02",
+            "authorname": "greg westfall.",
+            "raw": "velvet 56",
+            "_content": "velvet56",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/imagesbywestfall/28426106799/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
   }
 }
