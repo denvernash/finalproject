@@ -462,14 +462,25 @@ def insert_shelters(shelter_dict, db_name= DBNAME):
         print(e)
 
 def update_shelters(conn, cur):
-    # statement = '''select dogs.City, dogs.State from Dogs join Shelters on
-    # dogs.ShelterId = Shelters.Id where Shelters.Name = "Unlisted" group by
-    # dogs.City order by dogs.State '''
-    # bars_data = conn.execute(statement)
-    # line = bars_data.fetchall()
-    # for x in line:
-    #     location = "'{}, {}': ''".format(x[0], x[1])
-    #     print(location)
+    statement = '''select dogs.City, dogs.State from Dogs join Shelters on
+    dogs.ShelterId = Shelters.Id where Shelters.Name = "Unlisted" group by
+    dogs.City order by dogs.State '''
+    bars_data = conn.execute(statement)
+    line = bars_data.fetchall()
+    for x in line:
+        location = "{}, {}".format(x[0], x[1])
+        statement = ''' update Shelters set Lat = '{}'
+        where City = '{}' AND State = '{}' AND Name =
+        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[0], x[0], x[1])
+        cur.execute(statement)
+        conn.commit()
+        statement = ''' update Shelters set Lon = '{}'
+        where City = '{}' AND State = '{}' AND Name =
+        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[1], x[0], x[1])
+        cur.execute(statement)
+        conn.commit()
+
+
     statement = ''' update Shelters set City = ( select dogs.City from dogs
     where dogs.ShelterId = Shelters.Id AND Shelters.Name = "Unlisted" )
     Where exists ( select dogs.City from dogs where dogs.ShelterId =
