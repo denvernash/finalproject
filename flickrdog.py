@@ -2,6 +2,7 @@ import requests
 import json
 from nato import *
 from secrets import *
+import webbrowser
 
 CACHE_FFNAME = "flickr.json"
 
@@ -20,18 +21,25 @@ except:
 
 class Image():
     def __init__(self, img_dict, size= ''):
-        self.farm_id = ''
-        self.server_id = ''
-        self.img_id = ''
-        self.secret_id = ''
+        self.farm_id = img_dict['farm']
+        self.server_id = img_dict['server']
+        self.img_id = img_dict['id']
+        self.secret_id = img_dict['secret']
         self.size = size
         if len(self.size) > 0:
             self.size = '_' + self.size
         self.image_url = 'https://farm{}.staticflickr.com/{}/{}_{}{}.jpg'.format(self.farm_id, self.server_id, self.img_id, self.secret_id, self.size)
-        self.content_url = ''
-        self.authorname = ''
-        self.license = ''
-
+        self.license = "https://creativecommons.org/licenses/by-nc-sa/2.0/"
+        self.license_code = 'https://creativecommons.org/licenses/by-nc-sa/2.0/legalcode'
+        self.content_url = "Flickr URL"
+        self.username = 'Name'
+    def __str__(self):
+        return ("Image at {} by Author {}".format(self.content_url, self.username))
+    def get_attribution_data(self):
+        attr_data = get_flickr_img(info_photos_params(self.img_id, self.secret_id))
+        self.content_url = attr_data['photo']['urls']['url'][0]['_content']
+        self.username = attr_data['photo']['owner']['username']
+        self.title = attr_data['photo']['title']['_content']
 
 ############################################################
 #
@@ -58,10 +66,12 @@ def search_photos_params(search, amount = 1):
     params["api_key"] = flickr_key
     params["tags"] = search
     params["tag_mode"] = "all"
+    params['sort'] = 'relevance'
+    params['content_type'] = '1'
     params["method"] = "flickr.photos.search"
     params["per_page"] = amount
     params["format"] = 'json'
-    params['license'] = '4'
+    params['license'] = '1'
     return params
 
 def info_photos_params(photoid, secret):
@@ -81,9 +91,11 @@ def get_flickr_img(params):
 
     uniq_id = sorted_search_params(baseurl, params)
     if uniq_id in CACHE_FDICTION:
+        print("Returning cache data")
         return CACHE_FDICTION[uniq_id]
     else:
         flickr_text = requests.get(baseurl, params = params).text
+        print("Getting fresh data")
         flickr_text_fixed = flickr_text[14:-1]
         flickr_data = json.loads(flickr_text_fixed)
         fname = open(CACHE_FFNAME, 'w')
@@ -94,37 +106,47 @@ def get_flickr_img(params):
 
 
 # creating the url to the online photo
-def get_img_url(search, amount = 1, size=''):
-    images =[]
+def create_image(search, amount = 1, size=''):
+    list_images =[]
     image_data = get_flickr_img(search_photos_params(search, amount))
     for img in image_data['photos']['photo']:
-        farm_id = img['farm']
-        server_id = img['server']
-        img_id = img['id']
-        secret_id = img['secret']
-        if len(size) > 0:
-            size = '_' + size
-        image_url = 'https://farm{}.staticflickr.com/{}/{}_{}{}.jpg'.format(farm_id, server_id, img_id, secret_id, size)
-        images.append(image_url)
-    return images
+        imagex = Image(img, size)
+        imagex.get_attribution_data()
+        list_images.append(imagex)
+    return list_images
 
-
-img_search = "poodle"
-for x in (get_img_url(img_search, amount= 1)):
-    print(x)
-image_datum = get_flickr_img(info_photos_params('28426106799', '182b6ee552'))
-print(image_datum)
-
-def get_attribution_data(list_of_photos):
-    for img in list_of_photos:
-        get_flickr_img(info_photos_params(photoid, secret))
+def time_delay(number = 15):
+    for i in range(number):
+        print(number-i)
+        time.sleep(1)
 
 
 
+# img_search = "poodle"
+# to_test = (create_image(img_search))[0]
+# webbrowser.open(to_test.content_url)
+
+def create_dog_images(breed_list, amount = 1, size=''):
+    breed_imgs = {}
+    for breed in breed_list:
+        dog = breed.split("/")[0].split("(")[0].strip()
+        print(dog)
+        img = create_image(dog, amount, size)[0]
+        print(img)
+        breed_imgs[breed] = img
+        # time_delay(10)
+    return breed_imgs
+
+BREED_IMGS = create_dog_images(LIST_OF_BREEDS[:1])
+webbrowser.open(BREED_IMGS[LIST_OF_BREEDS[0]].content_url)
+
+# image_datum = get_flickr_img(info_photos_params('28426106799', '182b6ee552'))
+# print(image_datum['photo']['license'])
+
+
+# webbrowser.open(img.content_url)
 
 
 
 
-
-
-# 
+#
