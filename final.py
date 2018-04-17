@@ -243,8 +243,7 @@ def dog_breed_list(dog_data):
 
 
 
-breed_data = get_api_data()
-breed_list = dog_breed_list(breed_data)
+
 
 
 
@@ -296,7 +295,6 @@ def all_available_dogs_dict(dog_breeds):
 
 
 
-uncleaned_dog_dict = all_available_dogs_dict(breed_list)
 
 
 
@@ -339,8 +337,6 @@ def clean_dog_dict(dog_dict):
 
 
 
-# cleaned dog dictionary of all availabe dogs on petfinder
-DOG_DICT = clean_dog_dict(uncleaned_dog_dict)
 
 
 
@@ -401,8 +397,6 @@ def create_shelters(shelter_dict):
 
 
 
-# shelter dictionary of all shelters on petfinder
-SHELTER_DICT = create_shelters(get_shelter_dict(DOG_DICT))
 
 
 
@@ -600,10 +594,20 @@ def init_db(db_name, dog_dict, shelter_dict):
         print(e)
 
 
+
+
+breed_data = get_api_data()
+breed_list = dog_breed_list(breed_data)
+uncleaned_dog_dict = all_available_dogs_dict(breed_list)
+
+# cleaned dog dictionary of availabe dogs on petfinder
+DOG_DICT = clean_dog_dict(uncleaned_dog_dict)
+
+# shelter dictionary of shelters on petfinder from DOG_DICT
+SHELTER_DICT = create_shelters(get_shelter_dict(DOG_DICT))
+
+
 init_db(DBNAME, DOG_DICT, SHELTER_DICT)
-
-
-
 
 
 
