@@ -64,11 +64,12 @@ DUMMY4 = True
 def soup_data_cache(search_url):
     global DUMMY3
     global DUMMY4
+    global CALLING_LIMIT
     if search_url in CACHE_WDICTION:
         data = ((CACHE_WDICTION[search_url]))
         if DUMMY3:
             print("Returning data from cache file")
-            DUMMY3 = False
+            # DUMMY3 = False
         return(soup_it(data))
     else:
         data = requests.get(search_url).text.strip()
@@ -82,80 +83,86 @@ def soup_data_cache(search_url):
         return (soup_it(data))
 
 def get_wiki_data(search):
-    search_url = 'https://en.wikipedia.org/wiki/{}?action=render'.format(search)
-    # search_url = 'https://en.wikipedia.org/w/index.php?action=raw&title={}'.format(search)
+    search_url = 'https://en.wikipedia.org/wiki/{}%20dog?action=render'.format(search)
     wiki_data = soup_data_cache(search_url)
-    # wiki_data = requests.get('https://en.wikipedia.org/w/api.php?action=query&titles=poodle&prop=info&imlimit=20&format=jsonfm')
+
     return wiki_data
 
 
 
 def create_wiki_dict(breed_list):
     wiki_dict = {}
+    timer = 0
     for breed in breed_list:
         breed_to_search = breed.split('/')[0].strip()
         info = get_wiki_data(breed_to_search)
-        table = info.find('table', attrs = {'class': 'infobox biota'})
-        rows = table.find_all('tr')
-        table_text = []
-
-        dog_breed = {}
-        dog_breed['origin'] = "Unknown"
-        dog_breed['coat'] = "Unknown"
-        dog_breed['color'] = "Unknown"
-        dog_breed['life-span'] = "Unknown"
-        dog_breed['litter-size'] = "Unknown"
-        dog_breed['weight'] = "Unknown"
-        dog_breed['height'] = "Unknown"
-        for row in rows:
-            for stuff in row.contents:
-                try:
-                    table_text.append((stuff.text).lower())
-                except:
+        print(breed_list.index(breed))
+        time_delay(8)
+        timer += 1
+        print("*****"+ str(timer) + "*****")
+        try:
+            table = info.find('table', attrs = {'class': 'infobox biota'})
+            rows = table.find_all('tr')
+            table_text = []
+            dog_breed = {}
+            dog_breed['origin'] = "Unknown"
+            dog_breed['coat'] = "Unknown"
+            dog_breed['color'] = "Unknown"
+            dog_breed['life-span'] = "Unknown"
+            dog_breed['litter-size'] = "Unknown"
+            dog_breed['weight'] = "Unknown"
+            dog_breed['height'] = "Unknown"
+            for row in rows:
+                for stuff in row.contents:
+                    try:
+                        table_text.append((stuff.text).lower())
+                    except:
+                        pass
+                if (type(row.th)) == (type(None)):
                     pass
-            if (type(row.th)) == (type(None)):
-                pass
-            elif (type(row.td)) == (type(None)):
-                pass
-            else:
-                heading = str(row.th.text.lower().replace('\n', ' ').replace('\xa0', '-')).split('[')[0]
-                texting = str(row.td.text.lower().replace('\n', ' ').replace('\xa0', '-')).split('[')[0]
-                if heading == "origin":
-                    dog_breed[heading] = texting
-                elif heading == 'coat':
-                    dog_breed[heading] = texting
-                elif heading == 'color':
-                    dog_breed[heading] = texting
-                elif heading == 'colour':
-                    dog_breed['color'] = texting
-                elif heading =='life-span':
-                    dog_breed[heading] = texting
-                elif heading == 'litter-size':
-                    dog_breed[heading] = texting
+                elif (type(row.td)) == (type(None)):
+                    pass
                 else:
-                    pass
+                    heading = str(row.th.text.lower().replace('\n', ' ').replace('\xa0', '-')).split('[')[0]
+                    texting = str(row.td.text.lower().replace('\n', ' ').replace('\xa0', '-')).split('[')[0]
+                    if heading == "origin":
+                        dog_breed[heading] = texting
+                    elif heading == 'coat':
+                        dog_breed[heading] = texting
+                    elif heading == 'color':
+                        dog_breed[heading] = texting
+                    elif heading == 'colour':
+                        dog_breed['color'] = texting
+                    elif heading =='life-span':
+                        dog_breed[heading] = texting
+                    elif heading == 'litter-size':
+                        dog_breed[heading] = texting
+                    else:
+                        pass
 
-        new_table_text = []
-        for item in table_text:
-            more = item.replace(' ', '_').replace('\n', ' ').replace('\xa0', '-').replace('male', '').replace('female',
-            '').replace('traits', '').replace(';', '').strip().split()
-            new_table_text.append(more)
-        cleaner_table_text = []
-        for item in new_table_text:
-            if (len(item)) > 1:
-                for x in item:
-                    cleaner_table_text.append(x)
-        if 'weight' in cleaner_table_text:
-            to_index = (cleaner_table_text.index('weight')) + 1
-            dog_breed['weight'] = (cleaner_table_text[to_index])
-        if 'height' in cleaner_table_text:
-            to_index = (cleaner_table_text.index('height')) + 1
-            dog_breed['height'] = (cleaner_table_text[to_index])
+            new_table_text = []
+            for item in table_text:
+                more = item.replace(' ', '_').replace('\n', ' ').replace('\xa0', '-').replace('male', '').replace('female',
+                '').replace('traits', '').replace(';', '').strip().split()
+                new_table_text.append(more)
+            cleaner_table_text = []
+            for item in new_table_text:
+                if (len(item)) > 1:
+                    for x in item:
+                        cleaner_table_text.append(x)
+            if 'weight' in cleaner_table_text:
+                to_index = (cleaner_table_text.index('weight')) + 1
+                dog_breed['weight'] = (cleaner_table_text[to_index])
+            if 'height' in cleaner_table_text:
+                to_index = (cleaner_table_text.index('height')) + 1
+                dog_breed['height'] = (cleaner_table_text[to_index])
 
-        wiki_dict[breed] = Breed(breed, dog_breed)
+            wiki_dict[breed] = Breed(breed, dog_breed)
+        except:
+
     return wiki_dict
 
-DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS[:6])
+DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS[:15])
 
 for key in DOG_BREED_DICT:
     pass
