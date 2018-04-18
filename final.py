@@ -2,11 +2,13 @@ import sqlite3
 import requests
 import json
 import sys
-from secrets import *
-from nato import *
 import time
 import random
 import string
+from secrets import *
+from nato import *
+from flickrdog import *
+
 
 
 DBNAME = 'dog.db'
@@ -566,6 +568,52 @@ def update_dogs(conn, cur):
 
 
 
+############################################################
+#
+#   DATABASE - Images
+#
+#
+############################################################
+
+def check_images(conn, cur):
+    try:
+        simple_check = "SELECT * FROM 'Images'"
+        cur.execute(simple_check)
+        print("Image Table Exists")
+        return False
+    except:
+        print("Creating Table")
+        statement = '''
+            CREATE TABLE 'Images' (
+                'Id' INTEGER PRIMARY KEY AUTOINCREMENT,
+                'Breed' TEXT,
+                'Breed_Id' INTEGER ,
+                'Image_Url' TEXT,
+                'Title' TEXT,
+                'Username' TEXT,
+                'Content_Url' TEXT,
+                'License_Url' TEXT
+            );
+        '''
+        cur.execute(statement)
+        conn.commit()
+        return True
+
+
+def insert_images(img_dict, db_name= DBNAME):
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        img_keys = sorted(list(img_dict.keys()))
+        for key in img_keys:
+            for img in img_keys[key]:
+                insertion = (key, img.image_url, img.title, img.username, img.content_url, img.license_url, 0)
+                statement = 'INSERT INTO Images (Breed, Image_Url, Title, Username, Content_Url, License_Url, Breed_Id) '
+                statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
+                cur.execute(statement, insertion)
+                conn.commit()
+        conn.close()
+
 
 ############################################################
 #
@@ -577,18 +625,21 @@ def update_dogs(conn, cur):
 
 
 
-def init_db(db_name, dog_dict, shelter_dict):
+def init_db(db_name, dog_dict, shelter_dict, img_dict):
     try:
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
         checka = check_dogs(conn, cur)
         checkb = check_shelters(conn, cur)
+        checkc = check_images(conn, cur)
         if checka:
             insert_dogs(dog_dict, db_name = db_name)
             update_dogs(conn, cur)
         if checkb:
              insert_shelters(shelter_dict, db_name = db_name)
-        update_shelters(conn, cur)
+             update_shelters(conn, cur)
+        if checkc:
+            insert_images(img_dict, db_name = db_name)
         conn.close()
     except Exception as e:
         print(e)
@@ -607,7 +658,7 @@ DOG_DICT = clean_dog_dict(uncleaned_dog_dict)
 SHELTER_DICT = create_shelters(get_shelter_dict(DOG_DICT))
 
 
-init_db(DBNAME, DOG_DICT, SHELTER_DICT)
+init_db(DBNAME, DOG_DICT, SHELTER_DICT, BREED_IMGS)
 
 
 

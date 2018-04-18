@@ -67,7 +67,7 @@ class Image():
 
 
 # caching key to ensure cache doesn't store the same information twice
-def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
+def sorted__params(baseurl, params, private_keys=["api_key", 'key']):
     sorted_params = sorted(params.keys())
     acc = []
     for item in sorted_params:
@@ -111,7 +111,7 @@ def get_flickr_img(params):
     baseurl = "https://api.flickr.com/services/rest/"
     global DUM1
     global CALL_LIMIT
-    uniq_id = sorted_search_params(baseurl, params)
+    uniq_id = sorted__params(baseurl, params)
     if uniq_id in CACHE_FDICTION:
         if DUM1:
             print("Returning cache data")
@@ -154,30 +154,11 @@ def time_delay(number = 15):
 # webbrowser.open(to_test.content_url)
 
 
-not_found_list = [
-"Appenzell Mountain Dog",
-"Black and Tan Coonhound",
-"Cane Corso Mastiff",
-"Caucasian Sheepdog / Caucasian Ovtcharka",
-"Dandi Dinmont Terrier",
-"Galgo Spanish Greyhound",
-"Hamiltonstovare",
-"Kyi Leo",
-"Mountain Cur",
-"Norwegian Lundehund",
-"Podengo Portugueso",
-"Scottish Terrier Scottie",
-"Shetland Sheepdog Sheltie",
-"Tosa Inu",
-"West Highland White Terrier Westie",
-"Yorkshire Terrier Yorkie",
-]
-
 
 def create_dog_images(breed_list, amount = 1, size=''):
     breed_imgs = {}
     global DOG_IMGS_NOT_FOUND
-    not_found_list = [
+    special_dog_list = [
     "Appenzell Mountain Dog",
     "Black and Tan Coonhound",
     "Cane Corso Mastiff",
@@ -197,7 +178,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
     ]
     not_found = []
     for breed in breed_list:
-        if breed not in not_found_list:
+        if breed not in special_dog_list:
             try:
                 dog = breed.split("/")[0].split("(")[0].strip()
                 img = create_image(dog, True, amount, size)[0]
@@ -205,7 +186,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
                 # time_delay(10)
             except:
                 not_found.append(breed)
-        elif breed in not_found_list:
+        elif breed in special_dog_list:
             try:
                 dog = breed.split("/")[0].split("(")[0].strip()
                 # print(dog)
@@ -225,17 +206,17 @@ def create_dog_images(breed_list, amount = 1, size=''):
                     breed_imgs[breed] = img
                     # print(img.content_url)
                 except:
-                    print("COULDNT FIND")
-                    print('"{}",'.format(breed))
+                    pass
             else:
-                print('"{}",'.format(breed))
+                pass
     return breed_imgs
 
 # print(len(LIST_OF_BREEDS))
 BREED_IMGS = create_dog_images(LIST_OF_BREEDS)
-for breed in list(BREED_IMGS.keys()):
-    if breed not in LIST_OF_BREEDS:
-        print(breed)
+# key_list = sorted(list(BREED_IMGS.keys()))
+# for i in range(len(key_list)):
+#     if sorted(LIST_OF_BREEDS)[i] != key_list[i]:
+#         print('{}  ,    {}'.format(LIST_OF_BREEDS[i], key_list[i]))
 
 
 
