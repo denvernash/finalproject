@@ -80,8 +80,60 @@ table = info.find('table', attrs = {'class': 'infobox biota'})
 rows = table.find_all('tr')
 next = False
 for row in rows:
-    for x in (row.children):
-        print(type(x))
+    if (type(row.th)) == (type(None)):
+        pass
+    elif (type(row.td)) == (type(None)):
+        pass
+    else:
+        heading = str(row.th.text.strip('\n').strip().lower())
+        texting = str(row.td.text.strip('\n').strip().lower())
+        if heading == "origin":
+            # print("'{}, {}'".format(heading, texting))
+            print('\n')
+        elif heading == 'coat':
+            # print("'{}, {}'".format(heading, texting))
+            print('\n')
+        elif heading == 'color':
+            # print("'{}, {}'".format(heading, texting))
+            print('\n')
+        elif heading == 'colour':
+            print("yes")
+        elif heading == 'life span':
+            print("yes")
+        elif heading == 'litter size':
+            print("yes")
+        elif 'litter' in heading:
+            print(type(heading[7]))
+            print(len(heading[7]))
+            print(heading == 'litter size')
+            print(heading)
+            print('litter size')
+        else:
+            print('*')
+            print(heading)
+            print(len(heading))
+            print('*')
+        # print(len(row.th.text.strip('\n').strip()))
+
+other_info = info.find('table', attrs = {'class': 'infobox collapsible'})
+    # if next:
+    #     print(row.text)
+    #     next = False
+    # if row.text == "Origin":
+    #     next = True
+    # else:
+    #     print("not")
+    #     print(row.text)
+        # print(row.text)
+    # for cell in row.find_all('tr'):
+    #     try:
+    #         print(cell)
+    #
+    #     # print(cell.th.text)
+    #     # try:
+    #     #     print(cell.td.text)
+    #     except:
+    #         print(cell)
 
 
 
