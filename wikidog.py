@@ -22,6 +22,16 @@ except:
     CACHE_WDICTION = {}
 
 
+
+# breed class
+class Breed():
+    def __init__(self, breed_dict):
+        self.kind = ''
+
+
+
+
+
 def time_delay(number = 15):
     for i in range(number):
         print(number-i)
@@ -63,14 +73,24 @@ def get_wiki_data(search):
 
 
 
+# def create_wiki_dict(breed_list):
+cells = []
+info = get_wiki_data("American Bulldog")
+table = info.find('table', attrs = {'class': 'infobox biota'})
+rows = table.find_all('tr')
+next = False
+for row in rows:
+    for x in (row.children):
+        print(type(x))
 
-info = get_wiki_data("poodle")
-other = info
-# other = info.find_all('table', attrs = {'class': 'infobox biota'})
 
+
+
+#     even = more.find_all('th', attrs= {'scope': 'row'})
+#     even_more.append(even)
+#
+# print(even_more)
 # print(other)
-
-
 
 print('\n')
 print("***"*20)

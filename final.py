@@ -616,6 +616,66 @@ def insert_images(img_dict, db_name= DBNAME):
 
     except Exception as e:
         print(e)
+
+
+
+
+
+############################################################
+#
+#   DATABASE - Breeds
+#
+#
+############################################################
+
+
+def check_breeds(conn, cur):
+    try:
+        simple_check = "SELECT * FROM 'Breeds'"
+        cur.execute(simple_check)
+        print("Breed Table Exists")
+        return False
+    except:
+        print("Creating Table")
+        statement = '''
+            CREATE TABLE 'Breeds' (
+                'Id' INTEGER PRIMARY KEY AUTOINCREMENT,
+                'Breed' TEXT,
+                'Group' TEXT,
+                'Origin' TEXT,
+                'Other' TEXT,
+                'Other' TEXT,
+                'Other' TEXT
+            );
+        '''
+        cur.execute(statement)
+        conn.commit()
+        return True
+
+
+
+def insert_breeds(breed_dict, db_name= DBNAME):
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        img_keys = sorted(list(breed_dict.keys()))
+        for key in img_keys:
+            img = img_dict[key]
+            insertion = (key, img.image_url, img.title, img.username, img.content_url, img.license_url, 0)
+            statement = 'INSERT INTO Images (Breed, Image_Url, Title, Username, Content_Url, License_Url, Breed_Id) '
+            statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
+            cur.execute(statement, insertion)
+            conn.commit()
+        conn.close()
+
+    except Exception as e:
+        print(e)
+
+
+
+
+
+
 ############################################################
 #
 #   DATABASE - Calling all of the above code
