@@ -606,15 +606,16 @@ def insert_images(img_dict, db_name= DBNAME):
         cur = conn.cursor()
         img_keys = sorted(list(img_dict.keys()))
         for key in img_keys:
-            for img in img_keys[key]:
-                insertion = (key, img.image_url, img.title, img.username, img.content_url, img.license_url, 0)
-                statement = 'INSERT INTO Images (Breed, Image_Url, Title, Username, Content_Url, License_Url, Breed_Id) '
-                statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
-                cur.execute(statement, insertion)
-                conn.commit()
+            img = img_dict[key]
+            insertion = (key, img.image_url, img.title, img.username, img.content_url, img.license_url, 0)
+            statement = 'INSERT INTO Images (Breed, Image_Url, Title, Username, Content_Url, License_Url, Breed_Id) '
+            statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
+            cur.execute(statement, insertion)
+            conn.commit()
         conn.close()
 
-
+    except Exception as e:
+        print(e)
 ############################################################
 #
 #   DATABASE - Calling all of the above code
@@ -639,7 +640,8 @@ def init_db(db_name, dog_dict, shelter_dict, img_dict):
              insert_shelters(shelter_dict, db_name = db_name)
              update_shelters(conn, cur)
         if checkc:
-            insert_images(img_dict, db_name = db_name)
+            pass
+        insert_images(img_dict, db_name = db_name)
         conn.close()
     except Exception as e:
         print(e)
@@ -662,25 +664,25 @@ init_db(DBNAME, DOG_DICT, SHELTER_DICT, BREED_IMGS)
 
 
 
-try:
-    conn = sqlite3.connect(DBNAME)
-    cur = conn.cursor()
-    statement = '''select dogs.Breed from Dogs
-group by breed '''
-
-    bars_data = conn.execute(statement)
-    line = bars_data.fetchall()
-
-    print(len(line))
-    print(len(DOG_DICT))
-    key_list = list(DOG_DICT.keys())
-    # print(key_list)
-    # for i in range(len(key_list)):
-    #     print(line[i], key_list[i])
-
-
-except Exception as e:
-    print(e)
+# try:
+#     conn = sqlite3.connect(DBNAME)
+#     cur = conn.cursor()
+#     statement = '''select dogs.Breed from Dogs
+# group by breed '''
+#
+#     bars_data = conn.execute(statement)
+#     line = bars_data.fetchall()
+#
+#     print(len(line))
+#     print(len(DOG_DICT))
+#     key_list = list(DOG_DICT.keys())
+#     # print(key_list)
+#     # for i in range(len(key_list)):
+#     #     print(line[i], key_list[i])
+#
+#
+# except Exception as e:
+#     print(e)
 
 print('\n')
 print("***"*20)
