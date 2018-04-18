@@ -13,6 +13,10 @@ class TestDatabase(unittest.TestCase):
         result_list = results.fetchall()
         self.assertIn(('Wookie',), result_list)
         self.assertEqual(len(result_list), 4166)
+        sql = 'SELECT Name, Breed FROM Dogs'
+        results = cur.execute(sql)
+        result_list = results.fetchall()
+        self.assertIn(('Delilah', 'Pug'), result_list)
 
 
 if __name__ == '__main__':

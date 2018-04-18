@@ -640,8 +640,7 @@ def init_db(db_name, dog_dict, shelter_dict, img_dict):
              insert_shelters(shelter_dict, db_name = db_name)
              update_shelters(conn, cur)
         if checkc:
-            pass
-        insert_images(img_dict, db_name = db_name)
+            insert_images(img_dict, db_name = db_name)
         conn.close()
     except Exception as e:
         print(e)
