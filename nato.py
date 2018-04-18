@@ -454,7 +454,21 @@ BREED_GROUPS = {
 }
 
 
-
+DOG_IMGS_NOT_FOUND = {
+"Appenzell Mountain Dog": 'Appenzeller Sennenhund',
+"Cane Corso Mastiff": 'Cane Corso',
+"Caucasian Sheepdog / Caucasian Ovtcharka": 'Caucasian Shepherd',
+"Dandi Dinmont Terrier": 'Dandie Dinmont Terrier',
+"Galgo Spanish Greyhound": 'Spanish Galgo',
+"Hamiltonstovare": 'American Foxhound',
+"Norwegian Lundehund": 'Lundehund',
+"Podengo Portugueso": 'Podengo',
+"Scottish Terrier Scottie" : 'Scottish Terrier',
+"Shetland Sheepdog Sheltie" : 'Shetland,Sheepdog',
+"Tosa Inu" : 'Japanese Tosa',
+"West Highland White Terrier Westie": 'Westie',
+"Yorkshire Terrier Yorkie": 'Yorkshire Terrier',
+}
 
 
 

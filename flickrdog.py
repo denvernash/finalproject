@@ -75,14 +75,20 @@ def sorted_search_params(baseurl, params, private_keys=["api_key", 'key']):
             acc.append("{}-{}".format(item, params[item]))
     return baseurl + "_".join(acc)
 
-def search_photos_params(search, amount = 1):
+def search_photos_params(search, cuttags=True, amount = 1):
     params= {}
     params["api_key"] = flickr_key
-    params["tags"] = search + ',dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,-postcardsforthelunchbag,-watercolor'
+    if cuttags:
+        params["tags"] = search + ',dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,'
+        '-postcardsforthelunchbag,-watercolor,-blackie,-closeup,-nose,-leona,-origami,-glass,-jug,-waterfall,'
+        '-confirmation,-berkeley,-groomingtreatment,-fdsflickrtoys,-tillie,-taiwan'
+    else:
+        params['tags'] = search
     params["tag_mode"] = "all"
     params['sort'] = 'interestingness-desc'
     params['content_type'] = '1'
     params["method"] = "flickr.photos.search"
+    params['media'] = 'photos'
     params["per_page"] = amount
     params["format"] = 'json'
     params['license'] = '1,2,3,4,5,6'
@@ -99,13 +105,17 @@ def info_photos_params(photoid, secret):
 
 
 CALL_LIMIT = 0
+DUM1 = True
 # get flicker image data from seach parameters for dogs
 def get_flickr_img(params):
     baseurl = "https://api.flickr.com/services/rest/"
+    global DUM1
     global CALL_LIMIT
     uniq_id = sorted_search_params(baseurl, params)
     if uniq_id in CACHE_FDICTION:
-        print("Returning cache data")
+        if DUM1:
+            print("Returning cache data")
+            DUM1 = False
         return CACHE_FDICTION[uniq_id]
     elif CALL_LIMIT >= 3500:
         sys.exit("You have reached the Flickr call limit per hour")
@@ -123,9 +133,9 @@ def get_flickr_img(params):
 
 
 # creating the url to the online photo
-def create_image(search, amount = 1, size=''):
+def create_image(search, cuttags=True, amount = 1, size=''):
     list_images =[]
-    image_data = get_flickr_img(search_photos_params(search, amount))
+    image_data = get_flickr_img(search_photos_params(search, cuttags, amount))
     for img in image_data['photos']['photo']:
         imagex = Image(img, size)
         imagex.get_attribution_data()
@@ -143,32 +153,91 @@ def time_delay(number = 15):
 # to_test = (create_image(img_search))[0]
 # webbrowser.open(to_test.content_url)
 
+
+not_found_list = [
+"Appenzell Mountain Dog",
+"Black and Tan Coonhound",
+"Cane Corso Mastiff",
+"Caucasian Sheepdog / Caucasian Ovtcharka",
+"Dandi Dinmont Terrier",
+"Galgo Spanish Greyhound",
+"Hamiltonstovare",
+"Kyi Leo",
+"Mountain Cur",
+"Norwegian Lundehund",
+"Podengo Portugueso",
+"Scottish Terrier Scottie",
+"Shetland Sheepdog Sheltie",
+"Tosa Inu",
+"West Highland White Terrier Westie",
+"Yorkshire Terrier Yorkie",
+]
+
+
 def create_dog_images(breed_list, amount = 1, size=''):
     breed_imgs = {}
+    global DOG_IMGS_NOT_FOUND
+    not_found_list = [
+    "Appenzell Mountain Dog",
+    "Black and Tan Coonhound",
+    "Cane Corso Mastiff",
+    "Caucasian Sheepdog / Caucasian Ovtcharka",
+    "Dandi Dinmont Terrier",
+    "Galgo Spanish Greyhound",
+    "Hamiltonstovare",
+    "Kyi Leo",
+    "Mountain Cur",
+    "Norwegian Lundehund",
+    "Podengo Portugueso",
+    "Scottish Terrier Scottie",
+    "Shetland Sheepdog Sheltie",
+    "Tosa Inu",
+    "West Highland White Terrier Westie",
+    "Yorkshire Terrier Yorkie",
+    ]
     not_found = []
     for breed in breed_list:
-        try:
-            dog = breed.split("/")[0].split("(")[0].strip()
-            print(dog)
-            img = create_image(dog, amount, size)[0]
-            print(img.content_url)
-            breed_imgs[breed] = img
-            # time_delay(10)
-        except:
+        if breed not in not_found_list:
+            try:
+                dog = breed.split("/")[0].split("(")[0].strip()
+                img = create_image(dog, True, amount, size)[0]
+                breed_imgs[breed] = img
+                # time_delay(10)
+            except:
+                not_found.append(breed)
+        elif breed in not_found_list:
+            try:
+                dog = breed.split("/")[0].split("(")[0].strip()
+                # print(dog)
+                img = create_image(dog, False, amount, size)[0]
+                # print(img.content_url)
+                breed_imgs[breed] = img
+                # time_delay(10)
+            except:
+                not_found.append(breed)
+        else:
             not_found.append(breed)
-    print("Not Found \n")
-    for dog in not_found:
-        print(dog)
+    if len(not_found) > 0:
+        for breed in not_found:
+            if breed in DOG_IMGS_NOT_FOUND:
+                try:
+                    img = create_image(DOG_IMGS_NOT_FOUND[breed], False, amount, size)[0]
+                    breed_imgs[breed] = img
+                    # print(img.content_url)
+                except:
+                    print("COULDNT FIND")
+                    print('"{}",'.format(breed))
+            else:
+                print('"{}",'.format(breed))
     return breed_imgs
 
-BREED_IMGS = create_dog_images(LIST_OF_BREEDS[:50])
-# webbrowser.open(BREED_IMGS[LIST_OF_BREEDS[0]].content_url)
+# print(len(LIST_OF_BREEDS))
+BREED_IMGS = create_dog_images(LIST_OF_BREEDS)
+for breed in list(BREED_IMGS.keys()):
+    if breed not in LIST_OF_BREEDS:
+        print(breed)
 
-# image_datum = get_flickr_img(info_photos_params('28426106799', '182b6ee552'))
-# print(image_datum['photo']['license'])
 
-
-# webbrowser.open(img.content_url)
 
 
 
