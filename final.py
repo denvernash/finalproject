@@ -113,12 +113,6 @@ class Dog():
             return False
 
 
-
-# breed class
-class Breed():
-    def __init__(self, breed_dict):
-        self.kind = ''
-
 # shelter class
 class Shelter():
     def __init__(self, shelter_dict, id):
