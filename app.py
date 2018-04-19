@@ -1,6 +1,6 @@
 
-from flask import Flask, render_template
-import requests
+from flask import Flask, render_template, request
+import model
 app = Flask(__name__)
 
 
@@ -10,20 +10,20 @@ def index():
 
 @app.route("/map")
 def map():
-    return render_template("index.html")
+    return render_template("map.html")
 
-@app.route("/dogs", methods=['GET', 'POST'])
+@app.route("/breeds", methods=['GET', 'POST'])
 def dogs():
     if request.method == 'POST':
         sortby = request.form['sortby']
         sortorder = request.form['sortorder']
-        dogs_list = model.get_dogs_listing(sortby, sortorder)
+        dogs_list = model.get_breeds_listing(sortby, sortorder)
     else:
-        dogs_list = model.get_dogs_listing()
-    return render_template("dogs.html", dogs_list= dogs_list)
+        dogs_list = model.get_breeds_listing()
+    return render_template("breeds.html", breeds_list= dogs_list)
 
 
 
 if __name__=="__main__":
-    model.init_dogs()
+    model.init_breeds()
     app.run(debug=True)

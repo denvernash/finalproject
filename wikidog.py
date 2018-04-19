@@ -273,7 +273,18 @@ def update_tables_from_breeds(conn, cur):
     cur.execute(statement)
     conn.commit()
 
-
+def alter_breeds_table(conn, cur):
+    statement= '''ALTER TABLE Breeds ADD COLUMN Tally INT'''
+    cur.execute(statement)
+    conn.commit()
+    statement=   ''' update Breeds set Tally = ( select count(*) FROM Dogs where
+    breeds.id = dogs.Breed_Id group by breed ) WHERE EXISTS
+    (  SELECT *  FROM Dogs  where breeds.id = dogs.Breed_Id group by breed ) '''
+    cur.execute(statement)
+    conn.commit()
+    statement = ''' update Breeds set tally = 0 where tally is Null '''
+    cur.execute(statement)
+    conn.commit()
 
 def init_db_breeds(db_name, dog_breeds):
     try:
@@ -283,6 +294,7 @@ def init_db_breeds(db_name, dog_breeds):
         if checkd:
             insert_breeds(dog_breeds, db_name = db_name)
             update_tables_from_breeds(conn, cur)
+            alter_breeds_table(conn, cur)
     except Exception as e:
         print(e)
 

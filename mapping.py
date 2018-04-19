@@ -29,8 +29,10 @@ class Display_Breed():
         self.color = row[7]
         self.life_span = row[8]
         self.litter_size = row[9]
+        self.count = row[10]
     def __str__(self):
         return self.id
+
 
 class Display_Image():
     def __init__(self, row):
@@ -269,4 +271,4 @@ DISPLAY_BREED_LIST = generate_display_breeds()
 
 
 
-plot_sites_for_shelter(DISPLAY_SHELTER_LIST, DISPLAY_DOG_LIST, 'Boston Terrier')
+# plot_sites_for_shelter(DISPLAY_SHELTER_LIST, DISPLAY_DOG_LIST, 'Boston Terrier')

@@ -1,14 +1,15 @@
 
-<link rel="stylesheet" href="/static/master.css">
+<link rel="stylesheet" href="../static/master.css">
 
 <h1> All Dog Breed Types </h1>
 
 
-<form action="/dogs" method="POST">
+<form action="/breeds" method="POST">
     Sort By:<br/>
     <input type="radio" name="sortby" value="breed"/> Breed <br/>
     <input type="radio" name="sortby" value="breed_group"/> Breed_Group <br/>
     <input type="radio" name="sortby" value="origin"/> Origin <br/>
+    <input type="radio" name="sortby" value="count"/> Count <br/>
     <br/>
     Sort Order:<br/>
     <input type="radio" name="sortorder" value="asc"/> Ascending <br/>
@@ -23,16 +24,19 @@
 
 <table border=1>
     <tr>
+        <th>Id</th>
         <th>Breed</th>
         <th>Breed_Group</th>
         <th>Origin</th>
+        <th>Count</th>
     </tr>
-{% for dog in dogs_list %}
+{% for dog in breeds_list %}
     <tr>
         <td>{{dog[0]}}</td>
         <td>{{dog[1]}}</td>
         <td>{{dog[2]}}</td>
         <td>{{dog[3]}}</td>
+        <td>{{dog[4]}}</td>
     </tr>
 {% endfor %}
 </table>

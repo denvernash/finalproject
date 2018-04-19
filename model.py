@@ -1,32 +1,36 @@
-#model.py
-import csv
 
+from mapping import *
 DBNAME = 'dogs.db'
 
-dogs_list = []
+app_breed_list = []
+app_map_list = []
+
+def init_breeds(list_of_breeds = DISPLAY_BREED_LIST):
+    global app_breed_list
+    for breed in list_of_breeds:
+        breed_display = []
+        breed_display.append(breed.id)
+        breed_display.append(breed.breed)
+        breed_display.append(breed.breed_group)
+        breed_display.append(breed.origin)
+        breed_display.append(breed.count)
+        app_breed_list.append(breed_display)
 
 
-def init_dogs(db_name=DBNAME):
-    global dogs_list
-    with open(csv_file_name) as f:
-        reader = csv.reader(f)
-        next(reader) # throw away headers
-        next(reader) # throw away headers
-        global bb_seasons
-        bb_seasons = [] # reset, start clean
-        for r in reader:
-            r[3] = int(r[3])
-            r[4] = int(r[4])
-            r[5] = float(r[5])
-            bb_seasons.append(r)
-
-
-def get_dogs_listing(sortby='breed', sortorder='asc'):
+def get_breeds_listing(sortby='breed', sortorder='asc'):
     if sortby == 'breed':
         sortcol = 1
     elif sortby == 'breed_group':
         sortcol = 2
     elif sortby == 'origin':
         sortcol = 3
+    elif sortby == 'count':
+        sortcol = 4
     else:
         sortcol = 0
+    rev = (sortorder == 'desc')
+    sorted_list = sorted(app_breed_list, key=lambda row: row[sortcol], reverse=rev)
+    return sorted_list
+
+def get_maps(shelters = DISPLAY_SHELTER_LIST, dogs = DISPLAY_DOG_LIST, breed = 'Boston Terrier'):
+    pass
