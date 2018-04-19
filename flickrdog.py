@@ -213,7 +213,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
     return breed_imgs
 
 # print(len(LIST_OF_BREEDS))
-BREED_IMGS = create_dog_images(LIST_OF_BREEDS[140:160])
+BREED_IMGS = create_dog_images(LIST_OF_BREEDS[160:180])
 # key_list = sorted(list(BREED_IMGS.keys()))
 # for i in range(len(key_list)):
 #     if sorted(LIST_OF_BREEDS)[i] != key_list[i]:
