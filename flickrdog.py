@@ -3,6 +3,7 @@ import json
 from nato import *
 from secrets import *
 import webbrowser
+import time
 
 CACHE_FFNAME = "flickr.json"
 
@@ -183,7 +184,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
                 dog = breed.split("/")[0].split("(")[0].strip()
                 img = create_image(dog, True, amount, size)[0]
                 breed_imgs[breed] = img
-                # time_delay(10)
+                # time_delay(1)
             except:
                 not_found.append(breed)
         elif breed in special_dog_list:
@@ -193,7 +194,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
                 img = create_image(dog, False, amount, size)[0]
                 # print(img.content_url)
                 breed_imgs[breed] = img
-                # time_delay(10)
+                # time_delay(1)
             except:
                 not_found.append(breed)
         else:
@@ -212,7 +213,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
     return breed_imgs
 
 # print(len(LIST_OF_BREEDS))
-BREED_IMGS = create_dog_images(LIST_OF_BREEDS)
+BREED_IMGS = create_dog_images(LIST_OF_BREEDS[50:100])
 # key_list = sorted(list(BREED_IMGS.keys()))
 # for i in range(len(key_list)):
 #     if sorted(LIST_OF_BREEDS)[i] != key_list[i]:
