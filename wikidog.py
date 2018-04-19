@@ -254,16 +254,49 @@ def insert_breeds(breed_dict, db_name= DBNAME):
     except Exception as e:
         print(e)
 
+
+
+def update_tables_from_breeds(conn, cur):
+    statement= '''
+    update Images set Breed_Id = (select Breeds.Id FROM Breeds  WHERE Breeds.Breed = Images.Breed )
+    WHERE EXISTS (  SELECT *  FROM Breeds  WHERE Breeds.Breed = Images.Breed  ) '''
+    cur.execute(statement)
+    conn.commit()
+    statement= '''
+    update Dogs set Breed_Id = (select Breeds.Id FROM Breeds WHERE Breeds.Breed = Dogs.Breed )
+    WHERE EXISTS ( SELECT * FROM Breeds WHERE Breeds.Breed = Dogs.Breed ) '''
+    cur.execute(statement)
+    conn.commit()
+    statement='''
+    update Dogs  set MixBreed_Id = (select Breeds.Id 	FROM Breeds  WHERE Breeds.Breed = Dogs.MixBreed )
+    WHERE EXISTS  (  SELECT * FROM Breeds WHERE Breeds.Breed = Dogs.MixBreed  ) '''
+    cur.execute(statement)
+    conn.commit()
+
+
+
 def init_db_breeds(db_name, dog_breeds):
     try:
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
         checkd = check_breeds(conn, cur)
         if checkd:
-            pass
-        insert_breeds(dog_breeds, db_name = db_name)
+            insert_breeds(dog_breeds, db_name = db_name)
+            update_tables_from_breeds(conn, cur)
     except Exception as e:
         print(e)
+
+
+
+############################################################
+#
+#   Calling Code
+#
+#
+############################################################
+
+
+
 
 DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS)
 init_db_breeds(DBNAME, DOG_BREED_DICT)
