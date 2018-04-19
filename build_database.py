@@ -614,59 +614,6 @@ def insert_images(img_dict, db_name= DBNAME):
 
 
 
-############################################################
-#
-#   DATABASE - Breeds
-#
-#
-############################################################
-
-
-def check_breeds(conn, cur):
-    try:
-        simple_check = "SELECT * FROM 'Breeds'"
-        cur.execute(simple_check)
-        print("Breed Table Exists")
-        return False
-    except:
-        print("Creating Table")
-        statement = '''
-            CREATE TABLE 'Breeds' (
-                'Id' INTEGER PRIMARY KEY AUTOINCREMENT,
-                'Breed' TEXT,
-                'Group' TEXT,
-                'Origin' TEXT,
-                'Other' TEXT,
-                'Other' TEXT,
-                'Other' TEXT
-            );
-        '''
-        cur.execute(statement)
-        conn.commit()
-        return True
-
-
-
-def insert_breeds(breed_dict, db_name= DBNAME):
-    try:
-        conn = sqlite3.connect(db_name)
-        cur = conn.cursor()
-        img_keys = sorted(list(breed_dict.keys()))
-        for key in img_keys:
-            img = img_dict[key]
-            insertion = (key, img.image_url, img.title, img.username, img.content_url, img.license_url, 0)
-            statement = 'INSERT INTO Images (Breed, Image_Url, Title, Username, Content_Url, License_Url, Breed_Id) '
-            statement += 'VALUES (?, ?, ?, ?, ?, ?, ?)'
-            cur.execute(statement, insertion)
-            conn.commit()
-        conn.close()
-
-    except Exception as e:
-        print(e)
-
-
-
-
 
 
 ############################################################
@@ -715,26 +662,6 @@ SHELTER_DICT = create_shelters(get_shelter_dict(DOG_DICT))
 init_db(DBNAME, DOG_DICT, SHELTER_DICT, BREED_IMGS)
 
 
-
-# try:
-#     conn = sqlite3.connect(DBNAME)
-#     cur = conn.cursor()
-#     statement = '''select dogs.Breed from Dogs
-# group by breed '''
-#
-#     bars_data = conn.execute(statement)
-#     line = bars_data.fetchall()
-#
-#     print(len(line))
-#     print(len(DOG_DICT))
-#     key_list = list(DOG_DICT.keys())
-#     # print(key_list)
-#     # for i in range(len(key_list)):
-#     #     print(line[i], key_list[i])
-#
-#
-# except Exception as e:
-#     print(e)
 
 print('\n')
 print("***"*20)
