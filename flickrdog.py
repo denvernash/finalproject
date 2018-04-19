@@ -2,7 +2,7 @@ import requests
 import json
 from nato import *
 from secrets import *
-import webbrowser
+# import webbrowser
 import time
 
 CACHE_FFNAME = "flickr.json"
@@ -213,14 +213,11 @@ def create_dog_images(breed_list, amount = 1, size=''):
                 print(breed)
     return breed_imgs
 
-# print(len(LIST_OF_BREEDS))
+
 BREED_IMGS = create_dog_images(LIST_OF_BREEDS)
-print(len(BREED_IMGS))
-print(len(LIST_OF_BREEDS))
-# key_list = sorted(list(BREED_IMGS.keys()))
-# for i in range(len(key_list)):
-#     if sorted(LIST_OF_BREEDS)[i] != key_list[i]:
-#         print('{}  ,    {}'.format(LIST_OF_BREEDS[i], key_list[i]))
+# print(len(BREED_IMGS))
+# print(len(LIST_OF_BREEDS))
+
 
 
 
