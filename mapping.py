@@ -65,10 +65,15 @@ class Display_Dog():
         self.description = row[13]
         self.shelter_id = row[14]
     def __str__(self):
-        if self.mix == "No":
-            return("Hi! I'm {}  -  a(n) {}".format(self.name, self.breed))
+        conjunction = ['A',"E","I","O","U"]
+        if self.breed[0] in conjunction:
+            cat = 'an'
         else:
-            return("Hi! I'm {}  -  a(n) {} Mix".format(self.name, self.breed))
+            cat = 'a'
+        if self.mix == "No":
+            return("Hi! I'm {} - {} {} at {}".format(self.name, cat, self.breed, self.shelter_id))
+        else:
+            return("Hi! I'm {} - {} {} Mix at {}".format(self.name, cat, self.breed, self.shelter_id))
 
 
 def generate_display_shelters(db_name = DBNAME):
@@ -159,6 +164,8 @@ def get_geo_dict(shelter_list, dog_list, breed_type):
         else:
             lons.append(shell.lon)
             lats.append(shell.lat)
+            for x in text:
+                x.replace(shell.id, shell.name)
 
 
     site_dict['lon'] = lons
@@ -258,8 +265,8 @@ def plot_sites_for_shelter(shelter_list, dog_list, breed_type):
     layout = plot_layout(layout_lats(find_max_vals(site_dict)))
 
     fig = dict(data=data, layout=layout )
-    py.plot( fig, validate=False, filename='Adoption Shelters Across USA')
-
+    div = py.plot( fig, validate=False, filename='Adoption Shelters Across USA')
+    return div
 
 
 

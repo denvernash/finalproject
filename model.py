@@ -36,5 +36,10 @@ def get_breeds_listing(sortby='breed', sortorder='asc'):
     sorted_list = sorted(app_breed_list, key=lambda row: row[sortcol], reverse=rev)
     return sorted_list
 
-def get_maps(shelters = DISPLAY_SHELTER_LIST, dogs = DISPLAY_DOG_LIST, breed = 'Boston Terrier'):
-    pass
+def get_maps(to_look_up = 1, shelters = DISPLAY_SHELTER_LIST, dogs = DISPLAY_DOG_LIST, breeds = DISPLAY_BREED_LIST):
+    i = int(to_look_up) - 1
+    breed = DISPLAY_BREED_LIST[i].breed
+    return plot_sites_for_shelter(DISPLAY_SHELTER_LIST, DISPLAY_DOG_LIST, breed)
+
+def get_images(number, images = DISPLAY_IMAGE_LIST):
+    i = int(number) - 1

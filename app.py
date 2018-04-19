@@ -9,8 +9,9 @@ def index():
     return render_template("index.html")
 
 @app.route("/map/<nm>")
-def map():
-    return render_template("map.html")
+def map(nm):
+    model.get_maps(to_look_up = nm)
+    return render_template("index.html")
 
 @app.route("/breeds", methods=['GET', 'POST'])
 def dogs():
