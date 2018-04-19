@@ -129,11 +129,23 @@ def generate_display_breeds(db_name = DBNAME):
 
 
 
-DISPLAY_SHELTER_LIST = generate_display_shelters()
-DISPLAY_DOG_LIST = generate_display_dogs()
-DISPLAY_IMAGE_LIST = generate_display_images()
-DISPLAY_BREED_LIST = generate_display_breeds()
 
+
+
+
+def get_geo_dict(shelter_list):
+    site_dict = {}
+    lons = []
+    lats = []
+    text = []
+    for shell in shelter_list:
+        lons.append(shell.lon)
+        lats.append(shell.lat)
+        text.append(shell.name)
+    site_dict['lon'] = lons
+    site_dict['lat'] = lats
+    site_dict['text'] = text
+    return site_dict
 
 
 def plot_trace(site_dict, name= "object", symb = 'star', col = 'purple', size = 15):
@@ -219,3 +231,25 @@ def plot_layout(pad_dict):
             ),
         )
     return layout
+
+
+def plot_sites_for_shelter(shelter_list):
+    site_dict = get_geo_dict(shelter_list)
+    data = plot_trace(site_dict, "Adoption Shelters")
+    layout = plot_layout(layout_lats(find_max_vals(site_dict)))
+
+    fig = dict(data=data, layout=layout )
+    py.plot( fig, validate=False, filename='Adoption Shelters Across USA')
+
+
+
+
+DISPLAY_SHELTER_LIST = generate_display_shelters()
+DISPLAY_DOG_LIST = generate_display_dogs()
+DISPLAY_IMAGE_LIST = generate_display_images()
+DISPLAY_BREED_LIST = generate_display_breeds()
+
+
+
+
+plot_sites_for_shelter(DISPLAY_SHELTER_LIST)
