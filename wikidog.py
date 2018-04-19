@@ -1,5 +1,5 @@
 #   this file takes a long time to run even with the cache, thats why I have it seperate
-
+import sqlite3
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -11,7 +11,7 @@ import time
 print("***"*20)
 print('\n')
 
-
+DBNAME = 'dog.db'
 CACHE_WFNAME = "wiki.json"
 
 try:
@@ -199,16 +199,74 @@ def create_wiki_dict(breed_list):
     return wiki_dict
 
 
+
+
+############################################################
+#
+#   DATABASE - Breeds
+#
+#
+############################################################
+
+
+def check_breeds(conn, cur):
+    try:
+        simple_check = "SELECT * FROM 'Breeds'"
+        cur.execute(simple_check)
+        print("Breed Table Exists")
+        return False
+    except:
+        print("Creating Table")
+        statement = '''
+            CREATE TABLE 'Breeds' (
+                'Id' INTEGER PRIMARY KEY AUTOINCREMENT,
+                'Breed' TEXT,
+                'Breed_Group' TEXT,
+                'Origin' TEXT,
+                'Height' TEXT,
+                'Weight' TEXT,
+                'Coat' TEXT,
+                'Color' TEXT,
+                'Life_Span' TEXT,
+                'Litter_Size' TEXT
+
+            );
+        '''
+        cur.execute(statement)
+        conn.commit()
+        return True
+
+
+def insert_breeds(breed_dict, db_name= DBNAME):
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        breed_keys = sorted(list(breed_dict.keys()))
+        for key in breed_keys:
+            breed = breed_dict[key]
+            insertion = (breed.kind, breed.group, breed.origin, breed.height, breed.weight, breed.coat, breed.color, breed.life_span, breed.litter_size)
+            statement = 'INSERT INTO Breeds (Breed, Breed_Group, Origin, Height, Weight, Coat, Color, Life_Span, Litter_Size) '
+            statement += 'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
+            cur.execute(statement, insertion)
+            conn.commit()
+        conn.close()
+
+    except Exception as e:
+        print(e)
+
+def init_db_breeds(db_name, dog_breeds):
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        checkd = check_breeds(conn, cur)
+        if checkd:
+            pass
+        insert_breeds(dog_breeds, db_name = db_name)
+    except Exception as e:
+        print(e)
+
 DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS)
-
-############################################################
-#
-#   Database - Breeds
-#
-#
-############################################################
-
-
+init_db_breeds(DBNAME, DOG_BREED_DICT)
 
 print('\n')
 print("***"*20)
