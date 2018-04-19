@@ -63,7 +63,10 @@ class Display_Dog():
         self.description = row[13]
         self.shelter_id = row[14]
     def __str__(self):
-        return self.id
+        if self.mix == "No":
+            return("Hi! I'm {}  -  a(n) {}".format(self.name, self.breed))
+        else:
+            return("Hi! I'm {}  -  a(n) {} Mix".format(self.name, self.breed))
 
 
 def generate_display_shelters(db_name = DBNAME):
@@ -116,7 +119,7 @@ def generate_display_breeds(db_name = DBNAME):
     try:
         conn = sqlite3.connect(db_name)
         cur = conn.cursor()
-        sql = 'SELECT * FROM Images'
+        sql = 'SELECT * FROM Breeds'
         results = cur.execute(sql)
         result_list = results.fetchall()
         for tupp in result_list:
@@ -133,22 +136,36 @@ def generate_display_breeds(db_name = DBNAME):
 
 
 
-def get_geo_dict(shelter_list):
+def get_geo_dict(shelter_list, dog_list, breed_type):
+    parsing = []
+    text = []
+    for dog in dog_list:
+        if dog.breed != breed_type:
+            pass
+        else:
+            parsing.append(dog.shelter_id)
+            text.append(str(dog))
     site_dict = {}
     lons = []
     lats = []
-    text = []
+
     for shell in shelter_list:
-        lons.append(shell.lon)
-        lats.append(shell.lat)
-        text.append(shell.name)
+        if shell.country != "USA":
+            pass
+        if shell.id not in parsing:
+            pass
+        else:
+            lons.append(shell.lon)
+            lats.append(shell.lat)
+
+
     site_dict['lon'] = lons
     site_dict['lat'] = lats
     site_dict['text'] = text
     return site_dict
 
 
-def plot_trace(site_dict, name= "object", symb = 'star', col = 'purple', size = 15):
+def plot_trace(site_dict, name= "object", symb = 'line', col = 'red', size = 15):
     trace1 = dict(
             type = 'scattergeo',
             locationmode = 'USA-states',
@@ -201,7 +218,7 @@ def layout_lats(max_dict):
     center_lon = (max_lon+min_lon) / 2
 
     max_range = max(abs(max_lat - min_lat), abs(max_lon - min_lon))
-    padding = max_range * .10
+    padding = max_range * .20
     lat_axis = [min_lat - padding, max_lat + padding]
     lon_axis = [min_lon - padding, max_lon + padding]
     pad_dict = {}
@@ -215,7 +232,7 @@ def layout_lats(max_dict):
 
 def plot_layout(pad_dict):
     layout = dict(
-            title = 'National Sites and Nearby Places',
+            title = 'Adoption Shelters',
             geo = dict(
                 scope='usa',
                 projection=dict( type='albers usa' ),
@@ -233,8 +250,8 @@ def plot_layout(pad_dict):
     return layout
 
 
-def plot_sites_for_shelter(shelter_list):
-    site_dict = get_geo_dict(shelter_list)
+def plot_sites_for_shelter(shelter_list, dog_list, breed_type):
+    site_dict = get_geo_dict(shelter_list, dog_list, breed_type)
     data = plot_trace(site_dict, "Adoption Shelters")
     layout = plot_layout(layout_lats(find_max_vals(site_dict)))
 
@@ -252,4 +269,4 @@ DISPLAY_BREED_LIST = generate_display_breeds()
 
 
 
-plot_sites_for_shelter(DISPLAY_SHELTER_LIST)
+plot_sites_for_shelter(DISPLAY_SHELTER_LIST, DISPLAY_DOG_LIST, 'Boston Terrier')
