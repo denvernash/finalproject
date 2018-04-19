@@ -1,3 +1,5 @@
+#   this file takes a long time to run even with the cache, thats why I have it seperate
+
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -199,7 +201,12 @@ def create_wiki_dict(breed_list):
 
 DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS)
 
-
+############################################################
+#
+#   Database - Breeds
+#
+#
+############################################################
 
 
 

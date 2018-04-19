@@ -8,7 +8,6 @@ import string
 from secrets import *
 from nato import *
 from flickrdog import BREED_IMGS
-from wikidog import DOG_BREED_DICT
 
 
 DBNAME = 'dog.db'
