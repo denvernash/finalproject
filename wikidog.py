@@ -69,7 +69,7 @@ def soup_data_cache(search_url):
         data = ((CACHE_WDICTION[search_url]))
         if DUMMY3:
             print("Returning data from cache file")
-            # DUMMY3 = False
+            DUMMY3 = False
         return(soup_it(data))
     else:
         data = requests.get(search_url).text.strip()
@@ -128,7 +128,12 @@ def create_wiki_dict(breed_list):
     timer = 0
     for breed in breed_list:
         breed_to_search = breed.split('/')[0].strip()
-        info = get_wiki_data(breed_to_search)
+        if breed == "Husky":
+            info = get_wiki_data("Siberian" + breed)
+        elif breed == 'Wirehaired Terrier':
+            info = get_wiki_data('Wire Fox Terrier')
+        else:
+            info = get_wiki_data(breed_to_search)
         try:
             try:
                 table = info.find('table', attrs = {'class': 'infobox biota'})
@@ -142,8 +147,8 @@ def create_wiki_dict(breed_list):
                     pass
             timer = (breed_list.index(breed))
             timer += 1
-            print("*****"+ str(timer) + "*****")
-            time_delay(8)
+            # print("*****"+ str(timer) + "*****")
+            # time_delay(20)
             dog_breed = create_breed_dictionary(rows)
 
             table_text = []
@@ -173,18 +178,17 @@ def create_wiki_dict(breed_list):
             wiki_dict[breed] = Breed(breed, dog_breed)
         except:
             not_found.append(breed)
-    print(not_found)
+    # print(not_found)
     return wiki_dict
 
-x = 85
-y = 100
-DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS[x:y])
+
+DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS)
 
 for key in DOG_BREED_DICT:
     pass
     # print(DOG_BREED_DICT[key])
     # print('\n')
-# print(repr(DOG_BREED_DICT['Bullmastiff'].color))
+print((DOG_BREED_DICT['Husky']))
 
 
 
