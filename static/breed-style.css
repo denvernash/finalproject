@@ -1,0 +1,33 @@
+body {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+}
+h1 {
+    font-size: 44;
+    text-align: center;
+    color: black;
+    margin: 0;
+}
+
+.icon{
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+}
+
+table, th, td {
+    border-width: 0.5;
+    border-collapse: collapse;
+    border-style: dashed;
+    padding: 10;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+a:hover {
+  text-decoration: underline;
+}

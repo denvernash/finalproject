@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/map")
+@app.route("/map/<nm>")
 def map():
     return render_template("map.html")
 

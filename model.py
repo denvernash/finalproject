@@ -5,7 +5,7 @@ DBNAME = 'dogs.db'
 app_breed_list = []
 app_map_list = []
 
-def init_breeds(list_of_breeds = DISPLAY_BREED_LIST):
+def init_breeds(list_of_breeds = DISPLAY_BREED_LIST, list_of_images = DISPLAY_IMAGE_LIST):
     global app_breed_list
     for breed in list_of_breeds:
         breed_display = []
@@ -15,7 +15,11 @@ def init_breeds(list_of_breeds = DISPLAY_BREED_LIST):
         breed_display.append(breed.origin)
         breed_display.append(breed.count)
         app_breed_list.append(breed_display)
-
+    for li in app_breed_list:
+        looking = li[0]
+        for image in list_of_images:
+            if looking == image.breed_id:
+                li.append(image.content_url)
 
 def get_breeds_listing(sortby='breed', sortorder='asc'):
     if sortby == 'breed':

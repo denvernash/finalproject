@@ -1,15 +1,19 @@
 
-<link rel="stylesheet" href="../static/master.css">
 
-<h1> All Dog Breed Types </h1>
+<head>
+<link rel="stylesheet" href="../static/breed-style.css">
+<title>Breeds</title>
+</head>
 
+<h1>Dog Breed Types</h1>
+<img class='icon' src="../static/dog-house.png" alt="icon">
 
 <form action="/breeds" method="POST">
     Sort By:<br/>
     <input type="radio" name="sortby" value="breed"/> Breed <br/>
     <input type="radio" name="sortby" value="breed_group"/> Breed_Group <br/>
     <input type="radio" name="sortby" value="origin"/> Origin <br/>
-    <input type="radio" name="sortby" value="count"/> Count <br/>
+    <input type="radio" name="sortby" value="count"/> Count Available <br/>
     <br/>
     Sort Order:<br/>
     <input type="radio" name="sortorder" value="asc"/> Ascending <br/>
@@ -28,15 +32,17 @@
         <th>Breed</th>
         <th>Breed_Group</th>
         <th>Origin</th>
-        <th>Count</th>
+        <th>Count Available</th>
+
     </tr>
 {% for dog in breeds_list %}
     <tr>
         <td>{{dog[0]}}</td>
-        <td>{{dog[1]}}</td>
+        <td><a href= {{dog[5]}} >{{dog[1]}}</a></td>
         <td>{{dog[2]}}</td>
         <td>{{dog[3]}}</td>
         <td>{{dog[4]}}</td>
+
     </tr>
 {% endfor %}
 </table>
