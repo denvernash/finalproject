@@ -1,6 +1,138 @@
+import sqlite3
+import plotly.plotly as py
+
+
+DBNAME = 'dog.db'
+
+
+class Display_Shelter():
+    def __init__(self, row):
+        self.id = row[0]
+        self.name = row[1]
+        self.city = row[2]
+        self.state = row[3]
+        self.country = row[4]
+        self.lat = row[5]
+        self.lon = row[6]
+    def __str__(self):
+        return self.id
+
+class Display_Breed():
+    def __init__(self, row):
+        self.id = row[0]
+        self.breed = row[1]
+        self.breed_group = row[2]
+        self.origin = row[3]
+        self.height = row[4]
+        self.weight = row[5]
+        self.coat = row[6]
+        self.color = row[7]
+        self.life_span = row[8]
+        self.litter_size = row[9]
+    def __str__(self):
+        return self.id
+
+class Display_Image():
+    def __init__(self, row):
+        self.id = row[0]
+        self.breed = row[1]
+        self.breed_id = row[2]
+        self.image_url = row[3]
+        self.title = row[4]
+        self.username = row[5]
+        self.content_url = row[6]
+        self.license_url = row[7]
+    def __str__(self):
+        return self.id
+
+class Display_Dog():
+    def __init__(self, row):
+        self.id = row[0]
+        self.name = row[1]
+        self.breed = row[2]
+        self.breed_id = row[3]
+        self.mix = row[4]
+        self.mixbreed = row[5]
+        self.mixbreed_id = row[6]
+        self.city = row[7]
+        self.state = row[8]
+        self.country = row[9]
+        self.age = row[10]
+        self.sex = row[11]
+        self.size = row[12]
+        self.description = row[13]
+        self.shelter_id = row[14]
+    def __str__(self):
+        return self.id
+
+
+def generate_display_shelters(db_name = DBNAME):
+    listing = []
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        sql = 'SELECT * FROM Shelters'
+        results = cur.execute(sql)
+        result_list = results.fetchall()
+        for tupp in result_list:
+            listing.append(Display_Shelter(tupp))
+        conn.close()
+    except Exception as e:
+        print(e)
+    return listing
+
+def generate_display_dogs(db_name = DBNAME):
+    listing = []
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        sql = 'SELECT * FROM Dogs'
+        results = cur.execute(sql)
+        result_list = results.fetchall()
+        for tupp in result_list:
+            listing.append(Display_Dog(tupp))
+        conn.close()
+    except Exception as e:
+        print(e)
+    return listing
+
+def generate_display_images(db_name = DBNAME):
+    listing = []
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        sql = 'SELECT * FROM Images'
+        results = cur.execute(sql)
+        result_list = results.fetchall()
+        for tupp in result_list:
+            listing.append(Display_Image(tupp))
+        conn.close()
+    except Exception as e:
+        print(e)
+    return listing
+
+def generate_display_breeds(db_name = DBNAME):
+    listing = []
+    try:
+        conn = sqlite3.connect(db_name)
+        cur = conn.cursor()
+        sql = 'SELECT * FROM Images'
+        results = cur.execute(sql)
+        result_list = results.fetchall()
+        for tupp in result_list:
+            listing.append(Display_Breed(tupp))
+        conn.close()
+    except Exception as e:
+        print(e)
+    return listing
 
 
 
+
+DISPLAY_SHELTER_LIST = generate_display_shelters()
+DISPLAY_DOG_LIST = generate_display_dogs()
+DISPLAY_IMAGE_LIST = generate_display_images()
+DISPLAY_BREED_LIST = generate_display_breeds()
 
 
 
