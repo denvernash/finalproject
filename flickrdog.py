@@ -176,6 +176,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
     "Tosa Inu",
     "West Highland White Terrier Westie",
     "Yorkshire Terrier Yorkie",
+    'Sussex Spaniel',
     ]
     not_found = []
     for breed in breed_list:
@@ -184,7 +185,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
                 dog = breed.split("/")[0].split("(")[0].strip()
                 img = create_image(dog, True, amount, size)[0]
                 breed_imgs[breed] = img
-                time_delay(5)
+                # time_delay(5)
             except:
                 not_found.append(breed)
         elif breed in special_dog_list:
@@ -207,13 +208,15 @@ def create_dog_images(breed_list, amount = 1, size=''):
                     breed_imgs[breed] = img
                     # print(img.content_url)
                 except:
-                    pass
+                    print(breed)
             else:
-                pass
+                print(breed)
     return breed_imgs
 
 # print(len(LIST_OF_BREEDS))
-BREED_IMGS = create_dog_images(LIST_OF_BREEDS[200:220])
+BREED_IMGS = create_dog_images(LIST_OF_BREEDS)
+print(len(BREED_IMGS))
+print(len(LIST_OF_BREEDS))
 # key_list = sorted(list(BREED_IMGS.keys()))
 # for i in range(len(key_list)):
 #     if sorted(LIST_OF_BREEDS)[i] != key_list[i]:
