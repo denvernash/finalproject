@@ -29905,5 +29905,3872 @@
       "media": "photo"
     },
     "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Otterhound,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 5,
+      "perpage": 1,
+      "total": "5",
+      "photo": [
+        {
+          "id": "6353218553",
+          "owner": "61021753@N02",
+          "secret": "897da258ec",
+          "server": "6037",
+          "farm": 7,
+          "title": "n24_w1150",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-6353218553_secret-897da258ec": {
+    "photo": {
+      "id": "6353218553",
+      "secret": "897da258ec",
+      "server": "6037",
+      "farm": 7,
+      "dateuploaded": "1321540348",
+      "isfavorite": 0,
+      "license": "4",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "e563a52045",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "61021753@N02",
+        "username": "BioDivLibrary",
+        "realname": "Biodiversity Heritage Library",
+        "location": "",
+        "iconserver": "5468",
+        "iconfarm": 6,
+        "path_alias": "biodivlibrary"
+      },
+      "title": {
+        "_content": "n24_w1150"
+      },
+      "description": {
+        "_content": "The book of dogs\nWashington, D. C.,The National geographic society[c1919]\n<a href=\"http://biodiversitylibrary.org/page/14994708\" rel=\"nofollow\">biodiversitylibrary.org/page/14994708</a>"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1321540348",
+        "taken": "2011-11-17 09:32:27",
+        "takengranularity": "0",
+        "takenunknown": 0,
+        "lastupdate": "1476985612"
+      },
+      "views": "2042",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 1
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "1"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "61001405-6353218553-718",
+            "author": "61021753@N02",
+            "authorname": "BioDivLibrary",
+            "raw": "Dogs",
+            "_content": "dogs",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-73080",
+            "author": "61021753@N02",
+            "authorname": "BioDivLibrary",
+            "raw": "SIL",
+            "_content": "sil",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-625676",
+            "author": "61021753@N02",
+            "authorname": "BioDivLibrary",
+            "raw": "Smithsonian Institution Libraries",
+            "_content": "smithsonianinstitutionlibraries",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-84711887",
+            "author": "61021753@N02",
+            "authorname": "BioDivLibrary",
+            "raw": "bhl:page=14994708",
+            "_content": "bhl:page=14994708",
+            "machine_tag": 1
+          },
+          {
+            "id": "61001405-6353218553-84711889",
+            "author": "61021753@N02",
+            "authorname": "BioDivLibrary",
+            "raw": "dc:identifier=http://biodiversitylibrary.org/page/14994708",
+            "_content": "dc:identifier=httpbiodiversitylibraryorgpage14994708",
+            "machine_tag": 1
+          },
+          {
+            "id": "61001405-6353218553-355",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-1763723",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Dog Breeds",
+            "_content": "dogbreeds",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-1174510",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Dog Breed",
+            "_content": "dogbreed",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-1823",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Mammal",
+            "_content": "mammal",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-39625",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Mammals",
+            "_content": "mammals",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-150081",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Zoology",
+            "_content": "zoology",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-31806542",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "taxonomy:binomial=Canis lupus familiaris",
+            "_content": "taxonomy:binomial=canislupusfamiliaris",
+            "machine_tag": 1
+          },
+          {
+            "id": "61001405-6353218553-357722",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Elkhound",
+            "_content": "elkhound",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-7512",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "hound",
+            "_content": "hound",
+            "machine_tag": 0
+          },
+          {
+            "id": "61001405-6353218553-2475395",
+            "author": "143077363@N02",
+            "authorname": "Cristainpom",
+            "raw": "Otterhound",
+            "_content": "otterhound",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/biodivlibrary/6353218553/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Papillon,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 1973,
+      "perpage": 1,
+      "total": "1973",
+      "photo": [
+        {
+          "id": "37059302925",
+          "owner": "50318388@N00",
+          "secret": "f31bc57ebb",
+          "server": "4402",
+          "farm": 5,
+          "title": "Dijon",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-37059302925_secret-f31bc57ebb": {
+    "photo": {
+      "id": "37059302925",
+      "secret": "f31bc57ebb",
+      "server": "4402",
+      "farm": 5,
+      "dateuploaded": "1504681402",
+      "isfavorite": 0,
+      "license": "1",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "f74104a4ff",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "50318388@N00",
+        "username": "mag3737",
+        "realname": "Tom Magliery",
+        "location": "Vancouver, BC, Canada",
+        "iconserver": "7413",
+        "iconfarm": 8,
+        "path_alias": "mag3737"
+      },
+      "title": {
+        "_content": "Dijon"
+      },
+      "description": {
+        "_content": "Photo by Tania."
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1504681402",
+        "taken": "2017-09-02 12:11:51",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1504730183"
+      },
+      "views": "345",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "2924385-37059302925-4142",
+            "author": "50318388@N00",
+            "authorname": "mag3737",
+            "raw": "dijon",
+            "_content": "dijon",
+            "machine_tag": 0
+          },
+          {
+            "id": "2924385-37059302925-12992",
+            "author": "50318388@N00",
+            "authorname": "mag3737",
+            "raw": "papillon",
+            "_content": "papillon",
+            "machine_tag": 0
+          },
+          {
+            "id": "2924385-37059302925-221",
+            "author": "50318388@N00",
+            "authorname": "mag3737",
+            "raw": "sleeping",
+            "_content": "sleeping",
+            "machine_tag": 0
+          },
+          {
+            "id": "2924385-37059302925-355",
+            "author": "50318388@N00",
+            "authorname": "mag3737",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/mag3737/37059302925/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Patterdale Terrier,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 11,
+      "perpage": 1,
+      "total": "11",
+      "photo": [
+        {
+          "id": "36774110910",
+          "owner": "73714450@N08",
+          "secret": "68d901d4b5",
+          "server": "4430",
+          "farm": 5,
+          "title": "IMG_3644",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-36774110910_secret-68d901d4b5": {
+    "photo": {
+      "id": "36774110910",
+      "secret": "68d901d4b5",
+      "server": "4430",
+      "farm": 5,
+      "dateuploaded": "1505156948",
+      "isfavorite": 0,
+      "license": "4",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "0ab21883e4",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "73714450@N08",
+        "username": "Rorals",
+        "realname": "Rory",
+        "location": "Glasgow, United Kingdom",
+        "iconserver": "4254",
+        "iconfarm": 5,
+        "path_alias": "rorals"
+      },
+      "title": {
+        "_content": "IMG_3644"
+      },
+      "description": {
+        "_content": ""
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1505156948",
+        "taken": "2017-09-01 11:12:59",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1516455445"
+      },
+      "views": "343",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 1
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "73621637-36774110910-355",
+            "author": "73714450@N08",
+            "authorname": "Rorals",
+            "raw": "Dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "73621637-36774110910-8811",
+            "author": "73714450@N08",
+            "authorname": "Rorals",
+            "raw": "canine",
+            "_content": "canine",
+            "machine_tag": 0
+          },
+          {
+            "id": "73621637-36774110910-359",
+            "author": "73714450@N08",
+            "authorname": "Rorals",
+            "raw": "Pet",
+            "_content": "pet",
+            "machine_tag": 0
+          },
+          {
+            "id": "73621637-36774110910-3579029",
+            "author": "73714450@N08",
+            "authorname": "Rorals",
+            "raw": "Patterdale Terrier",
+            "_content": "patterdaleterrier",
+            "machine_tag": 0
+          },
+          {
+            "id": "73621637-36774110910-12353",
+            "author": "73714450@N08",
+            "authorname": "Rorals",
+            "raw": "Terrier",
+            "_content": "terrier",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/rorals/36774110910/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Pekingese,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 407,
+      "perpage": 1,
+      "total": "407",
+      "photo": [
+        {
+          "id": "33951299594",
+          "owner": "57711005@N07",
+          "secret": "bd133fab33",
+          "server": "4225",
+          "farm": 5,
+          "title": "020",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-33951299594_secret-bd133fab33": {
+    "photo": {
+      "id": "33951299594",
+      "secret": "bd133fab33",
+      "server": "4225",
+      "farm": 5,
+      "dateuploaded": "1495361539",
+      "isfavorite": 0,
+      "license": "2",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "5f1a0e017d",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "57711005@N07",
+        "username": "Muzik Hounds",
+        "realname": "",
+        "location": "",
+        "iconserver": "8127",
+        "iconfarm": 9,
+        "path_alias": null
+      },
+      "title": {
+        "_content": "020"
+      },
+      "description": {
+        "_content": ""
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1495361539",
+        "taken": "2017-05-20 11:57:16",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1496160385"
+      },
+      "views": "264",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "57689675-33951299594-20531",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "spaniel",
+            "_content": "spaniel",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-1970",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "japanese",
+            "_content": "japanese",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-355",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-51010",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "porcelain",
+            "_content": "porcelain",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-30561",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "figurine",
+            "_content": "figurine",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-16148",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "figure",
+            "_content": "figure",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-395",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "white",
+            "_content": "white",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-1994",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "grey",
+            "_content": "grey",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-16392",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "pekingese",
+            "_content": "pekingese",
+            "machine_tag": 0
+          },
+          {
+            "id": "57689675-33951299594-583234",
+            "author": "57711005@N07",
+            "authorname": "Muzik Hounds",
+            "raw": "peke",
+            "_content": "peke",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/57711005@N07/33951299594/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Peruvian Inca Orchid,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 19,
+      "perpage": 1,
+      "total": "19",
+      "photo": [
+        {
+          "id": "17759326918",
+          "owner": "97367178@N02",
+          "secret": "62741788c9",
+          "server": "7794",
+          "farm": 8,
+          "title": "Perro sin Pelo in Peru",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-17759326918_secret-62741788c9": {
+    "photo": {
+      "id": "17759326918",
+      "secret": "62741788c9",
+      "server": "7794",
+      "farm": 8,
+      "dateuploaded": "1432248129",
+      "isfavorite": 0,
+      "license": "2",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "e3352690da",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "97367178@N02",
+        "username": "corinne_benavides",
+        "realname": "Corinne Benavides",
+        "location": "",
+        "iconserver": "7652",
+        "iconfarm": 8,
+        "path_alias": "corinne_benavides"
+      },
+      "title": {
+        "_content": "Perro sin Pelo in Peru"
+      },
+      "description": {
+        "_content": "A Peruvian Hairless (Peruvian Inca Orchid; Perro sin Pelo del Peru) in Paracas, Peru"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1432248129",
+        "taken": "2008-07-25 11:29:16",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1493590251"
+      },
+      "views": "545",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "97346830-17759326918-355",
+            "author": "97367178@N02",
+            "authorname": "corinne_benavides",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "97346830-17759326918-4687432",
+            "author": "97367178@N02",
+            "authorname": "corinne_benavides",
+            "raw": "Peruvian Hairless",
+            "_content": "peruvianhairless",
+            "machine_tag": 0
+          },
+          {
+            "id": "97346830-17759326918-1348477",
+            "author": "97367178@N02",
+            "authorname": "corinne_benavides",
+            "raw": "Peruvian Inca Orchid",
+            "_content": "peruvianincaorchid",
+            "machine_tag": 0
+          },
+          {
+            "id": "97346830-17759326918-1555019",
+            "author": "97367178@N02",
+            "authorname": "corinne_benavides",
+            "raw": "Viringo",
+            "_content": "viringo",
+            "machine_tag": 0
+          },
+          {
+            "id": "97346830-17759326918-155037",
+            "author": "97367178@N02",
+            "authorname": "corinne_benavides",
+            "raw": "Paracas",
+            "_content": "paracas",
+            "machine_tag": 0
+          },
+          {
+            "id": "97346830-17759326918-744",
+            "author": "97367178@N02",
+            "authorname": "corinne_benavides",
+            "raw": "Peru",
+            "_content": "peru",
+            "machine_tag": 0
+          },
+          {
+            "id": "97346830-17759326918-17528863",
+            "author": "97367178@N02",
+            "authorname": "corinne_benavides",
+            "raw": "Perro sin pelo del Peru",
+            "_content": "perrosinpelodelperu",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "location": {
+        "latitude": "-13.832537",
+        "longitude": "-76.248829",
+        "accuracy": "15",
+        "context": "0",
+        "locality": {
+          "_content": "Paracas District",
+          "place_id": "LabZgl9VU7pjdK4",
+          "woeid": "410768"
+        },
+        "county": {
+          "_content": "Pisco Province",
+          "place_id": "9uVOcx1TVLLzTOlUMg",
+          "woeid": "26805913"
+        },
+        "region": {
+          "_content": "Ica",
+          "place_id": "7zVIUKVTUb6dILAI",
+          "woeid": "2346478"
+        },
+        "country": {
+          "_content": "Peru",
+          "place_id": "h54yFcpTUb6T_sbwtA",
+          "woeid": "23424919"
+        },
+        "place_id": "LabZgl9VU7pjdK4",
+        "woeid": "410768"
+      },
+      "geoperms": {
+        "ispublic": 1,
+        "iscontact": 0,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/corinne_benavides/17759326918/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Petit Basset Griffon Vendeen,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 217,
+      "perpage": 1,
+      "total": "217",
+      "photo": [
+        {
+          "id": "14048664942",
+          "owner": "88483799@N00",
+          "secret": "c510d58551",
+          "server": "7407",
+          "farm": 8,
+          "title": "",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-14048664942_secret-c510d58551": {
+    "photo": {
+      "id": "14048664942",
+      "secret": "c510d58551",
+      "server": "7407",
+      "farm": 8,
+      "dateuploaded": "1398702697",
+      "isfavorite": 0,
+      "license": "5",
+      "safety_level": "0",
+      "rotation": 90,
+      "originalsecret": "b575fd02a7",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "88483799@N00",
+        "username": "Elliott Plack",
+        "realname": "Elliott Plack",
+        "location": "Baltimore, USA",
+        "iconserver": "3687",
+        "iconfarm": 4,
+        "path_alias": "talllguy"
+      },
+      "title": {
+        "_content": ""
+      },
+      "description": {
+        "_content": ""
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1398702697",
+        "taken": "2014-04-28 07:37:39",
+        "takengranularity": "0",
+        "takenunknown": 0,
+        "lastupdate": "1398703173"
+      },
+      "views": "123",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 1
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "923196-14048664942-19224",
+            "author": "88483799@N00",
+            "authorname": "Elliott Plack",
+            "raw": "papa",
+            "_content": "papa",
+            "machine_tag": 0
+          },
+          {
+            "id": "923196-14048664942-816525",
+            "author": "88483799@N00",
+            "authorname": "Elliott Plack",
+            "raw": "pbgv",
+            "_content": "pbgv",
+            "machine_tag": 0
+          },
+          {
+            "id": "923196-14048664942-355",
+            "author": "88483799@N00",
+            "authorname": "Elliott Plack",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "923196-14048664942-358972",
+            "author": "88483799@N00",
+            "authorname": "Elliott Plack",
+            "raw": "petit basset griffon vendeen",
+            "_content": "petitbassetgriffonvendeen",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/talllguy/14048664942/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Pharaoh Hound,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 26,
+      "perpage": 1,
+      "total": "26",
+      "photo": [
+        {
+          "id": "33594494981",
+          "owner": "67597043@N02",
+          "secret": "ff35a13295",
+          "server": "2869",
+          "farm": 3,
+          "title": "Freya March 2017 01",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-33594494981_secret-ff35a13295": {
+    "photo": {
+      "id": "33594494981",
+      "secret": "ff35a13295",
+      "server": "2869",
+      "farm": 3,
+      "dateuploaded": "1490811415",
+      "isfavorite": 0,
+      "license": "1",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "b2427704b0",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "67597043@N02",
+        "username": "Pretty Opinionated",
+        "realname": "Nicole Etolen",
+        "location": "",
+        "iconserver": "6176",
+        "iconfarm": 7,
+        "path_alias": "prettyopinionated"
+      },
+      "title": {
+        "_content": "Freya March 2017 01"
+      },
+      "description": {
+        "_content": "My Pharaoh Hound lounging in the yard. "
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1490811415",
+        "taken": "2017-03-09 13:06:50",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1491363095"
+      },
+      "views": "70",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "67576695-33594494981-141944",
+            "author": "67597043@N02",
+            "authorname": "Pretty Opinionated",
+            "raw": "Pharaoh Hound",
+            "_content": "pharaohhound",
+            "machine_tag": 0
+          },
+          {
+            "id": "67576695-33594494981-355",
+            "author": "67597043@N02",
+            "authorname": "Pretty Opinionated",
+            "raw": "Dog",
+            "_content": "dog",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/prettyopinionated/33594494981/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Pit Bull Terrier,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 163,
+      "perpage": 1,
+      "total": "163",
+      "photo": [
+        {
+          "id": "23839570943",
+          "owner": "77654185@N07",
+          "secret": "57c6fc623f",
+          "server": "1686",
+          "farm": 2,
+          "title": "Where's the cat?!",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-23839570943_secret-57c6fc623f": {
+    "photo": {
+      "id": "23839570943",
+      "secret": "57c6fc623f",
+      "server": "1686",
+      "farm": 2,
+      "dateuploaded": "1453209457",
+      "isfavorite": 0,
+      "license": "1",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "ee170a7175",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "77654185@N07",
+        "username": "Kerri Lee Smith",
+        "realname": "",
+        "location": "",
+        "iconserver": "7369",
+        "iconfarm": 8,
+        "path_alias": null
+      },
+      "title": {
+        "_content": "Where's the cat?!"
+      },
+      "description": {
+        "_content": "As you may know, this is a complete departure from my normal pictures - not a single cat in sight and the color is almost completely desaturated (I love color).  This is one of the vets at our practice with her dog.  Management asked me to take a few pictures for a new brochure - I gave them several of these two including a normal edit of this picture."
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1453209457",
+        "taken": "2016-01-18 13:19:57",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1490217993"
+      },
+      "views": "1563",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 1
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "28"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "77632855-23839570943-60555269",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "Princeton Animal Hospital",
+            "_content": "princetonanimalhospital",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-31998",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "veterinarian",
+            "_content": "veterinarian",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-21513",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "Carter",
+            "_content": "carter",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-11099",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "Pitbull",
+            "_content": "pitbull",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-12696522",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "blue markings",
+            "_content": "bluemarkings",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-21801",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "desaturated",
+            "_content": "desaturated",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-355",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-8811",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "canine",
+            "_content": "canine",
+            "machine_tag": 0
+          },
+          {
+            "id": "77632855-23839570943-1451627",
+            "author": "77654185@N07",
+            "authorname": "Kerri Lee Smith",
+            "raw": "pitbull terrier",
+            "_content": "pitbullterrier",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/77654185@N07/23839570943/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Plott Hound,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 68,
+      "perpage": 1,
+      "total": "68",
+      "photo": [
+        {
+          "id": "25639903923",
+          "owner": "51625243@N06",
+          "secret": "f667b22180",
+          "server": "1715",
+          "farm": 2,
+          "title": "Richmond Animal League",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-25639903923_secret-f667b22180": {
+    "photo": {
+      "id": "25639903923",
+      "secret": "f667b22180",
+      "server": "1715",
+      "farm": 2,
+      "dateuploaded": "1459817446",
+      "isfavorite": 0,
+      "license": "4",
+      "safety_level": "0",
+      "rotation": 90,
+      "originalsecret": "5d85e14f97",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "51625243@N06",
+        "username": "Gamma Man",
+        "realname": "Eli Christman",
+        "location": "Richmond, VA, USA",
+        "iconserver": "7348",
+        "iconfarm": 8,
+        "path_alias": "gammaman"
+      },
+      "title": {
+        "_content": "Richmond Animal League"
+      },
+      "description": {
+        "_content": "UPDATE: Yaya has been adopted!\n\nYaya is a year and a half old pup with a bounce in her step! She loves kisses and longs to be outside on long walks at her forever home with her forever family. She has a wonderful and energetic temperament. Please support your local animal shelters.  :-)\n\n<a href=\"http://www.ral.org/\" rel=\"nofollow\">www.ral.org/</a>"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1459817446",
+        "taken": "2016-04-04 18:52:00",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1473729475"
+      },
+      "views": "136",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "51579921-25639903923-285176",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "RAL",
+            "_content": "ral",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-3687609",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Richmond Animal League",
+            "_content": "richmondanimalleague",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-37923",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "adopt",
+            "_content": "adopt",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-355",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-928735",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "dog adoption",
+            "_content": "dogadoption",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-357828",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "rescue dog",
+            "_content": "rescuedog",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-868573",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "shelter dog",
+            "_content": "shelterdog",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-946351",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "rescue pet",
+            "_content": "rescuepet",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-291679",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "shelter pet",
+            "_content": "shelterpet",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-91620",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "adoption",
+            "_content": "adoption",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-101064",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "RVA",
+            "_content": "rva",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-9591",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "RICA",
+            "_content": "rica",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-14348",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "VA",
+            "_content": "va",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-2159",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Virginia",
+            "_content": "virginia",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-58997",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Richmond VA",
+            "_content": "richmondva",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-58998",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Richmond Virginia",
+            "_content": "richmondvirginia",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-408027",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "animal adoption",
+            "_content": "animaladoption",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-278436",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "pet adoption",
+            "_content": "petadoption",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-105974",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "retirement home",
+            "_content": "retirementhome",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-282331781",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "retirement home dog",
+            "_content": "retirementhomedog",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-1736798",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "seniors home",
+            "_content": "seniorshome",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-6589455",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "home for the aged",
+            "_content": "homefortheaged",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-33040211",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "adopt don't shop",
+            "_content": "adoptdontshop",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-8976",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Yay",
+            "_content": "yay",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-100536",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Plott",
+            "_content": "plott",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-7512",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Hound",
+            "_content": "hound",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-2164436",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Plott Hound",
+            "_content": "plotthound",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-107233597",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Eli Christman",
+            "_content": "elichristman",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-107233599",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Elijah Christman",
+            "_content": "elijahchristman",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-310001175",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Eli James Christman",
+            "_content": "elijameschristman",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-60745165",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Elijah James Christman",
+            "_content": "elijahjameschristman",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-107233601",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Eli Christman RVA",
+            "_content": "elichristmanrva",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-109018246",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Elijah Christman RVA",
+            "_content": "elijahchristmanrva",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-310001185",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Eli Christman Richmond VA",
+            "_content": "elichristmanrichmondva",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-123581180",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Eli Christman Richmond Virginia",
+            "_content": "elichristmanrichmondvirginia",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-310001195",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Elijah Christman Richmond VA",
+            "_content": "elijahchristmanrichmondva",
+            "machine_tag": 0
+          },
+          {
+            "id": "51579921-25639903923-310001205",
+            "author": "51625243@N06",
+            "authorname": "Gamma Man",
+            "raw": "Elijah Christman Richmond Virginia",
+            "_content": "elijahchristmanrichmondvirginia",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "location": {
+        "latitude": "37.508253",
+        "longitude": "-77.526247",
+        "accuracy": "16",
+        "context": "0",
+        "neighbourhood": {
+          "_content": "Hioaks",
+          "place_id": "YChx_nJUVLufSv05mg",
+          "woeid": "56199431"
+        },
+        "locality": {
+          "_content": "Richmond",
+          "place_id": "G_sp1BVTVrIIXFsr",
+          "woeid": "2480894"
+        },
+        "county": {
+          "_content": "Richmond City",
+          "place_id": "9EY_SvFQUL9dHSdAhg",
+          "woeid": "12590410"
+        },
+        "region": {
+          "_content": "Virginia",
+          "place_id": "pPrhG7VTUb6SbYO.",
+          "woeid": "2347605"
+        },
+        "country": {
+          "_content": "United States",
+          "place_id": "nz.gsghTUb4c2WAecA",
+          "woeid": "23424977"
+        },
+        "place_id": "YChx_nJUVLufSv05mg",
+        "woeid": "56199431"
+      },
+      "geoperms": {
+        "ispublic": 1,
+        "iscontact": 0,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/gammaman/25639903923/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Podengo Portugueso": {
+    "photos": {
+      "page": 1,
+      "pages": 0,
+      "perpage": 1,
+      "total": "0",
+      "photo": []
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Podengo": {
+    "photos": {
+      "page": 1,
+      "pages": 179,
+      "perpage": 1,
+      "total": "179",
+      "photo": [
+        {
+          "id": "31408578286",
+          "owner": "76641477@N00",
+          "secret": "89f0e501c8",
+          "server": "5532",
+          "farm": 6,
+          "title": "Tiago, the Sunset Hunter",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-31408578286_secret-89f0e501c8": {
+    "photo": {
+      "id": "31408578286",
+      "secret": "89f0e501c8",
+      "server": "5532",
+      "farm": 6,
+      "dateuploaded": "1480976702",
+      "isfavorite": 0,
+      "license": "2",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "06ed0067b8",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "76641477@N00",
+        "username": "Cyril Wermers",
+        "realname": "Cyril Wermers",
+        "location": "Enschede, Netherlands",
+        "iconserver": "7314",
+        "iconfarm": 8,
+        "path_alias": "enschedeaanzee"
+      },
+      "title": {
+        "_content": "Tiago, the Sunset Hunter"
+      },
+      "description": {
+        "_content": ""
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1480976702",
+        "taken": "2016-12-05 16:39:52",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1515164003"
+      },
+      "views": "154",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "93876-31408578286-545780",
+            "author": "76641477@N00",
+            "authorname": "Cyril Wermers",
+            "raw": "Podengo",
+            "_content": "podengo",
+            "machine_tag": 0
+          },
+          {
+            "id": "93876-31408578286-381336",
+            "author": "76641477@N00",
+            "authorname": "Cyril Wermers",
+            "raw": "Portugues",
+            "_content": "portugues",
+            "machine_tag": 0
+          },
+          {
+            "id": "93876-31408578286-718",
+            "author": "76641477@N00",
+            "authorname": "Cyril Wermers",
+            "raw": "Dogs",
+            "_content": "dogs",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/enschedeaanzee/31408578286/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Pointer,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 814,
+      "perpage": 1,
+      "total": "814",
+      "photo": [
+        {
+          "id": "41097896322",
+          "owner": "12560758@N07",
+          "secret": "a5c2d6627b",
+          "server": "817",
+          "farm": 1,
+          "title": "Ann and Cooper at agility training",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-41097896322_secret-a5c2d6627b": {
+    "photo": {
+      "id": "41097896322",
+      "secret": "a5c2d6627b",
+      "server": "817",
+      "farm": 1,
+      "dateuploaded": "1522523229",
+      "isfavorite": 0,
+      "license": "1",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "1a84a12eeb",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "12560758@N07",
+        "username": "Pictures by Ann",
+        "realname": "Ann",
+        "location": "USA",
+        "iconserver": "1011",
+        "iconfarm": 2,
+        "path_alias": "picturesbyann"
+      },
+      "title": {
+        "_content": "Ann and Cooper at agility training"
+      },
+      "description": {
+        "_content": "                               "
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1522523229",
+        "taken": "2013-11-26 11:05:49",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1522523256"
+      },
+      "views": "25",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "12539428-41097896322-355",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-1326",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "training",
+            "_content": "training",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-14607",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "agility",
+            "_content": "agility",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-15043",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "cooper",
+            "_content": "cooper",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-673855",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "german wirehaired pointer",
+            "_content": "germanwirehairedpointer",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-13796",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "german",
+            "_content": "german",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-2809",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "wire",
+            "_content": "wire",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-11122",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "wirehaired",
+            "_content": "wirehaired",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-38021",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "haired",
+            "_content": "haired",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-4440",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "pointer",
+            "_content": "pointer",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-472",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "black",
+            "_content": "black",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-2883",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "furry",
+            "_content": "furry",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-7363",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "young",
+            "_content": "young",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-31334",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "obedience",
+            "_content": "obedience",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-1743",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "fun",
+            "_content": "fun",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-502585",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "enrichment",
+            "_content": "enrichment",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-4208",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "exercise",
+            "_content": "exercise",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-54163",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "challenge",
+            "_content": "challenge",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-41441",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "homeschool",
+            "_content": "homeschool",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-75262",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "homeschooling",
+            "_content": "homeschooling",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-2969",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "education",
+            "_content": "education",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-2331988",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "new skills",
+            "_content": "newskills",
+            "machine_tag": 0
+          },
+          {
+            "id": "12539428-41097896322-17810",
+            "author": "12560758@N07",
+            "authorname": "Pictures by Ann",
+            "raw": "ann",
+            "_content": "ann",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/picturesbyann/41097896322/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Pomeranian,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 2178,
+      "perpage": 1,
+      "total": "2178",
+      "photo": [
+        {
+          "id": "38464776740",
+          "owner": "44124348109@N01",
+          "secret": "a18aa8abed",
+          "server": "4663",
+          "farm": 5,
+          "title": "Happy Valentine\u2019s Day Cuteness",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-38464776740_secret-a18aa8abed": {
+    "photo": {
+      "id": "38464776740",
+      "secret": "a18aa8abed",
+      "server": "4663",
+      "farm": 5,
+      "dateuploaded": "1518666728",
+      "isfavorite": 0,
+      "license": "4",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "12bc955d60",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "44124348109@N01",
+        "username": "jurvetson",
+        "realname": "Steve Jurvetson",
+        "location": "Menlo Park, USA",
+        "iconserver": "5557",
+        "iconfarm": 6,
+        "path_alias": "jurvetson"
+      },
+      "title": {
+        "_content": "Happy Valentine\u2019s Day Cuteness"
+      },
+      "description": {
+        "_content": "at the Battery"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1518666728",
+        "taken": "2018-02-14 18:49:04",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1523224740"
+      },
+      "views": "1507",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 1
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "2"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "22706-38464776740-559",
+            "author": "44124348109@N01",
+            "authorname": "jurvetson",
+            "raw": "cute",
+            "_content": "cute",
+            "machine_tag": 0
+          },
+          {
+            "id": "22706-38464776740-355",
+            "author": "44124348109@N01",
+            "authorname": "jurvetson",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "22706-38464776740-18881",
+            "author": "44124348109@N01",
+            "authorname": "jurvetson",
+            "raw": "Valentines",
+            "_content": "valentines",
+            "machine_tag": 0
+          },
+          {
+            "id": "22706-38464776740-3511",
+            "author": "44124348109@N01",
+            "authorname": "jurvetson",
+            "raw": "Day",
+            "_content": "day",
+            "machine_tag": 0
+          },
+          {
+            "id": "22706-38464776740-32074",
+            "author": "44124348109@N01",
+            "authorname": "jurvetson",
+            "raw": "Pomeranian",
+            "_content": "pomeranian",
+            "machine_tag": 0
+          },
+          {
+            "id": "22706-38464776740-7341",
+            "author": "44124348109@N01",
+            "authorname": "jurvetson",
+            "raw": "Battery",
+            "_content": "battery",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/jurvetson/38464776740/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Poodle,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 5082,
+      "perpage": 1,
+      "total": "5082",
+      "photo": [
+        {
+          "id": "40273808465",
+          "owner": "51035555243@N01",
+          "secret": "77a21743b8",
+          "server": "886",
+          "farm": 1,
+          "title": "Two Cute Los Angeles Dogs",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-40273808465_secret-77a21743b8": {
+    "photo": {
+      "id": "40273808465",
+      "secret": "77a21743b8",
+      "server": "886",
+      "farm": 1,
+      "dateuploaded": "1522624183",
+      "isfavorite": 0,
+      "license": "2",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "5398f403d7",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "51035555243@N01",
+        "username": "Thomas Hawk",
+        "realname": "Thomas Hawk",
+        "location": "San Francisco, USA",
+        "iconserver": "7370",
+        "iconfarm": 8,
+        "path_alias": "thomashawk"
+      },
+      "title": {
+        "_content": "Two Cute Los Angeles Dogs"
+      },
+      "description": {
+        "_content": ""
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1522624183",
+        "taken": "2012-11-18 14:44:32",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1523762324"
+      },
+      "views": "834",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 1
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "44088-40273808465-1299",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "America",
+            "_content": "america",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-109383",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "American Legion",
+            "_content": "americanlegion",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-276503348",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "American Legion Post 46",
+            "_content": "americanlegionpost46",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-50",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "California",
+            "_content": "california",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-276503358",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "Community Post 46",
+            "_content": "communitypost46",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-2424",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "Los Angeles",
+            "_content": "losangeles",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-28082",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "Southern California",
+            "_content": "southerncalifornia",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-351",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "USA",
+            "_content": "usa",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-4074",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "United States",
+            "_content": "unitedstates",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-6272",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "United States of America",
+            "_content": "unitedstatesofamerica",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-2228",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "Volvo",
+            "_content": "volvo",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-33",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "auto",
+            "_content": "auto",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-3092",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "automobile",
+            "_content": "automobile",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-923",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "car",
+            "_content": "car",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-355",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-718",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "dogs",
+            "_content": "dogs",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-14967",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "poodle",
+            "_content": "poodle",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-717",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "poodles",
+            "_content": "poodles",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-939926",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "fav10",
+            "_content": "fav10",
+            "machine_tag": 0
+          },
+          {
+            "id": "44088-40273808465-1323986",
+            "author": "51035555243@N01",
+            "authorname": "Thomas Hawk",
+            "raw": "fav25",
+            "_content": "fav25",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/thomashawk/40273808465/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Portuguese Water Dog,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 136,
+      "perpage": 1,
+      "total": "136",
+      "photo": [
+        {
+          "id": "15569481145",
+          "owner": "94619357@N00",
+          "secret": "1c759b7bc7",
+          "server": "3938",
+          "farm": 4,
+          "title": "L1000407",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-15569481145_secret-1c759b7bc7": {
+    "photo": {
+      "id": "15569481145",
+      "secret": "1c759b7bc7",
+      "server": "3938",
+      "farm": 4,
+      "dateuploaded": "1413691072",
+      "isfavorite": 0,
+      "license": "1",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "a6c07392f3",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "94619357@N00",
+        "username": "dicarlo",
+        "realname": "Christian",
+        "location": "",
+        "iconserver": "119",
+        "iconfarm": 1,
+        "path_alias": "dicarlo"
+      },
+      "title": {
+        "_content": "L1000407"
+      },
+      "description": {
+        "_content": "Charley at Fort Mason\n"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1413691072",
+        "taken": "2014-10-19 09:49:51",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1416972410"
+      },
+      "views": "63",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "440429-15569481145-112843",
+            "author": "94619357@N00",
+            "authorname": "dicarlo",
+            "raw": "PWD",
+            "_content": "pwd",
+            "machine_tag": 0
+          },
+          {
+            "id": "440429-15569481145-1389728",
+            "author": "94619357@N00",
+            "authorname": "dicarlo",
+            "raw": "Portuguese Water Dog",
+            "_content": "portuguesewaterdog",
+            "machine_tag": 0
+          },
+          {
+            "id": "440429-15569481145-22160",
+            "author": "94619357@N00",
+            "authorname": "dicarlo",
+            "raw": "Fort Mason",
+            "_content": "fortmason",
+            "machine_tag": 0
+          },
+          {
+            "id": "440429-15569481145-355",
+            "author": "94619357@N00",
+            "authorname": "dicarlo",
+            "raw": "Dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "440429-15569481145-44702",
+            "author": "94619357@N00",
+            "authorname": "dicarlo",
+            "raw": "Fetch",
+            "_content": "fetch",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/dicarlo/15569481145/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Presa Canario,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 11,
+      "perpage": 1,
+      "total": "11",
+      "photo": [
+        {
+          "id": "30057080386",
+          "owner": "142051545@N03",
+          "secret": "90cc897a53",
+          "server": "8808",
+          "farm": 9,
+          "title": "adhd",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-30057080386_secret-90cc897a53": {
+    "photo": {
+      "id": "30057080386",
+      "secret": "90cc897a53",
+      "server": "8808",
+      "farm": 9,
+      "dateuploaded": "1475510613",
+      "isfavorite": 0,
+      "license": "4",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "ee3b8250cd",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "142051545@N03",
+        "username": "Anterus.",
+        "realname": "",
+        "location": "Sarpsborg , Norge",
+        "iconserver": "7661",
+        "iconfarm": 8,
+        "path_alias": null
+      },
+      "title": {
+        "_content": "adhd"
+      },
+      "description": {
+        "_content": ""
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1475510613",
+        "taken": "2016-08-01 17:28:28",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1503343684"
+      },
+      "views": "734",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "142028491-30057080386-4534",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "pentax",
+            "_content": "pentax",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-232438",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "kx",
+            "_content": "kx",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-294",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "b&w",
+            "_content": "bw",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-320444",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "blackwhitephotography",
+            "_content": "blackwhitephotography",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-2339",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "blackwhite",
+            "_content": "blackwhite",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-355",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-1935",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "photography",
+            "_content": "photography",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-936168",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "presacanario",
+            "_content": "presacanario",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-82120",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "presa",
+            "_content": "presa",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-112666",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "canario",
+            "_content": "canario",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-139861",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "dogo",
+            "_content": "dogo",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-4890",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "outdoor",
+            "_content": "outdoor",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-995",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "Norway",
+            "_content": "norway",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-870",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "monochrome",
+            "_content": "monochrome",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-43790",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "Vivitar",
+            "_content": "vivitar",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-20037",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "Series",
+            "_content": "series",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-2096",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "1",
+            "_content": "1",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-509189",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "70-210mm",
+            "_content": "70210mm",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-296739",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "f/3.5",
+            "_content": "f35",
+            "machine_tag": 0
+          },
+          {
+            "id": "142028491-30057080386-11283",
+            "author": "142051545@N03",
+            "authorname": "Anterus.",
+            "raw": "tokina",
+            "_content": "tokina",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/142051545@N03/30057080386/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Pug,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 8285,
+      "perpage": 1,
+      "total": "8285",
+      "photo": [
+        {
+          "id": "27214402088",
+          "owner": "148048288@N03",
+          "secret": "dbcf7b8604",
+          "server": "901",
+          "farm": 1,
+          "title": "Brutus",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-27214402088_secret-dbcf7b8604": {
+    "photo": {
+      "id": "27214402088",
+      "secret": "dbcf7b8604",
+      "server": "901",
+      "farm": 1,
+      "dateuploaded": "1522298640",
+      "isfavorite": 0,
+      "license": "3",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "5c9c561b53",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "148048288@N03",
+        "username": "hollyzade",
+        "realname": "Holly Zade",
+        "location": "Canada",
+        "iconserver": "789",
+        "iconfarm": 1,
+        "path_alias": null
+      },
+      "title": {
+        "_content": "Brutus"
+      },
+      "description": {
+        "_content": "---From old account---\n\nMissing this little guy every day!"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1522298640",
+        "taken": "2014-07-21 16:33:27",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1522753669"
+      },
+      "views": "62",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "148025234-27214402088-355",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": false
+          },
+          {
+            "id": "148025234-27214402088-200292",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "puggle",
+            "_content": "puggle",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-8232",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "pug",
+            "_content": "pug",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-559",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "cute",
+            "_content": "cute",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-6774",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "profile",
+            "_content": "profile",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-16188",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "ear",
+            "_content": "ear",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-7664",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "adorable",
+            "_content": "adorable",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-1860",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "outdoors",
+            "_content": "outdoors",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-1804",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "outside",
+            "_content": "outside",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-916",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "grass",
+            "_content": "grass",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-2862",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "eyes",
+            "_content": "eyes",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-75497",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "snout",
+            "_content": "snout",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-2994",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "nikon",
+            "_content": "nikon",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-7089849",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "NIKON D40",
+            "_content": "nikond40",
+            "machine_tag": 0
+          },
+          {
+            "id": "148025234-27214402088-359",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "pet",
+            "_content": "pet",
+            "machine_tag": false
+          },
+          {
+            "id": "148025234-27214402088-368",
+            "author": "148048288@N03",
+            "authorname": "hollyzade",
+            "raw": "pets",
+            "_content": "pets",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/148048288@N03/27214402088/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Rat Terrier,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 738,
+      "perpage": 1,
+      "total": "738",
+      "photo": [
+        {
+          "id": "37913703142",
+          "owner": "8372084@N07",
+          "secret": "f03fd38fb6",
+          "server": "4511",
+          "farm": 5,
+          "title": "Jetta sleeping",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-37913703142_secret-f03fd38fb6": {
+    "photo": {
+      "id": "37913703142",
+      "secret": "f03fd38fb6",
+      "server": "4511",
+      "farm": 5,
+      "dateuploaded": "1509015374",
+      "isfavorite": 0,
+      "license": "6",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "348e8c01e9",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "8372084@N07",
+        "username": "bonaircat",
+        "realname": "",
+        "location": "Colonial Heights, VA, USA",
+        "iconserver": "3727",
+        "iconfarm": 4,
+        "path_alias": "casia_in_va"
+      },
+      "title": {
+        "_content": "Jetta sleeping"
+      },
+      "description": {
+        "_content": "Am Rat Terrier. Born 2008"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1509015374",
+        "taken": "2017-10-13 11:58:46",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1509154980"
+      },
+      "views": "28",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "8350754-37913703142-70354",
+            "author": "8372084@N07",
+            "authorname": "bonaircat",
+            "raw": "rat terrier",
+            "_content": "ratterrier",
+            "machine_tag": 0
+          },
+          {
+            "id": "8350754-37913703142-355",
+            "author": "8372084@N07",
+            "authorname": "bonaircat",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "8350754-37913703142-20065",
+            "author": "8372084@N07",
+            "authorname": "bonaircat",
+            "raw": "Jetta",
+            "_content": "jetta",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/casia_in_va/37913703142/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Redbone Coonhound,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 17,
+      "perpage": 1,
+      "total": "17",
+      "photo": [
+        {
+          "id": "6545498175",
+          "owner": "71295177@N06",
+          "secret": "d1b2d0683a",
+          "server": "7145",
+          "farm": 8,
+          "title": "Hunting Bear",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-6545498175_secret-d1b2d0683a": {
+    "photo": {
+      "id": "6545498175",
+      "secret": "d1b2d0683a",
+      "server": "7145",
+      "farm": 8,
+      "dateuploaded": "1324415551",
+      "isfavorite": 0,
+      "license": "6",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "068eb66dc1",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "71295177@N06",
+        "username": "Wisconsin Department of Natural Resources",
+        "realname": "",
+        "location": "United States",
+        "iconserver": "2843",
+        "iconfarm": 3,
+        "path_alias": "widnr"
+      },
+      "title": {
+        "_content": "Hunting Bear"
+      },
+      "description": {
+        "_content": "Redbone coonhounds also make good bear hunting dogs."
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1324415551",
+        "taken": "2010-11-07 10:37:27",
+        "takengranularity": "0",
+        "takenunknown": 0,
+        "lastupdate": "1471574486"
+      },
+      "views": "3803",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "71249855-6545498175-355",
+            "author": "71295177@N06",
+            "authorname": "Wisconsin Department of Natural Resources",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "71249855-6545498175-20355",
+            "author": "71295177@N06",
+            "authorname": "Wisconsin Department of Natural Resources",
+            "raw": "guns",
+            "_content": "guns",
+            "machine_tag": 0
+          },
+          {
+            "id": "71249855-6545498175-556",
+            "author": "71295177@N06",
+            "authorname": "Wisconsin Department of Natural Resources",
+            "raw": "tree",
+            "_content": "tree",
+            "machine_tag": 0
+          },
+          {
+            "id": "71249855-6545498175-613",
+            "author": "71295177@N06",
+            "authorname": "Wisconsin Department of Natural Resources",
+            "raw": "fall",
+            "_content": "fall",
+            "machine_tag": 0
+          },
+          {
+            "id": "71249855-6545498175-6985",
+            "author": "71295177@N06",
+            "authorname": "Wisconsin Department of Natural Resources",
+            "raw": "hunting",
+            "_content": "hunting",
+            "machine_tag": 0
+          },
+          {
+            "id": "71249855-6545498175-71",
+            "author": "71295177@N06",
+            "authorname": "Wisconsin Department of Natural Resources",
+            "raw": "bear",
+            "_content": "bear",
+            "machine_tag": 0
+          },
+          {
+            "id": "71249855-6545498175-1329626",
+            "author": "71295177@N06",
+            "authorname": "Wisconsin Department of Natural Resources",
+            "raw": "redbone coonhound",
+            "_content": "redbonecoonhound",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/widnr/6545498175/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Retriever,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 10099,
+      "perpage": 1,
+      "total": "10099",
+      "photo": [
+        {
+          "id": "27605870508",
+          "owner": "10907465@N05",
+          "secret": "b961919d3c",
+          "server": "885",
+          "farm": 1,
+          "title": "Anna and Bryan Weigel Wedding",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-27605870508_secret-b961919d3c": {
+    "photo": {
+      "id": "27605870508",
+      "secret": "b961919d3c",
+      "server": "885",
+      "farm": 1,
+      "dateuploaded": "1523814212",
+      "isfavorite": 0,
+      "license": "6",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "d2b55a2655",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "10907465@N05",
+        "username": "Kevin Cortopassi",
+        "realname": "Kevin Cortopassi",
+        "location": "Sacramento",
+        "iconserver": "668",
+        "iconfarm": 1,
+        "path_alias": "kevincortopassi"
+      },
+      "title": {
+        "_content": "Anna and Bryan Weigel Wedding"
+      },
+      "description": {
+        "_content": ""
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1523814212",
+        "taken": "2017-07-29 18:02:48",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1523814220"
+      },
+      "views": "13",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "0"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "10902125-27605870508-202",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "wedding",
+            "_content": "wedding",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-700626",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "weigel",
+            "_content": "weigel",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-126236",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "wilton",
+            "_content": "wilton",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-23128",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "sacramento",
+            "_content": "sacramento",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-50",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "california",
+            "_content": "california",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-6379",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "country",
+            "_content": "country",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-2101",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "bride",
+            "_content": "bride",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-2078",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "groom",
+            "_content": "groom",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-130",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "family",
+            "_content": "family",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-355",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-3395",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "labrador",
+            "_content": "labrador",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-472",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "black",
+            "_content": "black",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-3102",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "lab",
+            "_content": "lab",
+            "machine_tag": 0
+          },
+          {
+            "id": "10902125-27605870508-9980",
+            "author": "10907465@N05",
+            "authorname": "Kevin Cortopassi",
+            "raw": "retriever",
+            "_content": "retriever",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/kevincortopassi/27605870508/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/content_type-1_format-json_license-1,2,3,4,5,6_media-photos_method-flickr.photos.search_per_page-1_sort-interestingness-desc_tag_mode-all_tags-Rhodesian Ridgeback,dog,-finelinerpens,-thehulk,-blancoynegro,-pee,-drawing,-barking,-cat,": {
+    "photos": {
+      "page": 1,
+      "pages": 509,
+      "perpage": 1,
+      "total": "509",
+      "photo": [
+        {
+          "id": "39264498142",
+          "owner": "96964826@N05",
+          "secret": "b9c2d97762",
+          "server": "4687",
+          "farm": 5,
+          "title": "Merry Christmas Dog",
+          "ispublic": 1,
+          "isfriend": 0,
+          "isfamily": 0
+        }
+      ]
+    },
+    "stat": "ok"
+  },
+  "https://api.flickr.com/services/rest/format-json_method-flickr.photos.getInfo_photo_id-39264498142_secret-b9c2d97762": {
+    "photo": {
+      "id": "39264498142",
+      "secret": "b9c2d97762",
+      "server": "4687",
+      "farm": 5,
+      "dateuploaded": "1514235255",
+      "isfavorite": 0,
+      "license": "4",
+      "safety_level": "0",
+      "rotation": 0,
+      "originalsecret": "575d4b72bc",
+      "originalformat": "jpg",
+      "owner": {
+        "nsid": "96964826@N05",
+        "username": "sonstroem",
+        "realname": "Eric Sonstroem",
+        "location": "California, USA",
+        "iconserver": "3747",
+        "iconfarm": 4,
+        "path_alias": "sonstroem"
+      },
+      "title": {
+        "_content": "Merry Christmas Dog"
+      },
+      "description": {
+        "_content": "Holiday Dog"
+      },
+      "visibility": {
+        "ispublic": 1,
+        "isfriend": 0,
+        "isfamily": 0
+      },
+      "dates": {
+        "posted": "1514235255",
+        "taken": "2017-12-25 13:02:25",
+        "takengranularity": "0",
+        "takenunknown": "0",
+        "lastupdate": "1515978407"
+      },
+      "views": "581",
+      "editability": {
+        "cancomment": 0,
+        "canaddmeta": 0
+      },
+      "publiceditability": {
+        "cancomment": 1,
+        "canaddmeta": 0
+      },
+      "usage": {
+        "candownload": 1,
+        "canblog": 0,
+        "canprint": 0,
+        "canshare": 1
+      },
+      "comments": {
+        "_content": "2"
+      },
+      "notes": {
+        "note": []
+      },
+      "people": {
+        "haspeople": 0
+      },
+      "tags": {
+        "tag": [
+          {
+            "id": "96959486-39264498142-355",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "dog",
+            "_content": "dog",
+            "machine_tag": 0
+          },
+          {
+            "id": "96959486-39264498142-82",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "Christmas",
+            "_content": "christmas",
+            "machine_tag": 0
+          },
+          {
+            "id": "96959486-39264498142-10960",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "Christmas Lights",
+            "_content": "christmaslights",
+            "machine_tag": 0
+          },
+          {
+            "id": "96959486-39264498142-116603",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "Christmas card",
+            "_content": "christmascard",
+            "machine_tag": 0
+          },
+          {
+            "id": "96959486-39264498142-1559",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "puppy",
+            "_content": "puppy",
+            "machine_tag": 0
+          },
+          {
+            "id": "96959486-39264498142-52252",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "Rhodesian Ridgeback",
+            "_content": "rhodesianridgeback",
+            "machine_tag": 0
+          },
+          {
+            "id": "96959486-39264498142-75",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "santa",
+            "_content": "santa",
+            "machine_tag": 0
+          },
+          {
+            "id": "96959486-39264498142-401",
+            "author": "96964826@N05",
+            "authorname": "sonstroem",
+            "raw": "holiday",
+            "_content": "holiday",
+            "machine_tag": 0
+          }
+        ]
+      },
+      "urls": {
+        "url": [
+          {
+            "type": "photopage",
+            "_content": "https://www.flickr.com/photos/sonstroem/39264498142/"
+          }
+        ]
+      },
+      "media": "photo"
+    },
+    "stat": "ok"
   }
 }
