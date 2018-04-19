@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dogs by Breed</title>
+  </head>
+  <body>
+    <form action="/dogs" method="POST">
+        Sort By:<br/>
+        <input type="radio" name="sortby" value="mixbreed"/> Mix Breed <br/>
+        <input type="radio" name="sortby" value="state"/> State <br/>
+        <input type="radio" name="sortby" value="sex"/> Sex <br/>
+        <input type="radio" name="sortby" value="age"/> Age <br/>
+        <br/>
+        Sort Order:<br/>
+        <input type="radio" name="sortorder" value="asc"/> Ascending <br/>
+        <input type="radio" name="sortorder" value="desc"/> Descending <br/>
+        <br/>
+        <input type="submit" name="update" value="Update"/>
+        <br/>
+        <br/>
+    </form>
+
+
+
+    <table border=1>
+        <tr>
+            <th>Id</th>
+            <th>Breed</th>
+            <th>Mix Breed</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Sex</th>
+            <th>Age</th>
+
+        </tr>
+    {% for dog in breeds_list %}
+        <tr>
+            <td>{{dog[0]}}</td>
+            <td>{{dog[1]}}</td>
+            <td>{{dog[2]}}</td>
+            <td>{{dog[3]}}</td>
+            <td>{{dog[4]}}</td>
+            <td>{{dog[5]}}</td>
+            <td>{{dog[6]}}</td>
+
+        </tr>
+    {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,10 +1,11 @@
-
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-<link rel="stylesheet" href="../static/breedshtml.css">
+<meta charset="utf-8">
 <title>Breeds</title>
+<link rel="stylesheet" href="../static/breedshtml.css">
 </head>
-
+<body>
 <h1>Dog Breed Types</h1>
 <img class='icon' src="../static/dog-house.png" alt="icon">
 
@@ -41,8 +42,9 @@
         <td><a href= {{dog[5]}} >{{dog[1]}}</a></td>
         <td>{{dog[2]}}</td>
         <td>{{dog[3]}}</td>
-        <td>{{dog[4]}}</td>
+        <td><a href= /map/{{dog[0]}} >{{dog[4]}}</a></td>
 
     </tr>
 {% endfor %}
 </table>
+</body>
