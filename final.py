@@ -7,7 +7,7 @@ import random
 import string
 from secrets import *
 from nato import *
-from flickrdog import *
+from flickrdog import BREED_IMGS
 
 
 

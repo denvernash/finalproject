@@ -25,8 +25,9 @@ except:
 
 # breed class
 class Breed():
-    def __init__(self, breed, breed_dict = None):
+    def __init__(self, breed, breed_dict = None, group_dict = BREED_GROUPS):
         self.kind = breed
+        self.group = group_dict[self.kind]
         self.origin = "Unknown"
         self.coat = "Unknown"
         self.color = "Unknown"
@@ -44,8 +45,7 @@ class Breed():
             self.height = breed_dict['height'].capitalize().strip(':').strip("_").strip('~').strip()
 
     def __str__(self):
-        return ('{}, {}, {}, {}, {}, {}, {}, {}'.format(self.kind, self.origin, self.coat, self.color, self.life_span, self.litter_size, self.weight, self.height))
-
+        return ('{}, {}, {}, {}, {}, {}, {}, {}, {}'.format(self.kind, self.origin, self.group, self.coat, self.color, self.life_span, self.litter_size, self.weight, self.height))
 
 
 def time_delay(number = 15):
@@ -129,11 +129,26 @@ def create_wiki_dict(breed_list):
     for breed in breed_list:
         breed_to_search = breed.split('/')[0].strip()
         if breed == "Husky":
-            info = get_wiki_data("Siberian" + breed)
+            breed_to_search = ("Siberian" + breed)
         elif breed == 'Wirehaired Terrier':
-            info = get_wiki_data('Wire Fox Terrier')
+            breed_to_search = ('Wire Fox Terrier')
+        elif breed == 'Yorkshire Terrier Yorkie':
+            breed_to_search = ('Yorkshire Terrier')
+        elif breed == "Yellow Labrador Retriever":
+            breed_to_search = ('Labrador Retriever')
+        elif breed == 'Black Labrador Retriever':
+            breed_to_search = ('Labrador Retriever')
+        elif breed == 'Chocolate Labrador Retriever':
+            breed_to_search = ('Labrador Retriever')
+        elif breed == 'West Highland White Terrier Westie':
+            breed_to_search = 'West Highland White Terrier'
+        elif breed == 'Eskimo Dog':
+            breed_to_search = "American Eskimo Dog"
+        elif breed == "Collie":
+            breed_to_search = 'Border Collie'
         else:
-            info = get_wiki_data(breed_to_search)
+            pass
+        info = get_wiki_data(breed_to_search)
         try:
             try:
                 table = info.find('table', attrs = {'class': 'infobox biota'})
@@ -184,11 +199,7 @@ def create_wiki_dict(breed_list):
 
 DOG_BREED_DICT = create_wiki_dict(LIST_OF_BREEDS)
 
-for key in DOG_BREED_DICT:
-    pass
-    # print(DOG_BREED_DICT[key])
-    # print('\n')
-print((DOG_BREED_DICT['Husky']))
+
 
 
 
