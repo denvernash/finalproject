@@ -31,7 +31,7 @@ class Display_Breed():
         self.litter_size = row[9]
         self.count = row[10]
     def __str__(self):
-        return self.id
+        return self.breed
 
 
 class Display_Image():

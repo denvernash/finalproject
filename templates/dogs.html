@@ -2,7 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/breedshtml.css">
     <title>Dogs by Breed</title>
+    <style media="screen">
+      tr:nth-child(even) {background: #CCC}
+      tr:nth-child(odd) {background: #FFF}
+      table{margin: auto;}
+      input{padding: 5px; border-radius: 5%;}
+    </style>
   </head>
   <body>
     <header>
@@ -11,15 +18,16 @@
       <a href="/breeds">Breeds</a>
       </nav>
     </header>
-    <form action="/dogs" method="POST">
+    <form action= /dogs/{{number}} method="POST">
         Sort By:<br/>
+        <input type="radio" name="sortby" value="name" checked="checked"/> Name <br/>
         <input type="radio" name="sortby" value="mixbreed"/> Mix Breed <br/>
         <input type="radio" name="sortby" value="state"/> State <br/>
-        <input type="radio" name="sortby" value="sex"/> Sex <br/>
         <input type="radio" name="sortby" value="age"/> Age <br/>
+        <input type="radio" name="sortby" value="size"/> Size <br/>
         <br/>
         Sort Order:<br/>
-        <input type="radio" name="sortorder" value="asc"/> Ascending <br/>
+        <input type="radio" name="sortorder" value="asc" checked="checked"/> Ascending <br/>
         <input type="radio" name="sortorder" value="desc"/> Descending <br/>
         <br/>
         <input type="submit" name="update" value="Update"/>
@@ -32,12 +40,14 @@
     <table border=1>
         <tr>
             <th>Id</th>
+            <th>Name</th>
             <th>Breed</th>
             <th>Mix Breed</th>
             <th>City</th>
             <th>State</th>
             <th>Sex</th>
             <th>Age</th>
+            <th>Size</th>
 
         </tr>
     {% for dog in dogs_list %}
@@ -49,9 +59,13 @@
             <td>{{dog[4]}}</td>
             <td>{{dog[5]}}</td>
             <td>{{dog[6]}}</td>
+            <td>{{dog[7]}}</td>
+            <td>{{dog[8]}}</td>
 
         </tr>
     {% endfor %}
     </table>
+
+    <footer style = 'font-size: 11px;'>Free Vector Graphics by <a href="https://vecteezy.com">www.Vecteezy.com</a>, This product includes data created by <a href="http://www.maxmind.com/">MaxMind</a>, Powered by <a href="http://www.petfinder.com">Petfinder</a>, This product uses the Flickr API but is not endorsed or certified by Flickr</footer>
   </body>
 </html>

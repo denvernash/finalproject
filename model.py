@@ -3,10 +3,11 @@ from mapping import *
 
 
 app_breed_list = []
-app_map_list = []
+app_dog_list = []
 
 def init_breeds(list_of_breeds = DISPLAY_BREED_LIST, list_of_images = DISPLAY_IMAGE_LIST):
     global app_breed_list
+    app_breed_list = []
     for breed in list_of_breeds:
         breed_display = []
         breed_display.append(breed.id)
@@ -55,7 +56,39 @@ def get_breed_details(number, breed= DISPLAY_BREED_LIST):
 
 
 
-def init_dogs():
-    pass
+def get_dogs(number, list_of_dogs = DISPLAY_DOG_LIST):
+    global app_dog_list
+    app_dog_list = []
+    i = int(number)
+    for dog in list_of_dogs:
+        dog_display = []
+        if dog.breed_id == i:
+            dog_display.append(dog.id)
+            dog_display.append(dog.name)
+            dog_display.append(dog.breed)
+            if dog.mixbreed == None:
+                dog_display.append(" ")
+            else:
+                dog_display.append(dog.mixbreed)
+            dog_display.append(dog.city)
+            dog_display.append(dog.state)
+            dog_display.append(dog.sex)
+            dog_display.append(dog.age)
+            dog_display.append(dog.size)
+        if len(dog_display) > 0:
+            app_dog_list.append(dog_display)
 
-get_images(1)
+def get_dogs_listing(sortby='name', sortorder='asc'):
+    if sortby == 'mixbreed':
+        sortcol = 3
+    elif sortby == 'state':
+        sortcol = 5
+    elif sortby == 'age':
+        sortcol = 7
+    elif sortby == 'size':
+        sortcol = 8
+    else:
+        sortcol = 1
+    rev = (sortorder == 'desc')
+    sorted_list = sorted(app_dog_list, key=lambda row: row[sortcol], reverse=rev)
+    return sorted_list

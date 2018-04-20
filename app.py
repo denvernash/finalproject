@@ -29,9 +29,16 @@ def breeds():
         dogs_list = model.get_breeds_listing()
     return render_template("breeds.html", breeds_list= dogs_list)
 
-@app.route("/dogs", methods=['GET', 'POST'])
-def dogs():
-    return render_template('dogs.html', dogs_list = '')
+@app.route("/dogs/<nm>", methods=['GET', 'POST'])
+def dogs(nm):
+    model.get_dogs(nm)
+    if request.method == 'POST':
+        sortby = request.form['sortby']
+        sortorder = request.form['sortorder']
+        dogs_list = model.get_dogs_listing(sortby, sortorder)
+    else:
+        dogs_list = model.get_dogs_listing()
+    return render_template('dogs.html', dogs_list = dogs_list, number=nm)
 
 @app.route("/breed_details/<nm>")
 def details(nm):
