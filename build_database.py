@@ -656,7 +656,7 @@ def init_db(db_name, dog_dict, shelter_dict, img_dict):
             update_dogs(conn, cur)
         if checkb:
              insert_shelters(shelter_dict, db_name = db_name)
-        update_shelters(conn, cur)
+             update_shelters(conn, cur)
         if checkc:
             insert_images(img_dict, db_name = db_name)
         conn.close()
