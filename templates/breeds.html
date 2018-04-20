@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <title>Breeds</title>
 <link rel="stylesheet" href="../static/breedshtml.css">
+<style media="screen">
+  tr:nth-child(even) {background: #CCC}
+  tr:nth-child(odd) {background: #FFF}
+  table{margin: auto;}
+  input{padding: 5px; border-radius: 5%;}
+</style>
 </head>
 <body>
 <h1>Dog Breed Types</h1>
@@ -11,13 +17,13 @@
 
 <form action="/breeds" method="POST">
     Sort By:<br/>
-    <input type="radio" name="sortby" value="breed"/> Breed <br/>
-    <input type="radio" name="sortby" value="breed_group"/> Breed_Group <br/>
+    <input type="radio" name="sortby" value="breed" checked="checked"/> Breed <br/>
+    <input type="radio" name="sortby" value="breed_group"/> Breed Group <br/>
     <input type="radio" name="sortby" value="origin"/> Origin <br/>
     <input type="radio" name="sortby" value="count"/> Count Available <br/>
     <br/>
     Sort Order:<br/>
-    <input type="radio" name="sortorder" value="asc"/> Ascending <br/>
+    <input type="radio" name="sortorder" value="asc" checked="checked"/> Ascending <br/>
     <input type="radio" name="sortorder" value="desc"/> Descending <br/>
     <br/>
     <input type="submit" name="update" value="Update"/>
@@ -34,18 +40,20 @@
     <tr>
         <th>Id</th>
         <th>Breed</th>
-        <th>Breed_Group</th>
+        <th>Breed Group</th>
         <th>Origin</th>
         <th>Count Available</th>
+        <th>Find Breeds Nearby</th>
 
     </tr>
 {% for dog in breeds_list %}
     <tr>
-        <td>{{dog[0]}}</td>
-        <td><a href= {{dog[-1]}} >{{dog[1]}}</a></td>
-        <td>{{dog[2]}}</td>
-        <td>{{dog[3]}}</td>
-        <td><a href= /maps/{{dog[0]}} >{{dog[4]}}</a></td>
+        <td style = 'text-align: center; padding: 10px;'>{{dog[0]}}</td>
+        <td style = 'padding-left: 15px;' ><a href= /breed_details/{{dog[0]}} >{{dog[1]}}</a></td>
+        <td style = 'padding: 0 10px;'>{{dog[2]}}</td>
+        <td style = 'padding-left: 15px;'>{{dog[3]}}</td>
+        <td style= 'text-align: center; padding: 10px;'>{{dog[4]}}</td>
+        <td style= 'text-align: center;'><a href= /maps/{{dog[0]}} >Map</a></td>
 
     </tr>
 {% endfor %}

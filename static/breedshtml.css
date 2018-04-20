@@ -20,7 +20,7 @@ h1 {
 table, th, td {
     border-width: 0.5;
     border-collapse: collapse;
-    border-style: dashed;
+    border-style: solid;
     padding: 10;
 }
 

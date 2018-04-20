@@ -2,13 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/index.css">
+    <style>
+      table{margin: auto;}
+      tr, td, th, table{border:none; padding: 0 30px; margin: 0;}
+    </style>
     <title>Breed Details</title>
   </head>
   <body>
-    <img style = 'height: 40px;' src= {{ image_url }} alt="Breed">
-    <caption><a href= {{ content_url }}>{{ title }}</a> by {{ author }} / <a href= {{ license_url }} >CC BY</a></caption>
+    <h1>{{breed_id}} - {{breed_type}}</h1>
+    <img id= 'doggie' src= {{ image_url }} alt="Breed">
+    <div style = 'text-align: center; margin-bottom: 40px;'><a href= {{ content_url }}>{{ title }}</a> by {{ author }} / <a href= {{ license_url }} >CC BY</a></div>
 
-    <h1>{{breed_id}} {{breed_type}}</h1>
+
     <table border=1>
         <tr>
             <th>Height</th>
