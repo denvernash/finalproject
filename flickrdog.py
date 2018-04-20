@@ -31,7 +31,7 @@ LICENSE_URLS = {
 
 
 
-
+# image class for ease of getting data into database
 class Image():
     def __init__(self, img_dict, size= ''):
         self.farm_id = img_dict['farm']
@@ -76,6 +76,9 @@ def sorted__params(baseurl, params, private_keys=["api_key", 'key']):
             acc.append("{}-{}".format(item, params[item]))
     return baseurl + "_".join(acc)
 
+# input -  search field, amount of images to find, and weather or not
+#          tags should return the search field plus the dog tag minus some tags
+# output - dictionary of parameters for the flicker photos search method
 def search_photos_params(search, cuttags=True, amount = 1):
     params= {}
     params["api_key"] = flickr_key
@@ -95,6 +98,8 @@ def search_photos_params(search, cuttags=True, amount = 1):
     params['license'] = '1,2,3,4,5,6'
     return params
 
+# input - photo id and photo secret to call the api with
+# output - parameters dictionary for flicker photos get info method
 def info_photos_params(photoid, secret):
     params= {}
     params["api_key"] = flickr_key
@@ -105,9 +110,12 @@ def info_photos_params(photoid, secret):
     return params
 
 
+# creating a call limit to avoid overtaxing the flickr api
 CALL_LIMIT = 0
 DUM1 = True
 # get flicker image data from seach parameters for dogs
+# input - parameters dictionary
+# output - cached flickr data in a python dictionary
 def get_flickr_img(params):
     baseurl = "https://api.flickr.com/services/rest/"
     global DUM1
@@ -134,6 +142,8 @@ def get_flickr_img(params):
 
 
 # creating the url to the online photo
+# input - search criteria
+# output - list of class images
 def create_image(search, cuttags=True, amount = 1, size=''):
     list_images =[]
     image_data = get_flickr_img(search_photos_params(search, cuttags, amount))
@@ -143,19 +153,17 @@ def create_image(search, cuttags=True, amount = 1, size=''):
         list_images.append(imagex)
     return list_images
 
+
+# this is for delaying the api calls to a reasonable time frame
 def time_delay(number = 15):
     for i in range(number):
         print(number-i)
         time.sleep(1)
 
 
-
-# img_search = "poodle"
-# to_test = (create_image(img_search))[0]
-# webbrowser.open(to_test.content_url)
-
-
-
+# creating a list of images of all dogs
+# input - list of breeds
+# output - dictionary with a breed key name and breed image value
 def create_dog_images(breed_list, amount = 1, size=''):
     breed_imgs = {}
     global DOG_IMGS_NOT_FOUND
@@ -214,9 +222,8 @@ def create_dog_images(breed_list, amount = 1, size=''):
     return breed_imgs
 
 
+# calling the code 
 BREED_IMGS = create_dog_images(LIST_OF_BREEDS)
-# print(len(BREED_IMGS))
-# print(len(LIST_OF_BREEDS))
 
 
 

@@ -4,7 +4,7 @@ import plotly.plotly as py
 
 DBNAME = 'dog.db'
 
-
+# class shelter for displaying shelter info
 class Display_Shelter():
     def __init__(self, row):
         self.id = row[0]
@@ -17,6 +17,7 @@ class Display_Shelter():
     def __str__(self):
         return self.id
 
+# class breed for displaying breed info
 class Display_Breed():
     def __init__(self, row):
         self.id = row[0]
@@ -33,7 +34,7 @@ class Display_Breed():
     def __str__(self):
         return self.breed
 
-
+# class image for dispalying images on breed details page
 class Display_Image():
     def __init__(self, row):
         self.id = row[0]
@@ -47,6 +48,8 @@ class Display_Image():
     def __str__(self):
         return str(self.id)
 
+
+# class dog for displaying info about a dog in mapping and dog list
 class Display_Dog():
     def __init__(self, row):
         self.id = row[0]
@@ -76,6 +79,8 @@ class Display_Dog():
             return("Hi! I'm {} - {} {} Mix at {}".format(self.name, cat, self.breed, self.shelter_id))
 
 
+# input - DATABASE
+# output - list of Class Shelters
 def generate_display_shelters(db_name = DBNAME):
     listing = []
     try:
@@ -91,6 +96,9 @@ def generate_display_shelters(db_name = DBNAME):
         print(e)
     return listing
 
+
+# input - DATABASE
+# output - list of Class Dogs
 def generate_display_dogs(db_name = DBNAME):
     listing = []
     try:
@@ -106,6 +114,9 @@ def generate_display_dogs(db_name = DBNAME):
         print(e)
     return listing
 
+
+# input - DATABASE
+# output - list of Class Images
 def generate_display_images(db_name = DBNAME):
     listing = []
     try:
@@ -121,6 +132,9 @@ def generate_display_images(db_name = DBNAME):
         print(e)
     return listing
 
+
+# input - DATABASE
+# output - list of Class Breeds
 def generate_display_breeds(db_name = DBNAME):
     listing = []
     try:
@@ -139,10 +153,8 @@ def generate_display_breeds(db_name = DBNAME):
 
 
 
-
-
-
-
+# input - list of Class Shelters, list of class dogs, breed name
+# output - dictionary with geographic locations for each dog of a breed
 def get_geo_dict(shelter_list, dog_list, breed_type):
     parsing = []
     text = []
@@ -177,7 +189,8 @@ def get_geo_dict(shelter_list, dog_list, breed_type):
     site_dict['text'] = text_to_return
     return site_dict
 
-
+# input - dictionary of geographic data
+# output - list with single dictionary 
 def plot_trace(site_dict, name= "object", symb = 'circle', col = 'red', size = 15):
     trace1 = dict(
             type = 'scattergeo',

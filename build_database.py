@@ -1,3 +1,7 @@
+print("***"*20)
+print('\n')
+
+
 import sqlite3
 import requests
 import json
@@ -14,8 +18,7 @@ DBNAME = 'dog.db'
 CACHE_FNAME = 'dogs.json'
 
 
-print("***"*20)
-print('\n')
+
 
 # opening cache if it exists
 
@@ -684,3 +687,11 @@ init_db(DBNAME, DOG_DICT, SHELTER_DICT, BREED_IMGS)
 print('\n')
 print("***"*20)
 ############################################
+# wiki dog file takes some time to run. This file was designed to run separately
+# after the database was built. however, for ease of use I have
+# combined them now
+
+from wikidog import *
+
+
+#
