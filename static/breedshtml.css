@@ -1,7 +1,41 @@
 body {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    background: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("dog_background.png");
+  background-position: center center;
+  background-size: 300px;
+  background-repeat: repeat;
+  background-color: rgb(220,220,220, .7);
+  background-blend-mode: lighten;
+  margin: 0;
+  padding: 0;
+}
+header{
+  background-color: rgb(67,67,67);
+  height: 60px;
+
+}
+footer{
+  background-color: #a2a2a2;
+  margin-top: 60px;
+  padding-top: 5px;
+  height: 20px;
+  color: #e7e7e7;
+}
+
+
+
+nav a {
+
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding: 18px 25px;
+  position: relative;
+  top: 18px;
+}
+nav a:hover {
+  background-color: rgb(220,220,220, .7);
 }
 h1 {
     font-size: 44;
@@ -14,7 +48,9 @@ h1 {
   display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 60px;
+    height: 100px;
+    background-color: white;
+    border-radius: 25%;
 }
 
 table, th, td {
@@ -24,10 +60,24 @@ table, th, td {
     padding: 10;
 }
 
+form {
+  display: inline-block;
+  background-color: rgb(220,220,220);
+  padding: 5px;
+  border: solid black 1px;
+}
+
 a {
   text-decoration: none;
   color: blue;
 }
 a:hover {
   text-decoration: underline;
+}
+a:active {
+  color: purple;
+}
+
+a::after {
+  color: purple;
 }

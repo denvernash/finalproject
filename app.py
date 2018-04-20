@@ -11,8 +11,13 @@ def index():
 @app.route("/maps/<nm>")
 def maps(nm):
     model.get_maps(to_look_up = nm)
-    image = model.get_images(nm)
-    return render_template("breeds.html")
+    if request.method == 'POST':
+        sortby = request.form['sortby']
+        sortorder = request.form['sortorder']
+        dogs_list = model.get_breeds_listing(sortby, sortorder)
+    else:
+        dogs_list = model.get_breeds_listing()
+    return render_template("breeds.html", breeds_list= dogs_list)
 
 @app.route("/breeds", methods=['GET', 'POST'])
 def breeds():

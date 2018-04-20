@@ -1,7 +1,14 @@
 body {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    background: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("dog_background.png");
+  background-position: center center;
+  background-size: 300px;
+  background-repeat: repeat;
+  background-color: rgb(220,220,220, .7);
+  background-blend-mode: lighten;
+  margin: 0;
+  padding: 0;
 }
 h1 {
     font-size: 44;
@@ -20,14 +27,41 @@ h2 {
 p {
   font-size: 16;
   text-align: center;
+  padding: 0 300px;
 }
 
+header{
+  background-color: rgb(67,67,67);
+  height: 60px;
+}
 
+footer{
+  background-color: #a2a2a2;
+  margin-top: 60px;
+  height: 20px;
+  color: #e7e7e7;
+  padding-top: 5px;
+}
+
+nav a {
+
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding: 18px 25px;
+  position: relative;
+  top: 18px;
+}
+nav a:hover {
+  background-color: rgb(220,220,220, .7);
+}
 .icon{
   display: block;
     margin-left: auto;
     margin-right: auto;
     height: 60px;
+    background-color: white;
+    border-radius: 25%;
 }
 #doggie {
   height: 400px;
@@ -40,6 +74,7 @@ table, th, td {
     border-collapse: collapse;
     border-style: dashed;
     padding: 10;
+    background-color: rgb(220,220,220);
 }
 
 a {
@@ -48,4 +83,12 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+a:active {
+  color: purple;
+}
+
+a::after {
+  color: purple;
 }
