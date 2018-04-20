@@ -5,30 +5,29 @@
     <title>Breed Details</title>
   </head>
   <body>
+    <img style = 'height: 40px;' src= {{ image_url }} alt="Breed">
+    <caption><a href= {{ content_url }}>{{ title }}</a> by {{ author }} / <a href= {{ license_url }} >CC BY</a></caption>
+
+    <h1>{{breed_id}} {{breed_type}}</h1>
     <table border=1>
         <tr>
-            <th>Id</th>
-            <th>Breed</th>
             <th>Height</th>
             <th>Weight</th>
             <th>Coat</th>
             <th>Color</th>
             <th>Life Span</th>
             <th>Litter Size</th>
-
         </tr>
-    {% for dog in dogs_list %}
+
         <tr>
-            <td>{{dog[0]}}</td>
-            <td>{{dog[1]}}</td>
-            <td>{{dog[2]}}</td>
-            <td>{{dog[3]}}</td>
-            <td>{{dog[4]}}</td>
-            <td>{{dog[5]}}</td>
-            <td>{{dog[6]}}</td>
-
+            <td>{{height}}</td>
+            <td>{{weight}}</td>
+            <td>{{coat}}</td>
+            <td>{{color}}</td>
+            <td>{{life_span}}</td>
+            <td>{{litter_size}}</td>
         </tr>
-    {% endfor %}
+
     </table>
 
 

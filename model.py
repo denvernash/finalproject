@@ -45,15 +45,17 @@ def get_maps(to_look_up = 1, shelters = DISPLAY_SHELTER_LIST, dogs = DISPLAY_DOG
 
 def get_images(number, images = DISPLAY_IMAGE_LIST):
     i = int(number) - 1
-    for img in images:
-        if i == img.breed_id:
-            to_return = img
+    img = images[i]
+    return img
 
-
-def get_breed_details():
-    pass
+def get_breed_details(number, breed= DISPLAY_BREED_LIST):
+    i = int(number) - 1
+    kind = breed[i]
+    return kind
 
 
 
 def init_dogs():
     pass
+
+get_images(1)
