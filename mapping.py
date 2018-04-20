@@ -45,7 +45,7 @@ class Display_Image():
         self.content_url = row[6]
         self.license_url = row[7]
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 class Display_Dog():
     def __init__(self, row):
@@ -146,6 +146,7 @@ def generate_display_breeds(db_name = DBNAME):
 def get_geo_dict(shelter_list, dog_list, breed_type):
     parsing = []
     text = []
+    text_to_return = []
     for dog in dog_list:
         if dog.breed != breed_type:
             pass
@@ -165,16 +166,19 @@ def get_geo_dict(shelter_list, dog_list, breed_type):
             lons.append(shell.lon)
             lats.append(shell.lat)
             for x in text:
-                x.replace(shell.id, shell.name)
-
+                if shell.id in x:
+                    f = x.replace(shell.id, shell.name)
+                    text_to_return.append(f)
+                else:
+                    pass
 
     site_dict['lon'] = lons
     site_dict['lat'] = lats
-    site_dict['text'] = text
+    site_dict['text'] = text_to_return
     return site_dict
 
 
-def plot_trace(site_dict, name= "object", symb = 'line', col = 'red', size = 15):
+def plot_trace(site_dict, name= "object", symb = 'circle', col = 'red', size = 15):
     trace1 = dict(
             type = 'scattergeo',
             locationmode = 'USA-states',

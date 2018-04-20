@@ -1,6 +1,6 @@
 
 from mapping import *
-DBNAME = 'dogs.db'
+
 
 app_breed_list = []
 app_map_list = []
@@ -15,11 +15,13 @@ def init_breeds(list_of_breeds = DISPLAY_BREED_LIST, list_of_images = DISPLAY_IM
         breed_display.append(breed.origin)
         breed_display.append(breed.count)
         app_breed_list.append(breed_display)
+
     for li in app_breed_list:
-        looking = li[0]
+        looking = int(li[0])
         for image in list_of_images:
             if looking == image.breed_id:
                 li.append(image.content_url)
+
 
 def get_breeds_listing(sortby='breed', sortorder='asc'):
     if sortby == 'breed':
@@ -43,3 +45,15 @@ def get_maps(to_look_up = 1, shelters = DISPLAY_SHELTER_LIST, dogs = DISPLAY_DOG
 
 def get_images(number, images = DISPLAY_IMAGE_LIST):
     i = int(number) - 1
+    for img in images:
+        if i == img.breed_id:
+            to_return = img
+
+
+def get_breed_details():
+    pass
+
+
+
+def init_dogs():
+    pass

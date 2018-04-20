@@ -25,6 +25,9 @@
     <br/>
 </form>
 
+<div class="">
+
+</div>
 
 
 <table border=1>
@@ -39,10 +42,10 @@
 {% for dog in breeds_list %}
     <tr>
         <td>{{dog[0]}}</td>
-        <td><a href= {{dog[5]}} >{{dog[1]}}</a></td>
+        <td><a href= {{dog[-1]}} >{{dog[1]}}</a></td>
         <td>{{dog[2]}}</td>
         <td>{{dog[3]}}</td>
-        <td><a href= /map/{{dog[0]}} >{{dog[4]}}</a></td>
+        <td><a href= /maps/{{dog[0]}} >{{dog[4]}}</a></td>
 
     </tr>
 {% endfor %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Breed Details</title>
+  </head>
+  <body>
+    <table border=1>
+        <tr>
+            <th>Id</th>
+            <th>Breed</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Coat</th>
+            <th>Color</th>
+            <th>Life Span</th>
+            <th>Litter Size</th>
+
+        </tr>
+    {% for dog in dogs_list %}
+        <tr>
+            <td>{{dog[0]}}</td>
+            <td>{{dog[1]}}</td>
+            <td>{{dog[2]}}</td>
+            <td>{{dog[3]}}</td>
+            <td>{{dog[4]}}</td>
+            <td>{{dog[5]}}</td>
+            <td>{{dog[6]}}</td>
+
+        </tr>
+    {% endfor %}
+    </table>
+
+
+  </body>
+</html>
