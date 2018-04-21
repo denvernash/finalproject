@@ -429,50 +429,13 @@ def insert_shelters(shelter_dict, db_name= DBNAME):
         print(e)
 
 
-
 ############################################################
 #   Updating shelter geolocations
 #   attribution: "This product includes data created by MaxMind, available from http://www.maxmind.com/"
 ############################################################
 
-def update_shelters(conn, cur):
-    statement = '''select dogs.City, dogs.State from Dogs join Shelters on
-    dogs.ShelterId = Shelters.Id where Shelters.Name = "Unlisted" group by
-    dogs.City order by dogs.State '''
-    bars_data = conn.execute(statement)
-    line = bars_data.fetchall()
-    for x in line:
-        location = "{}, {}".format(x[0], x[1])
-        statement = ''' update Shelters set Lat = '{}'
-        where City = '{}' AND State = '{}' AND Name =
-        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[0], x[0], x[1])
-        cur.execute(statement)
-        conn.commit()
-        statement = ''' update Shelters set Lon = '{}'
-        where City = '{}' AND State = '{}' AND Name =
-        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[1], x[0], x[1])
-        cur.execute(statement)
-        conn.commit()
 
-    statement = '''select dogs.City, dogs.State from Dogs join Shelters on
-    dogs.ShelterId = Shelters.Id where Shelters.lat = "Unlisted" group by
-    dogs.City order by dogs.State '''
-    bars_data = conn.execute(statement)
-    line = bars_data.fetchall()
-    for x in line:
-        location = "{}, {}".format(x[0], x[1])
-        statement = ''' update Shelters set Lat = '{}'
-        where City = '{}' AND State = '{}' AND Name =
-        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[0], x[0], x[1])
-        cur.execute(statement)
-        conn.commit()
-        statement = ''' update Shelters set Lon = '{}'
-        where City = '{}' AND State = '{}' AND Name =
-        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[1], x[0], x[1])
-        cur.execute(statement)
-        conn.commit()
-
-
+def update_shelters1(conn, cur):
     statement = ''' update Shelters set City = ( select dogs.City from dogs
     where dogs.ShelterId = Shelters.Id AND Shelters.Name = "Unlisted" )
     Where exists ( select dogs.City from dogs where dogs.ShelterId =
@@ -491,6 +454,47 @@ def update_shelters(conn, cur):
     Shelters.Id AND Shelters.Name = "Unlisted" ) '''
     cur.execute(statement)
     conn.commit()
+
+
+def update_shelters2(conn, cur):
+    statement = '''select dogs.City, dogs.State from Dogs join Shelters on
+    dogs.ShelterId = Shelters.Id where Shelters.Name = "Unlisted" group by
+    dogs.City order by dogs.State '''
+    bars_data = conn.execute(statement)
+    line = bars_data.fetchall()
+    for x in line:
+        location = "{}, {}".format(x[0], x[1])
+        statement = ''' update Shelters set Lat = '{}'
+        where City = '{}' AND State = '{}' AND Name =
+        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[0], x[0], x[1])
+        cur.execute(statement)
+        conn.commit()
+        statement = ''' update Shelters set Lon = '{}'
+        where City = '{}' AND State = '{}' AND Name =
+        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[1], x[0], x[1])
+        cur.execute(statement)
+        conn.commit()
+
+
+def update_shelters3(conn, cur):
+    statement = '''select dogs.City, dogs.State from Dogs join Shelters on
+    dogs.ShelterId = Shelters.Id where Shelters.lat = "Unlisted" group by
+    dogs.City order by dogs.State '''
+    bars_data = conn.execute(statement)
+    line = bars_data.fetchall()
+    for x in line:
+        location = "{}, {}".format(x[0], x[1])
+        statement = ''' update Shelters set Lat = '{}'
+        where City = '{}' AND State = '{}' AND Name =
+        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[0], x[0], x[1])
+        cur.execute(statement)
+        conn.commit()
+        statement = ''' update Shelters set Lon = '{}'
+        where City = '{}' AND State = '{}' AND Name =
+        "Unlisted" '''.format(UNLISTED_SHELTER_LOCATIONS[location].split(',')[1], x[0], x[1])
+        cur.execute(statement)
+        conn.commit()
+
 
 
 
@@ -630,7 +634,9 @@ def init_db(db_name, dog_dict, shelter_dict, img_dict):
             update_dogs(conn, cur)
         if checkb:
              insert_shelters(shelter_dict, db_name = db_name)
-             update_shelters(conn, cur)
+             update_shelters1(conn, cur)
+             update_shelters2(conn, cur)
+             update_shelters3(conn, cur)
         if checkc:
             insert_images(img_dict, db_name = db_name)
         conn.close()
