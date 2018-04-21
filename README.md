@@ -4,8 +4,6 @@ Sources:
 3. Wikipedia - https://www.mediawiki.org/wiki/API:Main_page
 
 
-
-
 Requirements:
 
   API Key from Flickr, API Key from Petfinder
@@ -14,11 +12,58 @@ Requirements:
   For Flickr Key - https://www.flickr.com/services/apps/create/
   For Petfinder Key - https://www.petfinder.com/developers/api-key
 
-Cautionary Notes:
-  There are 3 cache files associated with this project, two of these files are very large, 30 MB and 20MB
+  The flask app uses plotly scatter plots for mapping information
+  https://plot.ly/python/scatter-plots-on-maps/
 
-This project extensively uses the Petfinder API found at http://www.petfinder.com
-Petfinder is a pet adoption website that
+
+Structure:
+
+ - Building the database:
+    build_database.py pulls information from 3 other files (wikidog.py,
+      flickrdog.py, nato.py) to conglomerate information into 4 main class structures.
+
+      These are Dog, Breed, Image, and Shelter. These contain all the information
+      necessary to insert information into the database
+
+  - Flask App:
+    the flask app pulls information from the database through mapping.py that
+    contains 4 other main class structures:
+    Display_Dog, Display_Breed, Display_Image, and Display_Shelter
+    which contain the corresponding information from the database
+
+
+User Guide:
+  the file to run is app.py - this will generate a flask application that will
+  show the webpage at your local host.
+
+  From the homepage, navigate to the breeds page. This will show a table of dog
+  breeds that you can sort through. Each table row contains general information
+  about the breed and will contain 3 links.
+
+  To see more specific details about the breed select the link on the breed name
+  in column 2
+
+  To see a table of specific dogs of a breed available for adoption select the
+  count available number in column 5
+
+  To map out where those dogs available for adoption are located, select map in
+  column 6
+
+
+
+
+Cautionary Notes for building the database:
+  There are 3 cache files associated with this project, two of these files are
+  very large, 30 MB and 20MB.
+
+  Getting this data fresh would take a number of
+  days to complete and the programs are not currently optimized to build the
+  database with fresh data.
+
+  With this in mind, take precautions to ensure that
+  you have the cache files before running build_database.py, wikidog.py,
+  flickrdog.py, or project_test.py.
+
 
 
 
