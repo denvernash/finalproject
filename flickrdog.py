@@ -2,7 +2,6 @@ import requests
 import json
 from nato import *
 from secrets import *
-# import webbrowser
 import time
 
 CACHE_FFNAME = "flickr.json"
@@ -17,7 +16,7 @@ except:
     CACHE_FDICTION = {}
 
 
-
+# license urls for attribution purposes
 LICENSE_URLS = {
   "1" : "https://creativecommons.org/licenses/by-nc-sa/2.0/",
   "2" : "https://creativecommons.org/licenses/by-nc/2.0/",
@@ -222,7 +221,7 @@ def create_dog_images(breed_list, amount = 1, size=''):
     return breed_imgs
 
 
-# calling the code 
+# calling the code to generate a dictionary of breed images
 BREED_IMGS = create_dog_images(LIST_OF_BREEDS)
 
 

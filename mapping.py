@@ -1,3 +1,5 @@
+# this file is to be used in conjunction with model.py
+
 import sqlite3
 import plotly.plotly as py
 
@@ -190,7 +192,7 @@ def get_geo_dict(shelter_list, dog_list, breed_type):
     return site_dict
 
 # input - dictionary of geographic data
-# output - list with single dictionary 
+# output - list with single dictionary of trace data for plotly
 def plot_trace(site_dict, name= "object", symb = 'circle', col = 'red', size = 15):
     trace1 = dict(
             type = 'scattergeo',
@@ -209,7 +211,8 @@ def plot_trace(site_dict, name= "object", symb = 'circle', col = 'red', size = 1
     return data
 
 
-
+# input- dictionary of geographic data
+# output - dictionary with absolute min and max lat and lon details
 def find_max_vals(site_dict):
     min_lat = 10000
     max_lat = -10000
@@ -234,7 +237,8 @@ def find_max_vals(site_dict):
     'lon_axis': [min_lon, max_lon]}
     return max_dict
 
-
+# input - dictionary with absolute min and max lat and lon details
+# output - dictionary with padding for the map size, and center value for plotly
 def layout_lats(max_dict):
     max_lat = max_dict['lat_axis'][1]
     min_lat = max_dict['lat_axis'][0]
@@ -254,8 +258,8 @@ def layout_lats(max_dict):
     pad_dict['lon_cen'] = center_lon
     return pad_dict
 
-
-
+# input - dictionary with padding for the map size, and center value for plotly
+# output - dictionary layout for showcasing the map on plotly
 def plot_layout(pad_dict):
     layout = dict(
             title = 'Adoption Shelters',
@@ -275,7 +279,8 @@ def plot_layout(pad_dict):
         )
     return layout
 
-
+# input - list of shlters, list of dogs, breed Name
+# output - plotly map
 def plot_sites_for_shelter(shelter_list, dog_list, breed_type):
     site_dict = get_geo_dict(shelter_list, dog_list, breed_type)
     data = plot_trace(site_dict, "Adoption Shelters")
@@ -286,7 +291,7 @@ def plot_sites_for_shelter(shelter_list, dog_list, breed_type):
     return div
 
 
-
+# calling above code to generate a list of shelters, dogs, images, and breeds
 DISPLAY_SHELTER_LIST = generate_display_shelters()
 DISPLAY_DOG_LIST = generate_display_dogs()
 DISPLAY_IMAGE_LIST = generate_display_images()

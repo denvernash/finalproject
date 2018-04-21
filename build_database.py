@@ -38,7 +38,7 @@ except:
 #
 ############################################################
 
-# dog class
+# dog class for ease of getting data into database
 class Dog():
     def __init__(self, dog_dict):
 
@@ -115,7 +115,7 @@ class Dog():
             return False
 
 
-# shelter class
+# shelter class for ease of getting data into database
 class Shelter():
     def __init__(self, shelter_dict, id):
         self.id = id
@@ -150,7 +150,13 @@ class Shelter():
 #
 #
 ############################################################
-
+# input - integer
+# output - none
+# this is used to delay your API calls. This file will call multiple API's
+def time_delay(number = 15):
+    for i in range(number):
+        print(number-i)
+        time.sleep(1)
 
 
 # caching key to ensure cache doesn't store the same information twice
@@ -186,7 +192,10 @@ def data_cache(search_url):
         fname.write(json.dumps((CACHE_DICTION), indent=2))
         fname.close()
         BACKUP += 1
-        # SHUTDOWN += 1
+        SHUTDOWN += 1         # this is here to avoid overtaxing the api.
+                              # comment this out to make more than 15 calls at one time
+                              # I suggest implementing the time_delay function above to
+                              # delay calls in a systematic way
         if BACKUP >= 5:
             BACKUP = 0
             if BACKUP == 0:
@@ -198,7 +207,7 @@ def data_cache(search_url):
             print("Getting fresh data")
             DUMMY2 = False
         if SHUTDOWN >= 15:
-            sys.exit("YOU HAVE ATTEMPTED TO MAKE 15 CALLS TO THE API ALL AT ONCE")
+            sys.exit("YOU HAVE ATTEMPTED TO MAKE OVER 15 CALLS TO THE API ALL AT ONCE.")
         return (data)
 
 
@@ -240,13 +249,6 @@ def dog_breed_list(dog_data):
 
 
 
-
-
-
-
-
-
-
 # input -  a dog breed type
 # output list of available dogs of that breed on petfinder if any
 def create_available_dogs(breed):
@@ -270,13 +272,6 @@ def create_available_dogs(breed):
     return dog_return
 
 
-# input - integer
-# output - none
-def time_delay(number = 15):
-    for i in range(number):
-        print(number-i)
-        time.sleep(1)
-
 
 # input - list of dog breeds
 # output - dictionary of dogs in each breed
@@ -288,12 +283,6 @@ def all_available_dogs_dict(dog_breeds):
         dog_list = create_available_dogs(breed)
         available_dogs[breed] = dog_list
     return available_dogs
-
-
-
-
-
-
 
 
 
@@ -329,14 +318,6 @@ def clean_dog_dict(dog_dict):
         if breed_to_dict != []:
             DOG_DICT_TO_RETURN[key] = breed_to_dict
     return DOG_DICT_TO_RETURN
-
-
-
-
-
-
-
-
 
 
 
@@ -395,12 +376,6 @@ def create_shelters(shelter_dict):
 
 
 
-
-
-
-
-
-
 ############################################################
 #
 #   DATABASE - Shelters
@@ -452,6 +427,13 @@ def insert_shelters(shelter_dict, db_name= DBNAME):
                 conn.commit()
     except Exception as e:
         print(e)
+
+
+
+############################################################
+#   Updating shelter geolocations
+#   attribution: "This product includes data created by MaxMind, available from http://www.maxmind.com/"
+############################################################
 
 def update_shelters(conn, cur):
     statement = '''select dogs.City, dogs.State from Dogs join Shelters on
@@ -509,11 +491,6 @@ def update_shelters(conn, cur):
     Shelters.Id AND Shelters.Name = "Unlisted" ) '''
     cur.execute(statement)
     conn.commit()
-
-############################################################
-#   Updating shelter geolocations
-#   attribution: "This product includes data created by MaxMind, available from http://www.maxmind.com/"
-############################################################
 
 
 
@@ -633,18 +610,12 @@ def insert_images(img_dict, db_name= DBNAME):
 
 
 
-
-
-
-
 ############################################################
 #
 #   DATABASE - Calling all of the above code
 #
 #
 ############################################################
-
-
 
 
 def init_db(db_name, dog_dict, shelter_dict, img_dict):
